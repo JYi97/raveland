@@ -25,7 +25,7 @@ In the `frontend` folder, `npm install` the following packages as dependencies:
 
 - `js-cookie` - extracts cookies
 - `react-redux` - React components and hooks for Redux
-- `react-router-dom` - routing for React
+- `react-router-dom@^5` - routing for React
 - `redux` - Redux
 - `redux-thunk` - add Redux thunk
 
