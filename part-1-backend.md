@@ -53,7 +53,6 @@ In the `backend` folder, initialize the server's `package.json` by running
 - `express` - Express
 - `express-async-handler` - handling `async` route handlers
 - `express-validator` - validation of request bodies
-- `faker` - random seeding library
 - `helmet` - security middleware
 - `jsonwebtoken` - JWT
 - `morgan` - logging information about server requests/responses
@@ -264,8 +263,10 @@ middleware (for more on what `helmet` is doing, see [helmet on the `npm`
 registry]). Disable the [Content Security Policy] feature in `helmet`. React is
 generally safe at mitigating [Cross-Site Scripting]. Make sure to research how
 to protect your users against [Cross-Site Scripting] (XSS) attacks in React when
-deploying a large production application. Third, add the `csurf` middleware and
-configure it to use cookies.
+deploying a large production application. Also, add the
+`crossOriginResourcePolicy` middleware with a `policy` of `cross-origin`. This
+will allow images with `url`s to be uploaded. Third, add the `csurf` middleware
+and configure it to use cookies.
 
 ```js
 // Security Middleware
@@ -273,10 +274,19 @@ if (!isProduction) {
   // enable cors only in development
   app.use(cors());
 }
+
 // helmet helps set a variety of headers to better secure your app
-app.use(helmet({
-  contentSecurityPolicy: false
-}));
+app.use(
+  helmet.crossOriginResourcePolicy({ 
+    policy: "cross-origin" 
+  })
+);
+
+app.use(
+  helmet({
+    contentSecurityPolicy: false
+  })
+);
 
 // Set the _csrf token and create req.csrfToken method
 app.use(
@@ -807,15 +817,13 @@ npx sequelize seed:generate --name demo-user
 In the seeder file, create a demo user with `email`, `username`, and
 `hashedPassword` fields. For the `down` function, delete the user with the
 `username` or `email` of the demo user. If you'd like, you can also add other
-users and populate the fields with random fake data from the `faker` package. To
-generate the `hashedPassword` you should use the `bcryptjs` package's `hashSync`
-method.
+users and populate the fields with random fake data. To generate the
+`hashedPassword` you should use the `bcryptjs` package's `hashSync` method.
 
 Your seeder file should look something like this:
 
 ```js
 'use strict';
-const faker = require('faker');
 const bcrypt = require('bcryptjs');
 
 module.exports = {
@@ -827,14 +835,14 @@ module.exports = {
         hashedPassword: bcrypt.hashSync('password')
       },
       {
-        email: faker.internet.email(),
+        email: 'user1@user.io',
         username: 'FakeUser1',
-        hashedPassword: bcrypt.hashSync(faker.internet.password())
+        hashedPassword: bcrypt.hashSync('password2')
       },
       {
-        email: faker.internet.email(),
+        email: 'user2@user.io',
         username: 'FakeUser2',
-        hashedPassword: bcrypt.hashSync(faker.internet.password())
+        hashedPassword: bcrypt.hashSync('password3')
       }
     ], {});
   },
@@ -852,7 +860,7 @@ Notice how you do not need to add the `createdAt` and `updatedAt` fields for the
 users. This is a result of the default value that you defined in the Sequelize
 migration file for those fields.
 
-Make sure to import `faker` and `bcryptjs` at the top of the file.
+Make sure to import `bcryptjs` at the top of the file.
 
 After you finish creating your demo user seed file, migrate the seed file by
 running the following command:
@@ -2034,7 +2042,7 @@ In the next part, you will implement the React frontend.
 [model scoping]: https://sequelize.org/master/manual/scopes.html
 [Content Security Policy]: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
 [Cross-Site Scripting]: https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting
-
+[crossOriginResourcePolicy]: https://www.npmjs.com/package/helmet
 [http://localhost:5000/hello/world]: http://localhost:5000/hello/world
 [http://localhost:5000/not-found]: http://localhost:5000/not-found
 [http://localhost:5000/api/set-token-cookie]: http://localhost:5000/api/set-token-cookie
