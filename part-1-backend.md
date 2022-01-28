@@ -260,13 +260,12 @@ will be served from a different server than the Express server. CORS isn't
 needed in production since all of our React and Express resources will come from
 the same origin. Second, enable better overall security with the `helmet`
 middleware (for more on what `helmet` is doing, see [helmet on the `npm`
-registry]). Disable the [Content Security Policy] feature in `helmet`. React is
-generally safe at mitigating [Cross-Site Scripting]. Make sure to research how
-to protect your users against [Cross-Site Scripting] (XSS) attacks in React when
-deploying a large production application. Also, add the
-`crossOriginResourcePolicy` middleware with a `policy` of `cross-origin`. This
-will allow images with `url`s to be uploaded. Third, add the `csurf` middleware
-and configure it to use cookies.
+registry]). React is generally safe at mitigating [Cross-Site Scripting] (XSS)
+attacks, but do be sure to research how to protect your users from such attacks
+in React when deploying a large production application. Now add the
+`crossOriginResourcePolicy` to the `helmet` middleware with a `policy` of
+`cross-origin`. This will allow images with URLs to render in deployment. Third,
+add the `csurf` middleware and configure it to use cookies.
 
 ```js
 // Security Middleware
@@ -279,12 +278,6 @@ if (!isProduction) {
 app.use(
   helmet.crossOriginResourcePolicy({ 
     policy: "cross-origin" 
-  })
-);
-
-app.use(
-  helmet({
-    contentSecurityPolicy: false
   })
 );
 
