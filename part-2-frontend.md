@@ -251,16 +251,15 @@ the `fetch` function on the `window` that will be used in place of the default
 
 Add a `csrf.js` file in the `frontend/src/store` folder. Import `Cookies` from
 `js-cookie` that will be used to extract the `XSRF-TOKEN` cookie value. Define
-an `async` function called `csrfFetch` that will take in `url` parameter and an
-`options` parameter that defaults to an empty object. If `options.headers` is
+an `async` function called `csrfFetch` that will take in a `url` parameter and
+an `options` parameter that defaults to an empty object. If `options.headers` is
 not set, default it to an empty object. If `options.method` is not set, set it
 to the `GET` method. If it is any method other than a `GET` method, set the
 `XSRF-TOKEN` header on the `options` object to the extracted value of the
 `XSRF-TOKEN` cookie. Call and `await` the `window.fetch` with the `url` and the
 `options` object to get the response.
 
-If the
-response status code is 400 or above, `throw` the response as the error.
+If the response status code is 400 or above, `throw` the response as the error.
 Otherwise, return the response.
 
 ```js
