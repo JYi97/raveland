@@ -7,10 +7,11 @@ routes to login, signup, and logout a user.
 
 ## Phase 0: Choose your path
 
-If you want to set up Redux from scratch, follow [Method 1]. Otherwise, you can
-follow [Method 2], which will allow you to set up Redux easily.
+If you want to set up Redux from scratch, follow Method 1. Otherwise, you can
+follow Method 2, which will allow you to set up Redux easily. (To go to Method
+2, just search for it within this page.)
 
-<h3 id="method1">Method 1: Set up Redux from scratch</h3>
+### Method 1: Set up Redux from scratch
 
 Use the `create-react-app` command from inside your `frontend` folder to
 initialize React inside of the `frontend` folder:
@@ -176,7 +177,10 @@ ReactDOM.render(
 );
 ```
 
-<h3 id="method2">Method 2: Use Redux template</h3>
+Congratulations, you have finished Method 1! You may now skip to the "Test the
+Redux store setup" section below. (Just scroll through Method 2; it's not long.)
+
+### Method 2: Use Redux template
 
 Use the `create-react-app` command from inside your `frontend` folder to
 initialize React inside of the `frontend` folder:
@@ -194,7 +198,7 @@ npm install js-cookie
 
 ### Test the Redux store setup
 
-**From this point, [Method 1] and [Method 2] have the same instructions.**
+**From this point, Method 1 and Method 2 have the same instructions.**
 
 Test your Redux store setup by starting your React frontend server (run
 `npm start` in your `frontend` folder) and navigate to [http://localhost:3000].
@@ -1929,8 +1933,6 @@ ReactDOM.render(
 );
 ```
 
-[Method 1]: #method1
-[Method 2]: #method2
 [test-redux-store-image]: https://appacademy-open-assets.s3-us-west-1.amazonaws.com/Modular-Curriculum/content/react-redux/topics/react-redux-auth/authenticate-me/assets/test-redux-store-setup.png
 [Font Awesome]: https://fontawesome.com/start
 [Choose a Font Awesome Icon]: https://fontawesome.com/icons?d=gallery&m=free
