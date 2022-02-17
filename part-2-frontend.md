@@ -5,12 +5,13 @@ implemented the entire Express + Sequelize backend with user authentication
 routes. In this part, you will add a React frontend that uses your backend API
 routes to login, signup, and logout a user.
 
-## Phase 0: Set Up
+## Phase 0: Choose your path
 
-If you want to set up Redux from scratch, follow [Method 1]. Otherwise, you can
-follow [Method 2] which will allow you to easily set up Redux.
+If you want to set up Redux from scratch, follow <a href="#method1">Method
+1</a>. Otherwise, you can follow <a href="#method2">Method 2</a>, which will
+allow you to set up Redux easily.
 
-### Method 1: Set up Redux from Scratch
+<h3 id="method1">Method 1: Set up Redux from scratch</h3>
 
 Use the `create-react-app` command from inside your `frontend` folder to
 initialize React inside of the `frontend` folder:
@@ -33,7 +34,7 @@ In the `frontend` folder, `npm install` the following packages as dependencies:
 
 - `redux-logger` - log Redux actions in the browser's dev tools console
 
-### Setting up the Redux Store
+### Setting up the Redux store
 
 First, setup your Redux store. Make a folder in `frontend/src` called `store`
 and add an `index.js` file. In this file, import `createStore`,
@@ -176,7 +177,7 @@ ReactDOM.render(
 );
 ```
 
-## Method 2: Use Redux template
+<h3 id="method2">Method 2: Use Redux template</a>
 
 Use the `create-react-app` command from inside your `frontend` folder to
 initialize React inside of the `frontend` folder:
@@ -192,9 +193,10 @@ dependency will allow your frontend to extract cookies from the browser.
 npm install js-cookie
 ```
 
-### Test the Redux Store setup
+### Test the Redux store setup
 
-**From this moment, [Method 1] and [Method 2] have the same instructions.**
+**From this point, <a href="#method1">Method 1</a> and <a href="#method2">Method
+2</a> have the same instructions.**
 
 Test your Redux store setup by starting your React frontend server (run
 `npm start` in your `frontend` folder) and navigate to [http://localhost:3000].
@@ -295,7 +297,7 @@ export async function csrfFetch(url, options = {}) {
 
 Export the custom `csrfFetch` function from this file.
 
-### Restore the XSRF-TOKEN Cookie
+### Restore the XSRF-TOKEN cookie
 
 In development, the backend and frontend servers are separate. In production
 though, the backend also serves up all the frontend assets, including the
@@ -396,7 +398,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 ```
 
-#### Test Custom `csrfFetch` with CSRF
+#### Test custom `csrfFetch` with CSRF
 
 To test the custom `csrfFetch` function that attaches the CSRF token to the header,
 navigate to root route of the React application, [http://localhost:3000]. In the
@@ -425,12 +427,12 @@ At this point, all the frontend setup is been complete. **Commit your code!**
 
 Now it's time to render some React components!
 
-## Phase 1: Login Form Page
+## Phase 1: Login form page
 
 The Login Form Page is the first page that you will add to your frontend
 application.
 
-### Session Actions and Reducer
+### Session actions and reducer
 
 First, you will add the Redux store actions and reducers that you need for this
 feature. You will use the `POST /api/session` backend route to login in a user
@@ -488,7 +490,7 @@ Import the reducer in `session.js` into the file with the root reducer,
 Set a key of `session` in the `rootReducer`'s `combineReducer` object argument
 to the session reducer.
 
-#### Test the Session Actions and Reducer
+#### Test the session actions and reducer
 
 Login should be working so give it a try! Test the login thunk action and the
 `session` reducer.
@@ -548,7 +550,7 @@ then check your logic in your session reducer and your actions.
 
 After you finished testing, **commit your code**.
 
-#### Example Session Actions and Reducer
+#### Example session actions and reducer
 
 There is no absolute "right" way of doing this. As long as your `session`
 actions and reducers are displaying the expected initial state and states after
@@ -634,7 +636,7 @@ window.store.dispatch(window.sessionActions.login({
 }));
 ```
 
-### `LoginFormPage` Component
+### `LoginFormPage` component
 
 After finishing the Redux actions and the reducer for the login feature, the
 React components are next.
@@ -670,7 +672,7 @@ error messages.
 
 After testing, **commit your `LoginFormPage` code**!
 
-#### Example `LoginFormPage` Component
+#### Example `LoginFormPage` component
 
 Again, there is no absolute "right" way of doing this. As long as your React
 application is behaving as expected, then you don't need to make your code look
@@ -774,7 +776,7 @@ Define all your CSS styling rules for the `LoginFormPage` component in the
 `LoginForm.css` file. Practice doing some CSS now to make your login page
 look better. Make sure to **commit your code afterwards**!
 
-## Restore the Session User
+## Restore the session user
 
 Right now, if you login successfully, you get redirected to the `"/"` route. If
 you refresh at that `"/"` page and navigate to the `"/login"` page, then you
@@ -827,7 +829,7 @@ After you test it to see if it works, then use this thunk action inside of
 
 **Commit after testing!**
 
-### Example Restore Session User Thunk Action
+### Example restore session user thunk action
 
 Again, there is no absolute "right" way of doing this. As long as your React
 application is behaving as expected, then you don't need to make your code look
@@ -882,14 +884,14 @@ function App() {
 export default App;
 ```
 
-## Phase 2: Signup Form Page
+## Phase 2: Signup form page
 
 The Signup Form Page is the second page that you will add to your frontend
 application. The flow will be very similar to how you did the Login Form Page.
 Can you remember all the steps to implement it? If so, **try doing this on your
 own before looking below for help!**
 
-### Signup Action
+### Signup action
 
 You will use the `POST /api/users` backend route to signup a user.
 
@@ -901,7 +903,7 @@ body.
 
 Export the signup thunk action.
 
-#### Test the Signup Action
+#### Test the signup action
 
 Test the signup thunk action.
 
@@ -940,7 +942,7 @@ then check your logic in your signup action.
 
 **Commit your code for the signup actions!**
 
-#### Example Signup Action
+#### Example signup action
 
 Again, there is no absolute "right" way of doing this. As long as your signup
 action is displaying the expected initial state and states after each dispatched
@@ -979,7 +981,7 @@ window.store.dispatch(window.sessionActions.signup({
 }));
 ```
 
-### `SignupFormPage` Component
+### `SignupFormPage` component
 
 After finishing the Redux action for the signup feature, the React components
 are next.
@@ -1012,7 +1014,7 @@ error messages.
 
 **After testing, commit your `SignupFormPage` code!**
 
-#### Example `SignupFormPage` Component
+#### Example `SignupFormPage` component
 
 Again, there is no absolute "right" way of doing this. As long as your React
 application is behaving as expected, then you don't need to make your code look
@@ -1149,13 +1151,13 @@ Define all your CSS styling rules for the `SignupFormPage` component in the
 `SignupForm.css` file. Practice doing some CSS now to make your signup page
 look better. Make sure to **commit your code afterwards**!
 
-## Phase 3: Log Out
+## Phase 3: Logout
 
-The last part of the authentication flow is logging out. The log out button will
+The last part of the authentication flow is logging out. The logout button will
 be placed in a dropdown menu in a navigation bar only when a session user
 exists.
 
-### Log Out Action
+### Logout action
 
 You will use the `DELETE /api/session` backend route to logout a user.
 
@@ -1165,7 +1167,7 @@ action for removing the session user.
 
 Export the logout thunk action.
 
-#### Test the Logout Action
+#### Test the logout action
 
 Test the logout thunk action.
 
@@ -1204,7 +1206,7 @@ then check your logic in your logout action and in your session reducer.
 
 **Commit your code for the logout action.**
 
-#### Example Logout Action
+#### Example logout action
 
 Again, there is no absolute "right" way of doing this. As long as your logout
 action is displaying the expected initial state and states after each dispatched
@@ -1232,7 +1234,7 @@ console:
 window.store.dispatch(window.sessionActions.logout());
 ```
 
-### `Navigation` Component
+### `Navigation` component
 
 After finishing the Redux action for the logout feature, the React components
 are next. The `Navigation` component will render navigation links and a logout
@@ -1300,7 +1302,7 @@ to login and signup replaced with the Font Awesome user icon.
 
 **Now is a good time to commit your working code.**
 
-#### Dropdown Menu
+#### Dropdown menu
 
 When clicked, the profile button should trigger a component state change and
 cause a dropdown menu to be rendered. When there is a click outside of the
@@ -1363,7 +1365,7 @@ You should see the dropdown menu open and close as expected!
 Congratulations on implementing an awesome dropdown menu all in React! **Make
 sure to commit your code!**
 
-#### Examples of `Navigation` and `ProfileButton` Components
+#### Examples of `Navigation` and `ProfileButton` components
 
 Here's an example for how `Navigation/index.js` should look like:
 
@@ -1550,7 +1552,7 @@ Define all your CSS styling rules for the `Navigation` component in the
 `Navigation.css` file. Make your navigation bar look good and your dropdown menu
 flow well with the rest of the elements. **Afterwards, commit!**
 
-## Bonus: Make the Login Form Page into a Modal
+## Bonus: Make the login form page into a modal
 
 Modals are everywhere in modern applications. Here's one way of implementing a
 modal in React without any external libraries/packages.
@@ -1561,7 +1563,7 @@ separate HTML DOM element from where the React component is rendered.
 
 Let's get started!
 
-### Modal Context
+### Modal context
 
 First, make a folder in `frontend/src` called `context`. This folder will hold
 all the different context and context providers for your application. Add a file
@@ -1613,7 +1615,7 @@ be centered inside of the `modal` div by flexing the `modal` div and have a
 
 Import the `Modal.css` file into the `Modal.js` context file.
 
-### Login Form Modal
+### Login form modal
 
 Now it's time to refactor the `LoginFormPage` component to be a modal instead
 of a page.
@@ -1647,7 +1649,7 @@ anywhere outside of the form. Make sure the login functionality still works!
 
 **Commit, commit, commit!**
 
-### Example Modal and Login Form Modal
+### Example modal and login form modal
 
 Here's an example for how `Modal.js` should look like:
 
@@ -1848,7 +1850,7 @@ function Navigation({ isLoaded }){
 export default Navigation;
 ```
 
-Here's an example of how `App.js` should look like now:
+Here's an example of what `App.js` should look like now:
 
 ```js
 // frontend/src/App.js
@@ -1883,7 +1885,7 @@ function App() {
 export default App;
 ```
 
-Here's an example for how `frontend/src/index.js` should look like:
+Here's an example of how `frontend/src/index.js` should look:
 
 ```js
 // frontend/src/index.js
@@ -1934,7 +1936,4 @@ ReactDOM.render(
 [Choose a Font Awesome Icon]: https://fontawesome.com/icons?d=gallery&m=free
 [carrot icon]: https://fontawesome.com/icons/carrot?style=solid
 [Portals in React]: https://reactjs.org/docs/portals.html
-
-[Method 1]: #method-1-set-up-redux-from-scratch
-[Method 2]: #method-2-use-redux-template
 [http://localhost:3000]: http://localhost:3000
