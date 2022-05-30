@@ -1,5 +1,7 @@
 Set up database and user raveland_app
+
 psql
+
 CREATE USER raveland_app WITH PASSWORD 'plurRave123!' CREATEDB;
 
 CREATE DATABASE raveland_app WITH OWNER raveland_app;
@@ -45,3 +47,15 @@ Seeders for likes
     userId:
     raveId:
 }
+
+Make sure .env file is in backend root and migrate and seed.
+
+npx dotenv sequelize db:migrate
+npx dotenv sequelize db:seed:all
+
+If you need to reseed data
+
+npx dotenv sequelize db:seed:undo:all
+npx dotenv sequelize db:migrate:undo:all
+npx dotenv sequelize db:migrate
+npx dotenv sequelize db:seed:all
