@@ -49,13 +49,11 @@ const CreateRaveForm = ({ hideForm }) => {
         createdRave = await dispatch(createRave(payload))
         if (createdRave) {
             history.push(`/`);
-            hideForm();
         }
     };
 
     const handleCancelClick = (e) => {
         e.preventDefault();
-        hideForm();
     };
 
     return (
