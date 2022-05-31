@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
+const ravesRouter = require('./raves.js')
 // const asyncHandler = require('express-async-handler');
 // const { User } = require('../../db/models');
 // const { restoreUser, requireAuth, setTokenCookie } = require('../../utils/auth.js');
@@ -8,6 +9,7 @@ const usersRouter = require('./users.js');
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
+router.use('/raves', ravesRouter)
 
 
 router.post('/test', function (req, res) {
