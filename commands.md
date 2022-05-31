@@ -59,3 +59,9 @@ npx dotenv sequelize db:seed:undo:all
 npx dotenv sequelize db:migrate:undo:all
 npx dotenv sequelize db:migrate
 npx dotenv sequelize db:seed:all
+
+Create raves routes in routes/api
+
+Create raves.js in store, create a home component, and implement component to App.js in src file.
+
+
