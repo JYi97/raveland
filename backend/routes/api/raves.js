@@ -51,4 +51,11 @@ router.get("/", asyncHandler(async (req, res) => {
     res.json(allRaves)
 }))
 
+router.post("/",
+ validateRaves,
+ asyncHandler(async (req, res) => {
+     const rave = await Rave.create(req.body);
+     return res.json(rave)
+ }))
+
 module.exports = router;
