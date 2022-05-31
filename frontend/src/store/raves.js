@@ -42,15 +42,26 @@ export const createRave = (data) => async dispatch => {
 const initialState = {}
 
 const raveReducer = (state = initialState, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case GET_RAVES:
             const allRaves = {};
-        action.raves.forEach(rave => {
-            allRaves[rave.id] = rave
-        })
-        return {
-            ...allRaves
-        }
+            action.raves.forEach(rave => {
+                allRaves[rave.id] = rave
+            })
+            return {
+                ...allRaves
+            }
+        case ADD_ONE:
+            if (!state[action.rave.id]) {
+                const newState = {
+                    ...state,
+                    [action.rave.id]: action.rave
+                }
+                const raves = newState.raves.map(id => newState[id])
+                raves.push(action.rave);
+                return newState
+            }
+            break
         default:
             return state;
     }

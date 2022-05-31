@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import * as ravesActions from '../../store/raves'
+import CreateRaveForm from "../CreateRaveForm"
 
 const HomePage = () => {
     const dispatch = useDispatch();
@@ -9,12 +10,15 @@ const HomePage = () => {
     const raves = Object.values(allRaves)
     console.log(raves)
 
+
     useEffect(() => {
         dispatch(ravesActions.getAllRaves())
     }, [dispatch])
     return (
         <>
             <div>
+                <h2>Add a Rave</h2>
+                <CreateRaveForm />
                 <h2>Recent Raves</h2>
                 <ul>
                     {raves.map(rave => {
