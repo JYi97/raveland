@@ -64,4 +64,6 @@ Create raves routes in routes/api
 
 Create raves.js in store, create a home component, and implement component to App.js in src file.
 
+Route
 
+Thunk Action Creator
