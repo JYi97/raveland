@@ -13,7 +13,7 @@ function Navigation({ isLoaded }) {
         sessionLinks = (
             <>
                 <ProfileButton user={sessionUser} />
-                <NavLink to="/new">New Rave</NavLink>
+                <NavLink to="/rave/new">New Rave</NavLink>
             </>
         );
     } else {

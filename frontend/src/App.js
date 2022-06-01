@@ -24,7 +24,7 @@ function App() {
           <Route exact path="/">
             <HomePage />
           </Route>
-          <Route path="rave/new">
+          <Route path="/rave/new">
             <CreateRaveForm />
           </Route>
           <Route path="/login">

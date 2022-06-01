@@ -19,6 +19,17 @@ function LoginForm() {
         );
     };
 
+    const demoUser = (e) => {
+        e.preventDefault();
+        setErrors([])
+        return dispatch(sessionActions.login({ credential: "demo@user.io", password: "password" })).catch(
+            async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors)
+            }
+        )
+    }
+
     return (
         <form onSubmit={handleSubmit}>
             <ul>
@@ -45,6 +56,13 @@ function LoginForm() {
                 />
             </label>
             <button type="submit">Log In</button>
+            <span>
+                <button type="submit"
+                    onClick={demoUser}
+                >
+                    Try as a demo user
+                </button>
+            </span>
         </form>
     );
 }
