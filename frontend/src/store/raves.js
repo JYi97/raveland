@@ -4,6 +4,7 @@ const GET_RAVES = 'raves/GET_RAVES'
 const ADD_ONE = 'raves/ADD_ONE'
 const EDIT_RAVE = 'raves/EDIT_RAVE'
 const DELETE_RAVE = 'raves/DELETE_RAVE'
+const GET_ONE = 'raves/GET_ONE'
 
 const loadRaves = raves => ({
     type: GET_RAVES,
@@ -30,6 +31,12 @@ const deleteOneRave = () => {
     }
 }
 
+const getOneRave = () => {
+    return {
+        type: GET_ONE
+    }
+}
+
 // thunk action creator for getting all raves
 export const getAllRaves = () => async dispatch => {
     const response = await csrfFetch('api/raves')
@@ -37,12 +44,13 @@ export const getAllRaves = () => async dispatch => {
     if (response.ok) {
         const raves = await response.json();
         dispatch(loadRaves(raves))
+        return response
     }
 }
 
 // thunk action creator for creating a rave
 export const createRave = (data) => async dispatch => {
-    const response = await csrfFetch('api/raves', {
+    const response = await csrfFetch('api/raves/new', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -51,6 +59,7 @@ export const createRave = (data) => async dispatch => {
     })
     const rave = await response.json();
     dispatch(addOneRave(rave))
+    return rave
 }
 
 // thunk action creator for editing a rave
@@ -66,6 +75,7 @@ export const editRave = (data) => async dispatch => {
     if (response.ok) {
         const rave = await response.json();
         dispatch(editOneRave(rave))
+        return response
     }
 }
 
@@ -101,13 +111,7 @@ const raveReducer = (state = initialState, action) => {
                 console.log(newState)
                 return newState
             }
-            return {
-                ...state,
-                [action.rave.id]: {
-                    ...state[action.rave.id],
-                    ...action.rave
-                }
-            }
+
         case EDIT_RAVE:
             newState.raves = state.raves.map((rave)=> {
                 if (rave.id === action.rave.id) {

@@ -51,14 +51,20 @@ router.get("/", asyncHandler(async (req, res) => {
     return res.json(allRaves)
 }))
 
-router.post("/",
+router.get("/:id", asyncHandler(async (req, res) => {
+    const raveId = parseInt(req.params.id, 10);
+    const rave = await Rave.findByPk(raveId)
+    return res.json(rave)
+}))
+
+router.post("/new",
     validateRaves,
     asyncHandler(async (req, res) => {
         const rave = await Rave.create(req.body);
         return res.json(rave)
     }))
 
-router.put("/:id", requireAuth, validateRaves, asyncHandler(async (req, res) => {
+router.put("/:id", requireAuth, handleValidationErrors, asyncHandler(async (req, res) => {
     const raveId = parseInt(req.params.id, 10);
 
     const rave = await Rave.findByPk(raveId)
@@ -78,7 +84,8 @@ router.put("/:id", requireAuth, validateRaves, asyncHandler(async (req, res) => 
 }))
 
 router.delete("/:id", asyncHandler(async (req, res) => {
-    const rave = await Rave.findByPk(req.params.id)
+    const raveId = parseInt(req.params.id, 10);
+    const rave = await Rave.findByPk(raveId)
     if (rave) {
         await rave.destroy()
         res.json({ message: 'Rave successfully deleted' })
