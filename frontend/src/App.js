@@ -7,6 +7,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage";
 import CreateRaveForm from "./components/CreateRaveForm";
+import RavePage from './components/RavePage'
 
 function App() {
   const dispatch = useDispatch();
@@ -24,8 +25,11 @@ function App() {
           <Route exact path="/">
             <HomePage />
           </Route>
-          <Route path="/rave/new">
+          <Route path="/new">
             <CreateRaveForm />
+          </Route>
+          <Route exact path="/rave/:id">
+            <RavePage />
           </Route>
           <Route path="/login">
             <LoginFormPage />

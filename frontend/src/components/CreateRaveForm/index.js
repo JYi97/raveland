@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getAllRaves, createRave } from '../../store/raves';
 
-const CreateRaveForm = () => {
+const CreateRaveForm = ({ }) => {
     const userId = useSelector((state) => state.session.user.id)
-    console.log(userId)
+    // console.log(userId)
     const dispatch = useDispatch();
     const history = useHistory();
     const [title, setTitle] = useState('');
