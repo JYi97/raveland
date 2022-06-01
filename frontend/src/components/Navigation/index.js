@@ -11,7 +11,10 @@ function Navigation({ isLoaded }) {
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
-            <ProfileButton user={sessionUser} />
+            <>
+                <ProfileButton user={sessionUser} />
+                <NavLink to="/new">New Rave</NavLink>
+            </>
         );
     } else {
         sessionLinks = (
