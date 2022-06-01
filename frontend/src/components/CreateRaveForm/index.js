@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getAllRaves, createRave } from '../../store/raves';
 
-const CreateRaveForm = ({ hideForm }) => {
-    const currentUserId = useSelector((state) => state.session.user.id)
+const CreateRaveForm = () => {
+    const userId = useSelector((state) => state.session.user.id)
+    console.log(userId)
     const dispatch = useDispatch();
     const history = useHistory();
-    const [userId, setUserId] = useState(currentUserId)
     const [title, setTitle] = useState('');
     const [image, setImage] = useState('');
     const [description, setDescription] = useState('');
@@ -49,8 +49,20 @@ const CreateRaveForm = ({ hideForm }) => {
         createdRave = await dispatch(createRave(payload))
         if (createdRave) {
             history.push(`/`);
+            reset();
         }
     };
+
+    const reset = () => {
+        setTitle("");
+        setImage("");
+        setDescription("");
+        setAddress("");
+        setCity("");
+        setState("");
+        setZipCode("");
+        setDate("")
+    }
 
     const handleCancelClick = (e) => {
         e.preventDefault();

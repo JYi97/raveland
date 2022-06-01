@@ -47,15 +47,44 @@ const validateRaves = [
 ]
 
 router.get("/", asyncHandler(async (req, res) => {
-    const allRaves = await Rave.findAll({include: {model: User}})
-    res.json(allRaves)
+    const allRaves = await Rave.findAll({ include: { model: User } })
+    return res.json(allRaves)
 }))
 
 router.post("/",
- validateRaves,
- asyncHandler(async (req, res) => {
-     const rave = await Rave.create(req.body);
-     return res.json(rave)
- }))
+    validateRaves,
+    asyncHandler(async (req, res) => {
+        const rave = await Rave.create(req.body);
+        return res.json(rave)
+    }))
+
+router.put("/:id", requireAuth, validateRaves, asyncHandler(async (req, res) => {
+    const raveId = parseInt(req.params.id, 10);
+
+    const rave = await Rave.findByPk(raveId)
+
+    rave.userId = req.body.userId
+    rave.title = req.body.title
+    rave.image = req.body.image
+    rave.description = req.body.description
+    rave.address = req.body.address
+    rave.city = req.body.city
+    rave.state = req.body.state
+    rave.zipCode = req.body.zipCode
+    rave.date = req.body.date
+
+    await rave.save();
+    res.json(rave)
+}))
+
+router.delete("/:id", asyncHandler(async (req, res) => {
+    const rave = await Rave.findByPk(req.params.id)
+    if (rave) {
+        await rave.destroy()
+        res.json({ message: 'Rave successfully deleted' })
+    } else {
+        res.json({ message: 'Failed to delete Rave' })
+    }
+}))
 
 module.exports = router;

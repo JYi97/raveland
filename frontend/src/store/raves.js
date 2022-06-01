@@ -2,6 +2,8 @@ import { csrfFetch } from "./csrf";
 
 const GET_RAVES = 'raves/GET_RAVES'
 const ADD_ONE = 'raves/ADD_ONE'
+const EDIT_RAVE = 'raves/EDIT_RAVE'
+const DELETE_RAVE = 'raves/DELETE_RAVE'
 
 const loadRaves = raves => ({
     type: GET_RAVES,
@@ -12,6 +14,19 @@ const addOneRave = (rave) => {
     return {
         type: ADD_ONE,
         rave
+    }
+}
+
+const editOneRave = (rave) => {
+    return {
+        type: EDIT_RAVE,
+        rave
+    }
+}
+
+const deleteOneRave = () => {
+    return {
+        type: DELETE_RAVE
     }
 }
 
@@ -35,13 +50,38 @@ export const createRave = (data) => async dispatch => {
         body: JSON.stringify(data)
     })
     const rave = await response.json();
-
     dispatch(addOneRave(rave))
+}
+
+// thunk action creator for editing a rave
+export const editRave = (data) => async dispatch => {
+    const response = await csrfFetch(`api/raves/${data.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    })
+
+    if (response.ok) {
+        const rave = await response.json();
+        dispatch(editOneRave(rave))
+    }
+}
+
+// thunk action creator for deleting a rave
+export const deleteRave = (data) => async dispatch => {
+    const response = await csrfFetch(`api/raves/${data.id}`, {
+        method: "DELETE",
+    })
+    dispatch(deleteOneRave());
+    return response;
 }
 
 const initialState = {}
 
 const raveReducer = (state = initialState, action) => {
+    const newState = {...state}
     switch (action.type) {
         case GET_RAVES:
             const allRaves = {};
@@ -52,16 +92,31 @@ const raveReducer = (state = initialState, action) => {
                 ...allRaves
             }
         case ADD_ONE:
+            console.log('IN REDUCER ADD ONE CASE - ACTION -> ', action);
             if (!state[action.rave.id]) {
                 const newState = {
                     ...state,
                     [action.rave.id]: action.rave
                 }
-                const raves = newState.raves.map(id => newState[id])
-                raves.push(action.rave);
+                console.log(newState)
                 return newState
             }
-            break
+            return {
+                ...state,
+                [action.rave.id]: {
+                    ...state[action.rave.id],
+                    ...action.rave
+                }
+            }
+        case EDIT_RAVE:
+            newState.raves = state.raves.map((rave)=> {
+                if (rave.id === action.rave.id) {
+                    return action.rave
+                } else {
+                    return rave
+                }
+            })
+            return newState
         default:
             return state;
     }
