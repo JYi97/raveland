@@ -18,7 +18,6 @@ const HomePage = () => {
         <>
             <div>
                 <h2>Add a Rave</h2>
-                <CreateRaveForm />
                 <h2>Recent Raves</h2>
                 <ul>
                     {raves.map(rave => {
