@@ -22,7 +22,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT
       },
-      images: {
+      image: {
         type: Sequelize.TEXT
       },
       createdAt: {

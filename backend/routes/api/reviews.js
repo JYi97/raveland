@@ -28,12 +28,12 @@ router.get("/:id", asyncHandler(async (req, res) => {
 
 // Post a new review
 router.post("/", asyncHandler(async (req, res) => {
-    const { userId, raveId, content, images } = req.body;
+    const { userId, raveId, content, image } = req.body;
     await Review.create({
         userId,
         raveId,
         content,
-        images
+        image
     })
     const reviews = await Review.findAll({
         where: {
@@ -45,23 +45,23 @@ router.post("/", asyncHandler(async (req, res) => {
 }))
 
 // Edit a review
-router.put("/:id", asyncHandler(async(req, res)=> {
+router.put("/:id", asyncHandler(async (req, res) => {
     const reviewId = req.params.id
 
     const review = await Review.findByPk(reviewId)
-    const {userId, raveId, content, images} = req.body;
+    const { userId, raveId, content, image } = req.body;
 
     const reviewEdited = await review.update({
         userId,
         raveId,
         content,
-        images
+        image
     })
     return res.json(reviewEdited)
 }))
 
 // Delete a review
-router.delete("/:id", asyncHandler(async(req, res)=> {
+router.delete("/:id", asyncHandler(async (req, res) => {
     const review = await Review.findByPk(req.params.id)
     await review.destroy()
     return res.json(review);
