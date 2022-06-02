@@ -104,8 +104,6 @@ export const deleteRave = (id) => async dispatch => {
     }
 }
 
-// 
-
 const initialState = {}
 
 const raveReducer = (state = initialState, action) => {
@@ -120,13 +118,13 @@ const raveReducer = (state = initialState, action) => {
                 ...allRaves
             }
         case ADD_ONE:
-            console.log('IN REDUCER ADD ONE CASE - ACTION -> ', action);
+            // console.log('IN REDUCER ADD ONE CASE - ACTION -> ', action);
             if (!state[action.rave.id]) {
                 const newState = {
                     ...state,
                     [action.rave.id]: action.rave
                 }
-                console.log(newState)
+                // console.log(newState)
                 return newState
             }
             break

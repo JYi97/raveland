@@ -7,11 +7,11 @@ import { NavLink } from "react-router-dom"
 const RavePage = () => {
     const dispatch = useDispatch();
     const raves = useSelector((state) => state.raves)
-    console.log(raves)
+    // console.log(raves)
     const { id } = useParams()
-    console.log(id)
+    // console.log(id)
     const rave = Object.values(raves)
-    console.log(rave)
+    // console.log(rave)
     const sessionUser = useSelector((state) => state.session.user)
 
     useEffect(() => {
