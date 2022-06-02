@@ -12,7 +12,7 @@ const HomePage = () => {
 
     useEffect(() => {
         dispatch(ravesActions.getAllRaves())
-        console.log("USE EFFECT FROM HOMEPAGE")
+        // console.log("USE EFFECT FROM HOMEPAGE")
     }, [dispatch])
 
     return (
