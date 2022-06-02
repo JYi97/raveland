@@ -77,7 +77,7 @@ export const getRave = (id) => async dispatch => {
 
 // thunk action creator for editing a rave
 export const editRave = (data) => async dispatch => {
-    const response = await csrfFetch(`/api/raves/${data.id}`, {
+    const response = await csrfFetch(`/api/raves/${data.id}/edit`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
