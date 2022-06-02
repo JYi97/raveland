@@ -2,22 +2,37 @@ import { useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import * as ravesActions from '../../store/raves'
+import { NavLink } from "react-router-dom"
 
 const RavePage = () => {
     const dispatch = useDispatch();
-    const rave = useSelector((state) => state.raves)
-    // console.log(allRaves)
-    const raveInput = Object.values(rave)
-    // console.log(raves)
-
+    const raves = useSelector((state) => state.raves)
+    console.log(raves)
+    const { id } = useParams()
+    console.log(id)
+    const rave = Object.values(raves)
+    console.log(rave)
 
     useEffect(() => {
-        dispatch(ravesActions.getAllRaves())
-    }, [dispatch])
+        dispatch(ravesActions.getRave(id))
+    }, [dispatch, id])
+
     return (
         <>
             <div>
-                <h2>Hello</h2>
+                <h2>{rave[0].title}</h2>
+                <div>
+                    Likes
+                </div>
+                <div>
+                    Reviews
+                </div>
+                <NavLink to={`/raves/${rave.id}/edit`}>
+                    Edit
+                </NavLink>
+                <div>
+                    Delete Rave
+                </div>
             </div>
         </>
     )

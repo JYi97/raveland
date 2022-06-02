@@ -67,3 +67,11 @@ Create raves.js in store, create a home component, and implement component to Ap
 Route
 
 Thunk Action Creator
+
+heroku login
+git push heroku main
+
+heroku run npm run sequelize db:seed:undo:all
+heroku run npm run sequelize db:migrate:undo:all
+heroku run npm run sequelize db:migrate
+heroku run npm run sequelize db:seed:all

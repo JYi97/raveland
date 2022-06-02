@@ -25,15 +25,17 @@ const editOneRave = (rave) => {
     }
 }
 
-const deleteOneRave = () => {
+const deleteOneRave = (rave) => {
     return {
-        type: DELETE_RAVE
+        type: DELETE_RAVE,
+        rave
     }
 }
 
-const getOneRave = () => {
+const loadOneRave = (rave) => {
     return {
-        type: GET_ONE
+        type: GET_ONE,
+        rave
     }
 }
 
@@ -50,7 +52,7 @@ export const getAllRaves = () => async dispatch => {
 
 // thunk action creator for creating a rave
 export const createRave = (data) => async dispatch => {
-    const response = await csrfFetch('api/raves/new', {
+    const response = await csrfFetch('/api/raves/new', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -62,9 +64,20 @@ export const createRave = (data) => async dispatch => {
     return rave
 }
 
+// thunk action creator for getting a rave
+export const getRave = (id) => async dispatch => {
+    const response = await csrfFetch(`/api/raves/${id}`)
+
+    if (response.ok) {
+        const rave = await response.json();
+        dispatch(loadOneRave(rave))
+        return response
+    }
+}
+
 // thunk action creator for editing a rave
 export const editRave = (data) => async dispatch => {
-    const response = await csrfFetch(`api/raves/${data.id}`, {
+    const response = await csrfFetch(`/api/raves/${data.id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -75,23 +88,25 @@ export const editRave = (data) => async dispatch => {
     if (response.ok) {
         const rave = await response.json();
         dispatch(editOneRave(rave))
-        return response
+        return rave
     }
 }
 
 // thunk action creator for deleting a rave
 export const deleteRave = (data) => async dispatch => {
-    const response = await csrfFetch(`api/raves/${data.id}`, {
+    const response = await csrfFetch(`/api/raves/${data.id}`, {
         method: "DELETE",
     })
-    dispatch(deleteOneRave());
-    return response;
+    if (response.ok) {
+        const rave = await response.json()
+        dispatch(deleteOneRave(rave));
+    }
 }
 
 const initialState = {}
 
 const raveReducer = (state = initialState, action) => {
-    const newState = {...state}
+    const newState = { ...state }
     switch (action.type) {
         case GET_RAVES:
             const allRaves = {};
@@ -111,15 +126,22 @@ const raveReducer = (state = initialState, action) => {
                 console.log(newState)
                 return newState
             }
-
+            break
+        case GET_ONE:
+            const rave = {};
+            rave[action.rave.id] = action.rave
+            return {
+                ...rave
+            }
         case EDIT_RAVE:
-            newState.raves = state.raves.map((rave)=> {
+            for (let rave in state.raves) {
                 if (rave.id === action.rave.id) {
                     return action.rave
-                } else {
+                }
+                else {
                     return rave
                 }
-            })
+            }
             return newState
         default:
             return state;
