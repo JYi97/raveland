@@ -27,11 +27,15 @@ const RavePage = () => {
                 <div>
                     Reviews
                 </div>
-                <NavLink to={`/raves/${rave[0].id}/edit`}>
-                    Edit
-                </NavLink>
                 <div>
-                    Delete Rave
+                    <NavLink to={`/raves/${rave[0].id}/edit`}>
+                        Edit
+                    </NavLink>
+                </div>
+                <div>
+                    <NavLink to={`/raves/${rave[0].id}/delete`}>
+                        Delete
+                    </NavLink>
                 </div>
             </div>
         </>

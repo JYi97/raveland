@@ -77,7 +77,7 @@ export const getRave = (id) => async dispatch => {
 
 // thunk action creator for editing a rave
 export const editRave = (data) => async dispatch => {
-    const response = await csrfFetch(`/api/raves/${data.id}/edit`, {
+    const response = await csrfFetch(`/api/raves/${data.id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -93,13 +93,14 @@ export const editRave = (data) => async dispatch => {
 }
 
 // thunk action creator for deleting a rave
-export const deleteRave = (data) => async dispatch => {
-    const response = await csrfFetch(`/api/raves/${data.id}`, {
+export const deleteRave = (id) => async dispatch => {
+    const response = await csrfFetch(`/api/raves/${id}`, {
         method: "DELETE",
     })
     if (response.ok) {
         const rave = await response.json()
         dispatch(deleteOneRave(rave));
+        return 
     }
 }
 
