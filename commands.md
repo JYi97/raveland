@@ -8,7 +8,7 @@ CREATE DATABASE raveland_app WITH OWNER raveland_app;
 
 npx sequelize-cli model:generate --name Rave --attributes userId:integer,title:string,image:text,description:text,address:string,city:string,state:string,zipCode:string,date:string
 
-npx sequelize-cli model:generate --name Review --attributes userId:integer,raveId:integer,content:text,images:text
+npx sequelize-cli model:generate --name Review --attributes userId:integer,raveId:integer,content:text,image:text
 
 npx sequelize-cli model:generate --name Like --attributes userId:integer,raveId:integer
 
@@ -38,7 +38,7 @@ Seeders for reviews
     userId:
     raveId:
     content:
-    images:
+    image:
 }
 
 Seeders for likes
