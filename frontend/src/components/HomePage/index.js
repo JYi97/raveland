@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import { NavLink } from "react-router-dom"
 import * as ravesActions from '../../store/raves'
 
 const HomePage = () => {
@@ -20,24 +21,17 @@ const HomePage = () => {
                 <ul>
                     {raves.map(rave => {
                         return <li key={rave.id}>
-                            <div>
-                                {rave.title}
-                            </div>
-                            <div>
-                                <img src={rave.image} alt=''></img>
-                            </div>
-                            <div>
-                                <span>Description:</span> {rave.description}
-                            </div>
-                            <div>
-                                <span>Address:</span> {rave.address}.
-                                <span> {rave.city}, </span>
-                                <span> {rave.state}, </span>
-                                <span> {rave.zipCode} </span>
-                            </div>
-                            <div>
-                                <span>Date: </span> {rave.date}
-                            </div>
+                            <NavLink exact to={`raves/${rave.id}`}>
+                                <div>
+                                    <img src={rave.image} alt=''></img>
+                                </div>
+                                <div>
+                                    {rave.title}
+                                </div>
+                                <div>
+                                    <span>Date: </span> {rave.date}
+                                </div>
+                            </NavLink>
                         </li>
                     })}
                 </ul>

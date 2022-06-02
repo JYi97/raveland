@@ -80,7 +80,7 @@ router.put("/:id", requireAuth, handleValidationErrors, asyncHandler(async (req,
     rave.date = req.body.date
 
     await rave.save();
-    res.json(rave)
+    return res.json(rave)
 }))
 
 router.delete("/:id", asyncHandler(async (req, res) => {

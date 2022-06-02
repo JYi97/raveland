@@ -1,21 +1,22 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { editRave } from '../../store/raves';
 import { useHistory } from 'react-router-dom';
-import { getAllRaves, createRave } from '../../store/raves';
 
-const CreateRaveForm = () => {
+
+const EditRaveForm = () => {
     const userId = useSelector((state) => state.session.user.id)
-    // console.log(userId)
     const dispatch = useDispatch();
     const history = useHistory();
-    const [title, setTitle] = useState('');
-    const [image, setImage] = useState('');
-    const [description, setDescription] = useState('');
-    const [address, setAddress] = useState('');
-    const [city, setCity] = useState('');
-    const [state, setState] = useState('');
-    const [zipCode, setZipCode] = useState('');
-    const [date, setDate] = useState();
+    const rave = useSelector((state) => state.raves[1])
+    const [title, setTitle] = useState(rave.title);
+    const [image, setImage] = useState(rave.image);
+    const [description, setDescription] = useState(rave.description);
+    const [address, setAddress] = useState(rave.address);
+    const [city, setCity] = useState(rave.city);
+    const [state, setState] = useState(rave.state);
+    const [zipCode, setZipCode] = useState(rave.zipCode);
+    const [date, setDate] = useState(rave.date);
 
     const updateTitle = (e) => setTitle(e.target.value);
     const updateImage = (e) => setImage(e.target.value);
@@ -26,14 +27,11 @@ const CreateRaveForm = () => {
     const updateZipCode = (e) => setZipCode(e.target.value);
     const updateDate = (e) => setDate(e.target.value);
 
-    useEffect(() => {
-        dispatch(getAllRaves());
-    }, [dispatch]);
-
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const payload = {
+            ...rave,
             userId,
             title,
             image,
@@ -45,86 +43,74 @@ const CreateRaveForm = () => {
             date
         };
 
-        let createdRave;
-        createdRave = await dispatch(createRave(payload))
-        if (createdRave) {
-            history.push(`/`);
-            reset();
+        let updatedRave;
+        updatedRave = await dispatch(editRave(payload))
+        if (updatedRave) {
+            history.push(`/raves/${rave.id}`)
         }
     };
 
-    const reset = () => {
-        setTitle("");
-        setImage("");
-        setDescription("");
-        setAddress("");
-        setCity("");
-        setState("");
-        setZipCode("");
-        setDate("")
-    }
-
     const handleCancelClick = (e) => {
         e.preventDefault();
-        history.push('/')
+        history.push(`/raves/${rave.id}`)
     };
 
     return (
-        <section className="new-form-holder centered middled">
-            <form className="create-rave-form" onSubmit={handleSubmit}>
+        <section className="edit-form-holder centered middled">
+            <form onSubmit={handleSubmit}>
                 <input
                     type="text"
-                    placeholder="Title"
+                    placeholder={rave.title}
                     required
                     value={title}
                     onChange={updateTitle} />
                 <input
                     type="text"
-                    placeholder="Image URL"
+                    placeholder={rave.image}
                     required
                     value={image}
                     onChange={updateImage} />
                 <input
                     type="text"
-                    placeholder="Description"
+                    placeholder={rave.description}
                     required
                     value={description}
                     onChange={updateDescription} />
                 <input
                     type="text"
-                    placeholder="Address"
+                    placeholder={rave.address}
                     required
                     value={address}
                     onChange={updateAddress} />
                 <input
                     type="text"
-                    placeholder="City"
+                    placeholder={rave.city}
                     required
                     value={city}
                     onChange={updateCity} />
                 <input
                     type="text"
-                    placeholder="State"
+                    placeholder={rave.state}
                     required
                     value={state}
                     onChange={updateState} />
                 <input
                     type="text"
-                    placeholder="Zip Code"
+                    placeholder={rave.zipCode}
                     required
                     value={zipCode}
                     onChange={updateZipCode} />
                 <input
                     type="text"
-                    placeholder="Date"
+                    placeholder={rave.date}
                     required
                     value={date}
                     onChange={updateDate} />
-                <button type="submit">Post New Rave </button>
+                <button type="submit">Update Rave</button>
                 <button type="button" onClick={handleCancelClick}>Cancel</button>
             </form>
         </section>
     );
 };
 
-export default CreateRaveForm;
+export default EditRaveForm;

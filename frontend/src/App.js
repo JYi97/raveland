@@ -8,6 +8,8 @@ import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage";
 import CreateRaveForm from "./components/CreateRaveForm";
 import RavePage from './components/RavePage'
+import RavesList from './components/RavesList'
+import EditRaveForm from "./components/EditRaveForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,11 +27,17 @@ function App() {
           <Route exact path="/">
             <HomePage />
           </Route>
+          <Route exact path="/raves">
+            <RavesList />
+          </Route>
           <Route path="/new">
             <CreateRaveForm />
           </Route>
-          <Route exact path="/rave/:id">
+          <Route exact path="/raves/:id">
             <RavePage />
+          </Route>
+          <Route exact path="/raves/:id/edit">
+            <EditRaveForm />
           </Route>
           <Route path="/login">
             <LoginFormPage />
