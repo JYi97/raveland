@@ -10,10 +10,11 @@ const HomePage = () => {
     const raves = Object.values(allRaves)
     // console.log(raves)
 
-
     useEffect(() => {
         dispatch(ravesActions.getAllRaves())
+        console.log("USE EFFECT FROM HOMEPAGE")
     }, [dispatch])
+
     return (
         <>
             <div>

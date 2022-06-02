@@ -12,6 +12,7 @@ const RavePage = () => {
     console.log(id)
     const rave = Object.values(raves)
     console.log(rave)
+    const sessionUser = useSelector((state) => state.session.user)
 
     useEffect(() => {
         dispatch(ravesActions.getRave(id))
@@ -28,14 +29,14 @@ const RavePage = () => {
                     Reviews
                 </div>
                 <div>
-                    <NavLink to={`/raves/${rave[0].id}/edit`}>
+                    {sessionUser?.id === rave[0].userId && <NavLink to={`/raves/${rave[0].id}/edit`}>
                         Edit
-                    </NavLink>
+                    </NavLink>}
                 </div>
                 <div>
-                    <NavLink to={`/raves/${rave[0].id}/delete`}>
+                    {sessionUser?.id === rave[0].userId && <NavLink to={`/raves/${rave[0].id}/delete`}>
                         Delete
-                    </NavLink>
+                    </NavLink>}
                 </div>
             </div>
         </>

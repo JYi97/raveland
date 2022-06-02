@@ -100,9 +100,11 @@ export const deleteRave = (id) => async dispatch => {
     if (response.ok) {
         const rave = await response.json()
         dispatch(deleteOneRave(rave));
-        return 
+        return
     }
 }
+
+// 
 
 const initialState = {}
 
@@ -138,6 +140,17 @@ const raveReducer = (state = initialState, action) => {
             for (let rave in state.raves) {
                 if (rave.id === action.rave.id) {
                     return action.rave
+                }
+                else {
+                    return rave
+                }
+            }
+            return newState
+        case DELETE_RAVE:
+            for (let rave in state.raves) {
+                if (rave.id === action.rave.id) {
+                    delete action.rave
+                    return newState;
                 }
                 else {
                     return rave
