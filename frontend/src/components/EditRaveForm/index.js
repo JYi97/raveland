@@ -1,14 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { editRave } from '../../store/raves';
-import { useHistory } from 'react-router-dom';
+import { editRave, getRave } from '../../store/raves';
+import { useHistory, useParams } from 'react-router-dom';
 
 
 const EditRaveForm = () => {
     const userId = useSelector((state) => state.session.user.id)
     const dispatch = useDispatch();
     const history = useHistory();
-    const rave = useSelector((state) => state.raves[1])
+    const raveId = useParams()
+    const id = raveId.id
+    // console.log(id)
+    const rave = useSelector((state) => state.raves[id])
+    // console.log(rave)
     const [title, setTitle] = useState(rave.title);
     const [image, setImage] = useState(rave.image);
     const [description, setDescription] = useState(rave.description);
@@ -54,6 +58,10 @@ const EditRaveForm = () => {
         e.preventDefault();
         history.push(`/raves/${rave.id}`)
     };
+
+    useEffect(() => {
+        dispatch(getRave(id))
+    }, [dispatch, id])
 
     return (
         <section className="edit-form-holder centered middled">
