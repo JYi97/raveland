@@ -64,9 +64,13 @@ Create raves routes in routes/api
 
 Create raves.js in store, create a home component, and implement component to App.js in src file.
 
-Route
+Create Routes
 
-Thunk Action Creator
+Create Thunk Action Creators and Reducers
+
+Create Components
+
+Render Components in App or other Components
 
 heroku login
 git push heroku main

@@ -10,6 +10,7 @@ import CreateRaveForm from "./components/CreateRaveForm";
 import RavePage from './components/RavePage'
 import RavesList from './components/RavesList'
 import EditRaveForm from "./components/EditRaveForm";
+import DeleteRaveConfirmPage from "./components/DeleteRaveConfirmPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,6 +39,9 @@ function App() {
           </Route>
           <Route exact path="/raves/:id/edit">
             <EditRaveForm />
+          </Route>
+          <Route exact path="/raves/:id/delete">
+            <DeleteRaveConfirmPage />
           </Route>
           <Route path="/login">
             <LoginFormPage />
