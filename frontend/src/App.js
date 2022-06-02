@@ -11,6 +11,7 @@ import RavePage from './components/RavePage'
 import RavesList from './components/RavesList'
 import EditRaveForm from "./components/EditRaveForm";
 import DeleteRaveConfirmPage from "./components/DeleteRaveConfirmPage";
+import ReviewsList from "./components/ReviewsList";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route exact path="/raves">
             <RavesList />
+          </Route>
+          <Route exact path="/reviews">
+            <ReviewsList />
           </Route>
           <Route path="/new">
             <CreateRaveForm />

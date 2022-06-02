@@ -16,6 +16,7 @@ const CreateRaveForm = () => {
     const [state, setState] = useState('');
     const [zipCode, setZipCode] = useState('');
     const [date, setDate] = useState();
+    const [errors, setErrors] = useState([])
 
     const updateTitle = (e) => setTitle(e.target.value);
     const updateImage = (e) => setImage(e.target.value);
@@ -47,7 +48,10 @@ const CreateRaveForm = () => {
 
         let createdRave;
         createdRave = await dispatch(createRave(payload))
-        if (createdRave) {
+        if (createdRave.errors) {
+            setErrors(createdRave.errors)
+            console.log(errors)
+        } else {
             history.push(`/`);
             reset();
         }
@@ -62,6 +66,7 @@ const CreateRaveForm = () => {
         setState("");
         setZipCode("");
         setDate("")
+        setErrors([])
     }
 
     const handleCancelClick = (e) => {
@@ -72,6 +77,9 @@ const CreateRaveForm = () => {
     return (
         <section className="new-form-holder centered middled">
             <form className="create-rave-form" onSubmit={handleSubmit}>
+                <ul>
+                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                </ul>
                 <input
                     type="text"
                     placeholder="Title"

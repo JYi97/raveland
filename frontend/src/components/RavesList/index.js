@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import * as ravesActions from '../../store/raves'
 
-const HomePage = () => {
+const RavesList = () => {
     const dispatch = useDispatch();
     const allRaves = useSelector((state) => state.raves)
     // console.log(allRaves)
@@ -46,4 +46,4 @@ const HomePage = () => {
     )
 }
 
-export default HomePage
+export default RavesList
