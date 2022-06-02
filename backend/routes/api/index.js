@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const ravesRouter = require('./raves.js')
+const reviewsRouter = require('./reviews.js')
 // const asyncHandler = require('express-async-handler');
 // const { User } = require('../../db/models');
 // const { restoreUser, requireAuth, setTokenCookie } = require('../../utils/auth.js');
@@ -9,12 +10,13 @@ const ravesRouter = require('./raves.js')
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
-router.use('/raves', ravesRouter)
+router.use('/raves', ravesRouter);
+router.use('/reviews', reviewsRouter);
 
 
-router.post('/test', function (req, res) {
-    res.json({ requestBody: req.body });
-});
+// router.post('/test', function (req, res) {
+//     res.json({ requestBody: req.body });
+// });
 
 // GET /api/set-token-cookie
 // router.get('/set-token-cookie', asyncHandler(async (_req, res) => {
