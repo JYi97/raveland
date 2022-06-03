@@ -37,10 +37,9 @@ const RavePage = () => {
                     {sessionUser?.id === rave[0].userId && <NavLink to={`/raves/${rave[0].id}/delete`}>
                         Delete
                     </NavLink>}
-                </div>
-                <div><img src={rave[0].image} alt=''></img></div>
                 <div>
                     <RaveReviews reviews={raveReviews} />
+                </div>
                 </div>
             </div>
         </>

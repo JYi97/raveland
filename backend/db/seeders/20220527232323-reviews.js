@@ -18,6 +18,14 @@ module.exports = {
       image: "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2017/12/13120224/EDC-hero-image-972x486.jpg",
       createdAt: new Date(),
       updatedAt: new Date()
+    },
+    {
+      userId: 1,
+      raveId: 3,
+      content: "The festival will take place rain or shine.",
+      image: "https://media.timeout.com/images/105889121/750/422/image.jpg",
+      createdAt: new Date(),
+      updatedAt: new Date()
     }
     ], {});
   },
