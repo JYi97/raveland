@@ -1,5 +1,9 @@
-function RaveReviews({ reviews }) {
+import { NavLink } from "react-router-dom";
+
+function RaveReviews({ user, reviews }) {
     // console.log(reviews)
+
+
     return (
         <>
             <h1>Reviews</h1>
@@ -12,6 +16,11 @@ function RaveReviews({ reviews }) {
                         <h2>{review.content}</h2>
                         <div>
                             <img src={review.image} alt=''></img>
+                        </div>
+                        <div>
+                            {user?.id === review.userId && <NavLink to={`/reviews/${review.id}/delete`}>
+                                Delete
+                            </NavLink>}
                         </div>
                     </li>
                 })}

@@ -11,7 +11,7 @@ import RavePage from './components/RavePage'
 import RavesList from './components/RavesList'
 import EditRaveForm from "./components/EditRaveForm";
 import DeleteRaveConfirmPage from "./components/DeleteRaveConfirmPage";
-
+import DeleteReviewConfirmPage from "./components/DeleteReviewConfirmPage";
 
 
 function App() {
@@ -44,6 +44,9 @@ function App() {
           </Route>
           <Route exact path="/raves/:id/delete">
             <DeleteRaveConfirmPage />
+          </Route>
+          <Route exact path="/reviews/:id/delete">
+            <DeleteReviewConfirmPage />
           </Route>
           <Route path="/login">
             <LoginFormPage />

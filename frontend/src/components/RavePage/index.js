@@ -50,7 +50,7 @@ const RavePage = () => {
                 <div>
                 </div>
                 <div>
-                    <RaveReviews reviews={raveReviews} />
+                    <RaveReviews user={sessionUser} reviews={raveReviews} />
                 </div>
             </div>
         </>

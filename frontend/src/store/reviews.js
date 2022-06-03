@@ -97,7 +97,7 @@ export const editReview = (data) => async dispatch => {
 
 // thunk action creator for deleting a review
 export const deleteReview = (id) => async dispatch => {
-    const response = await csrfFetch(`/api/review/${id}`, {
+    const response = await csrfFetch(`/api/reviews/${id}`, {
         method: "DELETE",
     })
     if (response.ok) {
@@ -110,7 +110,7 @@ export const deleteReview = (id) => async dispatch => {
 const initialState = {}
 
 const reviewReducer = (state = initialState, action) => {
-    // const newState = { ...state }
+    const newState = { ...state }
     switch (action.type) {
         case GET_REVIEWS:
             const allReviews = {};
@@ -147,17 +147,17 @@ const reviewReducer = (state = initialState, action) => {
         //         }
         //     }
         //     return newState
-        // case DELETE_REVIEW:
-        //     for (let review in state.reviews) {
-        //         if (review.id === action.review.id) {
-        //             delete action.review
-        //             return newState;
-        //         }
-        //         else {
-        //             return review
-        //         }
-        //     }
-        //     return newState
+        case DELETE_REVIEW:
+            for (let review in state.reviews) {
+                if (review.id === action.review.id) {
+                    delete action.review
+                    return newState;
+                }
+                else {
+                    return review
+                }
+            }
+            return newState
         default:
             return state;
     }
