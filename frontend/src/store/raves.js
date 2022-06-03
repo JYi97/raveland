@@ -52,7 +52,7 @@ export const getAllRaves = () => async dispatch => {
 
 // thunk action creator for creating a rave
 export const createRave = (data) => async dispatch => {
-    const response = await csrfFetch('/api/raves/new', {
+    const response = await csrfFetch('/api/raves', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
