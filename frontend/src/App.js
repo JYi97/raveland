@@ -13,6 +13,7 @@ import EditRaveForm from "./components/EditRaveForm";
 import DeleteRaveConfirmPage from "./components/DeleteRaveConfirmPage";
 
 
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -32,7 +33,7 @@ function App() {
           <Route exact path="/raves">
             <RavesList />
           </Route>
-          <Route path="/new">
+          <Route path="/raves/new">
             <CreateRaveForm />
           </Route>
           <Route exact path="/raves/:id">

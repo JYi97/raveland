@@ -41,7 +41,7 @@ const loadOneRave = (rave) => {
 
 // thunk action creator for getting all raves
 export const getAllRaves = () => async dispatch => {
-    const response = await csrfFetch('api/raves')
+    const response = await csrfFetch('/api/raves')
 
     if (response.ok) {
         const raves = await response.json();

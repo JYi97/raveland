@@ -19,15 +19,30 @@ export const getAllReviews = (raveId) => async dispatch => {
 }
 
 const ADD_REVIEW = 'reviews/ADD_REVIEW'
-const EDIT_REVIEW = 'reviews/EDIT_REVIEW'
-const DELETE_REVIEW = 'reviews/DELETE_REVIEW'
-const GET_REVIEW = 'reviews/GET_REVIEW'
+
 const addOneReview = (review) => {
     return {
         type: ADD_REVIEW,
         review
     }
 }
+
+// thunk action creator for creating a review
+export const createReview = (data) => async dispatch => {
+    const response = await csrfFetch('/api/reviews', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    const review = await response.json();
+    dispatch(addOneReview(review))
+    return review
+}
+const EDIT_REVIEW = 'reviews/EDIT_REVIEW'
+const DELETE_REVIEW = 'reviews/DELETE_REVIEW'
+const GET_REVIEW = 'reviews/GET_REVIEW'
 
 const editOneReview = (review) => {
     return {
@@ -51,19 +66,6 @@ const loadOneReview = (review) => {
 }
 
 
-// thunk action creator for creating a review
-export const createReview = (data) => async dispatch => {
-    const response = await csrfFetch('/api/reviews/new', {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    })
-    const review = await response.json();
-    dispatch(addOneReview(review))
-    return review
-}
 
 // thunk action creator for getting a review
 export const getReview = (id) => async dispatch => {
@@ -118,17 +120,17 @@ const reviewReducer = (state = initialState, action) => {
             return {
                 ...allReviews
             }
-        // case ADD_REVIEW:
-        //     // console.log('IN REDUCER ADD ONE CASE - ACTION -> ', action);
-        //     if (!state[action.review.id]) {
-        //         const newState = {
-        //             ...state,
-        //             [action.review.id]: action.review
-        //         }
-        //         // console.log(newState)
-        //         return newState
-        //     }
-        //     break
+        case ADD_REVIEW:
+            //     // console.log('IN REDUCER ADD ONE CASE - ACTION -> ', action);
+            if (!state[action.review.id]) {
+                const newState = {
+                    ...state,
+                    [action.review.id]: action.review
+                }
+                // console.log(newState)
+                return newState
+            }
+            break
         // case GET_REVIEW:
         //     const review = {};
         //     review[action.review.id] = action.review
