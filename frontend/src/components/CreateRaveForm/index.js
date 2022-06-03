@@ -15,7 +15,7 @@ const CreateRaveForm = () => {
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
     const [zipCode, setZipCode] = useState('');
-    const [date, setDate] = useState();
+    const [date, setDate] = useState('');
     const [errors, setErrors] = useState([])
 
     const updateTitle = (e) => setTitle(e.target.value);
@@ -26,6 +26,25 @@ const CreateRaveForm = () => {
     const updateState = (e) => setState(e.target.value);
     const updateZipCode = (e) => setZipCode(e.target.value);
     const updateDate = (e) => setDate(e.target.value);
+
+    useEffect(() => {
+        const errors = [];
+
+        if (title.length < 1) errors.push("Title needs one character")
+        if (title.length >= 100) errors.push("Title must be less than 100 characters")
+        if (address.length < 1) errors.push("Address needs one character")
+        if (address.length >= 100) errors.push("Address must be less than 100 characters")
+        if (city.length < 1) errors.push("City needs one character")
+        if (city.length >= 100) errors.push("City must be less than 100 characters")
+        if (state.length < 1) errors.push("State needs one character")
+        if (state.length >= 100) errors.push("State must be less than 100 characters")
+        if (zipCode.length < 1) errors.push("Zip Code needs one character")
+        if (zipCode.length >= 20) errors.push("Zip Code must be less than 20 characters")
+        if (date.length < 1) errors.push("Date needs one character")
+        if (date.length >= 100) errors.push("Date must be less than 100 characters")
+        setErrors(errors)
+
+    }, [title, image, description, address, city, state, zipCode, date])
 
     useEffect(() => {
         dispatch(getAllRaves());
@@ -43,7 +62,8 @@ const CreateRaveForm = () => {
             city,
             state,
             zipCode,
-            date
+            date,
+            errors
         };
 
         let createdRave;
@@ -77,9 +97,6 @@ const CreateRaveForm = () => {
     return (
         <section className="new-form-holder centered middled">
             <form className="create-rave-form" onSubmit={handleSubmit}>
-                <ul>
-                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                </ul>
                 <input
                     type="text"
                     placeholder="Title"
@@ -128,9 +145,12 @@ const CreateRaveForm = () => {
                     required
                     value={date}
                     onChange={updateDate} />
-                <button type="submit">Post New Rave </button>
-                <button type="button" onClick={handleCancelClick}>Cancel</button>
+            <button type="submit">Post New Rave </button>
+            <button type="button" onClick={handleCancelClick}>Cancel</button>
             </form>
+            <ul>
+                {errors.map((error) => <li key={error}>{error}</li>)}
+            </ul>
         </section>
     );
 };
