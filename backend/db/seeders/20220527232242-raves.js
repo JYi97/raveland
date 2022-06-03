@@ -15,6 +15,19 @@ module.exports = {
       date: "August 13-14, 2021",
       createdAt: new Date(),
       updatedAt: new Date()
+    },
+    {
+      userId: 1,
+      title: "Electric Daisy Carnival",
+      image: "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/sites/21/2022/02/01171129/EDCLV2021_1024_042113-7803_AGP_768x440.jpg",
+      description: "The annual flagship event, EDC Las Vegas, is held in May at the Las Vegas Motor Speedway, and is currently the largest electronic dance music festival in North America.",
+      address: "7000 N. Las Vegas Blvd",
+      city: "Las Vegas",
+      state: "NV",
+      zipCode: "89115",
+      date: "May 20-22, 2022",
+      createdAt: new Date(),
+      updatedAt: new Date()
     }], {});
   },
 
