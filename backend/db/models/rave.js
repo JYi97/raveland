@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     zipCode: DataTypes.STRING,
     date: DataTypes.STRING
   }, {});
-  Rave.associate = function(models) {
+  Rave.associate = function (models) {
     // associations can be defined here
     const columnMapping = {
       through: "Like",
@@ -20,8 +20,8 @@ module.exports = (sequelize, DataTypes) => {
       as: "likes"
     }
     Rave.belongsToMany(models.User, columnMapping);
-    Rave.belongsTo(models.User, {foreignKey: "userId"});
-    Rave.hasMany(models.Review, { foreignKey: 'raveId' });
+    Rave.belongsTo(models.User, { foreignKey: "userId" });
+    Rave.hasMany(models.Review, { foreignKey: 'raveId', onDelete: "CASCADE", hooks: true });
     Rave.hasMany(models.Like, { foreignKey: 'raveId' });
   };
   return Rave;

@@ -10,7 +10,16 @@ module.exports = {
       image: "https://edm.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cg_faces:center%2Cq_auto:good%2Cw_768/MTY1Mzg0NzM5MDc3NzYwNDY2/dasenergy1.png",
       createdAt: new Date(),
       updatedAt: new Date()
-    }], {});
+    },
+    {
+      userId: 1,
+      raveId: 2,
+      content: "Under the Electric Sky, we come together to celebrate life, love, art, and music.",
+      image: "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2017/12/13120224/EDC-hero-image-972x486.jpg",
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }
+    ], {});
   },
 
   down: (queryInterface, Sequelize) => {
