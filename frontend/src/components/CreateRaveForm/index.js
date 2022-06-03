@@ -68,10 +68,7 @@ const CreateRaveForm = () => {
 
         let createdRave;
         createdRave = await dispatch(createRave(payload))
-        if (createdRave.errors) {
-            setErrors(createdRave.errors)
-            console.log(errors)
-        } else {
+        if (createdRave) {
             history.push(`/`);
             reset();
         }
@@ -145,8 +142,8 @@ const CreateRaveForm = () => {
                     required
                     value={date}
                     onChange={updateDate} />
-            <button type="submit">Post New Rave </button>
-            <button type="button" onClick={handleCancelClick}>Cancel</button>
+                <button type="submit">Post New Rave </button>
+                <button type="button" onClick={handleCancelClick}>Cancel</button>
             </form>
             <ul>
                 {errors.map((error) => <li key={error}>{error}</li>)}

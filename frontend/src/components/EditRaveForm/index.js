@@ -21,6 +21,7 @@ const EditRaveForm = () => {
     const [state, setState] = useState(rave.state);
     const [zipCode, setZipCode] = useState(rave.zipCode);
     const [date, setDate] = useState(rave.date);
+    const [errors, setErrors] = useState([]);
 
     const updateTitle = (e) => setTitle(e.target.value);
     const updateImage = (e) => setImage(e.target.value);
@@ -30,6 +31,29 @@ const EditRaveForm = () => {
     const updateState = (e) => setState(e.target.value);
     const updateZipCode = (e) => setZipCode(e.target.value);
     const updateDate = (e) => setDate(e.target.value);
+
+    useEffect(() => {
+        const errors = [];
+
+        if (title.length < 1) errors.push("Title needs one character")
+        if (title.length >= 100) errors.push("Title must be less than 100 characters")
+        if (address.length < 1) errors.push("Address needs one character")
+        if (address.length >= 100) errors.push("Address must be less than 100 characters")
+        if (city.length < 1) errors.push("City needs one character")
+        if (city.length >= 100) errors.push("City must be less than 100 characters")
+        if (state.length < 1) errors.push("State needs one character")
+        if (state.length >= 100) errors.push("State must be less than 100 characters")
+        if (zipCode.length < 1) errors.push("Zip Code needs one character")
+        if (zipCode.length >= 20) errors.push("Zip Code must be less than 20 characters")
+        if (date.length < 1) errors.push("Date needs one character")
+        if (date.length >= 100) errors.push("Date must be less than 100 characters")
+        setErrors(errors)
+
+    }, [title, image, description, address, city, state, zipCode, date])
+
+    useEffect(() => {
+        dispatch(getRave(id))
+    }, [dispatch, id])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -44,7 +68,8 @@ const EditRaveForm = () => {
             city,
             state,
             zipCode,
-            date
+            date,
+            errors
         };
 
         let updatedRave;
@@ -59,9 +84,7 @@ const EditRaveForm = () => {
         history.push(`/raves/${rave.id}`)
     };
 
-    useEffect(() => {
-        dispatch(getRave(id))
-    }, [dispatch, id])
+
 
     return (
         <section className="edit-form-holder centered middled">
@@ -117,6 +140,9 @@ const EditRaveForm = () => {
                 <button type="submit">Update Rave</button>
                 <button type="button" onClick={handleCancelClick}>Cancel</button>
             </form>
+            <ul>
+                {errors.map((error) => <li key={error}>{error}</li>)}
+            </ul>
         </section>
     );
 };
