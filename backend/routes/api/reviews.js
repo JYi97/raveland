@@ -29,19 +29,15 @@ router.get("/:id", asyncHandler(async (req, res) => {
 // Post a new review
 router.post("/", asyncHandler(async (req, res) => {
     const { userId, raveId, content, image } = req.body;
-    await Review.create({
+    const review = await Review.create({
         userId,
         raveId,
         content,
-        image
+        image,
+        createdAt: new Date(),
+        updatedAt: new Date()
     })
-    const reviews = await Review.findAll({
-        where: {
-            raveId: raveId
-        },
-        order: [["createdAt", "DESC"]]
-    })
-    return res.json(reviews)
+    return res.json(review)
 }))
 
 // Edit a review
