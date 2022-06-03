@@ -17,7 +17,7 @@ const RavePage = () => {
     // console.log(rave)
     const sessionUser = useSelector((state) => state.session.user)
     const reviews = useSelector((state) => state.reviews)
-    console.log(reviews)
+    // console.log(reviews)
     const raveReviews = Object.values(reviews)
 
 

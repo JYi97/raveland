@@ -121,7 +121,7 @@ const reviewReducer = (state = initialState, action) => {
                 ...allReviews
             }
         case ADD_REVIEW:
-            //     // console.log('IN REDUCER ADD ONE CASE - ACTION -> ', action);
+           // console.log('IN REDUCER ADD ONE CASE - ACTION -> ', action);
             if (!state[action.review.id]) {
                 const newState = {
                     ...state,

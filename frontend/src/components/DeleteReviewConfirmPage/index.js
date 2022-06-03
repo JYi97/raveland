@@ -7,7 +7,7 @@ const DeleteReviewConfirmPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
-    console.log(id)
+    // console.log(id)
     const reviews = useSelector((state) => state.reviews);
     const review = reviews[id]
 
