@@ -1,5 +1,5 @@
 function RaveReviews({ reviews }) {
-    console.log(reviews)
+    // console.log(reviews)
     return (
         <>
             <h1>Reviews</h1>

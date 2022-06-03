@@ -28,6 +28,19 @@ module.exports = {
       date: "May 20-22, 2022",
       createdAt: new Date(),
       updatedAt: new Date()
+    },
+    {
+      userId: 1,
+      title: "Hard Summer",
+      image: "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2018/01/11235133/ourworld2.jpg",
+      description: "HARD Summer music festival comes to the NOS Events Center!",
+      address: "689 S. E St",
+      city: "San Bernardino",
+      state: "CA",
+      zipCode: "92408",
+      date: "Jul 29-31, 2022",
+      createdAt: new Date(),
+      updatedAt: new Date()
     }], {});
   },
 
