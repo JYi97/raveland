@@ -5,19 +5,18 @@ import * as ravesActions from '../../store/raves'
 const RavesList = () => {
     const dispatch = useDispatch();
     const allRaves = useSelector((state) => state.raves)
-    // console.log(allRaves)
     const raves = Object.values(allRaves)
-    // console.log(raves)
-
 
     useEffect(() => {
         dispatch(ravesActions.getAllRaves())
     }, [dispatch])
+
     return (
         <>
             <div>
                 <h2>All Raves</h2>
                 <ul>
+                    {/* raves.slice(0,2).map will show only the first 2 */}
                     {raves.map(rave => {
                         return <li key={rave.id}>
                             <div>
