@@ -15,7 +15,7 @@ function RaveReviews({ user, reviews }) {
                     >
                         <h2>{review.content}</h2>
                         <div>
-                            <img src={review.image} alt=''></img>
+                            <img src={review.image} alt='Invalid Pic URL'></img>
                         </div>
                         <div>
                             {user?.id === review.userId && <NavLink to={`/reviews/${review.id}/delete`}>
