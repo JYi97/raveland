@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getAllReviews, createReview } from '../../store/reviews';
 
-const CreateReviewForm = ({raveId}) => {
+const CreateReviewForm = ({ raveId }) => {
     const userId = useSelector((state) => state.session.user.id)
     const dispatch = useDispatch();
     const history = useHistory();
@@ -17,9 +17,10 @@ const CreateReviewForm = ({raveId}) => {
     useEffect(() => {
         const errors = [];
 
-        if (content.length < 1) errors.push("Content must have at least 1 character")
+        if (content.length < 1) errors.push("Tell us how it was!")
+        if (image.length < 1) errors.push("Show others your favorite moment")
         setErrors(errors)
-    }, [content])
+    }, [content, image])
 
     useEffect(() => {
         dispatch(getAllReviews(raveId));
@@ -46,7 +47,6 @@ const CreateReviewForm = ({raveId}) => {
     const reset = () => {
         setContent("");
         setImage("");
-        setErrors(["Content must have at least 1 character"])
     }
 
     const handleCancelClick = (e) => {
@@ -56,6 +56,9 @@ const CreateReviewForm = ({raveId}) => {
     }
     return (
         <section className="new-form-holder centered middled">
+            <ul>
+                {errors.map((error) => <li key={error}>{error}</li>)}
+            </ul>
             <form className="create-review-form" onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -65,16 +68,13 @@ const CreateReviewForm = ({raveId}) => {
                     onChange={updateContent} />
                 <input
                     type="text"
-                    placeholder="Image URL"
+                    placeholder="Must include picture!"
                     required
                     value={image}
                     onChange={updateImage} />
                 <button type="submit">Share your thoughts!</button>
                 <button type="button" onClick={handleCancelClick}>Cancel</button>
             </form>
-            <ul>
-                {errors.map((error) => <li key={error}>{error}</li>)}
-            </ul>
         </section>
     );
 }

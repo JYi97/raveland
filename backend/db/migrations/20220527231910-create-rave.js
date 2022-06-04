@@ -15,7 +15,7 @@ module.exports = {
       },
       title: {
         allowNull: false,
-        type: Sequelize.STRING(100)
+        type: Sequelize.STRING(50)
       },
       image: {
         allowNull: false,
@@ -31,19 +31,19 @@ module.exports = {
       },
       city: {
         allowNull: false,
-        type: Sequelize.STRING(100)
+        type: Sequelize.STRING(50)
       },
       state: {
         allowNull: false,
-        type: Sequelize.STRING(100)
+        type: Sequelize.STRING(2)
       },
       zipCode: {
         allowNull: false,
-        type: Sequelize.STRING(20)
+        type: Sequelize.INTEGER
       },
       date: {
         allowNull: false,
-        type: Sequelize.STRING(100)
+        type: Sequelize.DATEONLY
       },
       createdAt: {
         allowNull: false,

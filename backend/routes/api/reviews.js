@@ -41,20 +41,20 @@ router.post("/", asyncHandler(async (req, res) => {
 }))
 
 // Edit a review
-router.put("/:id", asyncHandler(async (req, res) => {
-    const reviewId = req.params.id
+// router.put("/:id", asyncHandler(async (req, res) => {
+//     const reviewId = req.params.id
 
-    const review = await Review.findByPk(reviewId)
-    const { userId, raveId, content, image } = req.body;
+//     const review = await Review.findByPk(reviewId)
+//     const { userId, raveId, content, image } = req.body;
 
-    const reviewEdited = await review.update({
-        userId,
-        raveId,
-        content,
-        image
-    })
-    return res.json(reviewEdited)
-}))
+//     const reviewEdited = await review.update({
+//         userId,
+//         raveId,
+//         content,
+//         image
+//     })
+//     return res.json(reviewEdited)
+// }))
 
 // Delete a review
 router.delete("/:id", asyncHandler(async (req, res) => {

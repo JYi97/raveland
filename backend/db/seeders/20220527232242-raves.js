@@ -12,7 +12,7 @@ module.exports = {
       city: "Magna",
       state: "UT",
       zipCode: "84044",
-      date: "August 13-14, 2021",
+      date: "2021-08-13",
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -25,7 +25,7 @@ module.exports = {
       city: "Las Vegas",
       state: "NV",
       zipCode: "89115",
-      date: "May 20-22, 2022",
+      date: "2022-05-20",
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -38,7 +38,7 @@ module.exports = {
       city: "San Bernardino",
       state: "CA",
       zipCode: "92408",
-      date: "Jul 29-31, 2022",
+      date: "2022-07-29",
       createdAt: new Date(),
       updatedAt: new Date()
     }], {});

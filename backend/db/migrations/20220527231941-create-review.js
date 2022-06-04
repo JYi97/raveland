@@ -23,6 +23,7 @@ module.exports = {
         type: Sequelize.TEXT
       },
       image: {
+        allowNull: false,
         type: Sequelize.TEXT
       },
       createdAt: {

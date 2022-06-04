@@ -30,20 +30,19 @@ const CreateRaveForm = () => {
     useEffect(() => {
         const errors = [];
 
-        if (title.length < 1) errors.push("Title needs one character")
-        if (title.length >= 100) errors.push("Title must be less than 100 characters")
-        if (address.length < 1) errors.push("Address needs one character")
-        if (address.length >= 100) errors.push("Address must be less than 100 characters")
-        if (city.length < 1) errors.push("City needs one character")
-        if (city.length >= 100) errors.push("City must be less than 100 characters")
-        if (state.length < 1) errors.push("State needs one character")
-        if (state.length >= 100) errors.push("State must be less than 100 characters")
-        if (zipCode.length < 1) errors.push("Zip Code needs one character")
-        if (zipCode.length >= 20) errors.push("Zip Code must be less than 20 characters")
-        if (date.length < 1) errors.push("Date needs one character")
-        if (date.length >= 100) errors.push("Date must be less than 100 characters")
+        if (title.length < 1) errors.push("Please enter the name of Rave")
+        if (title.length > 50) errors.push("Title must be less than 50 characters")
+        if (address.length < 1) errors.push("Please enter the address")
+        if (address.length > 100) errors.push("Address must be less than 100 characters")
+        if (city.length < 1) errors.push("Please enter the city")
+        if (city.length > 50) errors.push("City must be less than 100 characters")
+        if (state.length < 1) errors.push("Please entere the state")
+        if (state.length > 2) errors.push("Please enter just the state's initials")
+        if (zipCode.length < 1) errors.push("Please enter zip code")
+        if (zipCode.length < 5 || zipCode.length > 5 || isNaN(zipCode)) errors.push("Please enter valid zip code")
+        if (date.length < 1) errors.push("Please enter the date of rave")
+        if (!date.includes("-") || date.length < 10 || date.length > 10) errors.push("Please format date to YYYY-MM-DD")
         setErrors(errors)
-
     }, [title, image, description, address, city, state, zipCode, date])
 
     useEffect(() => {
