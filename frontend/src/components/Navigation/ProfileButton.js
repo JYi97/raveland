@@ -38,9 +38,9 @@ function ProfileButton({ user }) {
             </button>
             {showMenu && (
                 <ul className="profile-dropdown">
-                    <li>{user.username}</li>
-                    <li>{user.email}</li>
-                    <li>
+                    <li className="profile-username">{user.username}</li>
+                    <li className="profile-email">{user.email}</li>
+                    <li className="profile-notyou">
                         Not your account?
                         <button onClick={logout}>Log Out</button>
                     </li>

@@ -1,3 +1,10 @@
 .profile-dropdown {
     list-style: none;
 }
+
+.profile-username,
+.profile-email,
+.profile-notyou {
+    color: white;
+}
+

@@ -1,37 +1,42 @@
 /* TODO Add site wide styles */
-.nav-bar {
-    display: flexbox;
-    padding: 15px;
+body {
+    max-width: 80%;
+    margin: auto;
+}
 
+.nav-bar {
+    background-color: black;
+    margin-top: 0;
+    max-width: 80%;
+    text-align: center;
+    margin: auto;
+}
+
+.nav-bar-ul {
+    position: relative;
+    display: inline-block;
 }
 
 .nav-ul-li {
     list-style: none;
-    display: flex;
-    justify-content: space-between;
-
 }
 
-.new-rave-navlink {
-    padding: 10px;
-    color: white;
-    text-decoration: none;
-}
-
-.sign-up-navlink {
-    padding: 10px;
-    color: white;
-    text-decoration: none;
-}
-
-.home-navlink {
-    padding: 10px;
-    color: white;
-    text-decoration: none;
-}
-
+.new-rave-navlink,
+.sign-up-navlink,
+.home-navlink,
 .all-raves-navlink {
     padding: 10px;
     color: white;
     text-decoration: none;
+}
+
+.home-navlink:hover,
+.all-raves-navlink:hover,
+.new-rave-navlink:hover,
+.sign-up-navlink:hover {
+    color: pink;
+}
+
+.sign-up-navlink {
+    padding-right: 20px;
 }
