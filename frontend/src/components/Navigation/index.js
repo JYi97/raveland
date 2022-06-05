@@ -12,25 +12,25 @@ function Navigation({ isLoaded }) {
     if (sessionUser) {
         sessionLinks = (
             <>
-                <ProfileButton user={sessionUser} />
-                <NavLink to="/raves/new">New Rave</NavLink>
+                <NavLink className={"new-rave-navlink"} to="/raves/new">New Rave</NavLink>
+                <ProfileButton className={'profile-button-navlink'} user={sessionUser} />
             </>
         );
     } else {
         sessionLinks = (
             <>
+                <NavLink className={"sign-up-navlink"} to="/signup">Sign Up</NavLink>
                 <LoginFormModal />
-                <NavLink to="/signup">Sign Up</NavLink>
             </>
         );
     }
 
     return (
-        <ul>
+        <ul className='nav-bar'>
             <li className='nav-ul-li'>
+                <NavLink className={"home-navlink"} exact to="/">Home</NavLink>
+                <NavLink className={"all-raves-navlink"} exact to="/raves">All Raves</NavLink>
                 {isLoaded && sessionLinks}
-                <NavLink exact to="/">Home</NavLink>
-                <NavLink exact to="/raves">All Raves</NavLink>
             </li>
         </ul>
     );

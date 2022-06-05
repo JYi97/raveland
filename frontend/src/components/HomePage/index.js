@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import * as ravesActions from '../../store/raves'
+import './HomePage.css'
 
 const HomePage = () => {
     const dispatch = useDispatch();
@@ -44,7 +45,7 @@ const HomePage = () => {
                 <h2>Recent Raves</h2>
                 <ul>
                     {raves.sort(sortByDate) && raves.map(rave => {
-                        return <li key={rave.id}>
+                        return <li className="home-raves-list" key={rave.id}>
                             <NavLink exact to={`raves/${rave.id}`}>
                                 <div>
                                     <img src={rave.image} alt=''></img>

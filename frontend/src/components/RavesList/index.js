@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import * as ravesActions from '../../store/raves'
+import './RavesList.css'
 
 const RavesList = () => {
     const dispatch = useDispatch();
@@ -25,9 +26,8 @@ const RavesList = () => {
             <div>
                 <h2>All Raves</h2>
                 <ul>
-                    {/* raves.slice(0,2).map will show only the first 2 */}
                     {raves.sort(sortByName) && raves.map(rave => {
-                        return <li key={rave.id}>
+                        return <li className="ravesList-raves" key={rave.id}>
                             <div>
                                 {rave.title}
                             </div>
