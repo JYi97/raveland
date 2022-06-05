@@ -10,6 +10,28 @@ const HomePage = () => {
     const raves = Object.values(allRaves)
     // console.log(raves)
 
+    function sortByDate(a, b) {
+        if (a.date.slice(0, 4) < b.date.slice(0,4)) {
+            return 1;
+        }
+        if (a.date.slice(0, 4) > b.date.slice(0, 4)) {
+            return -1;
+        }
+        if (a.date.slice(0, 4) === b.date.slice(0,4) && a.date.slice(5, 7) < b.date.slice(5,7)) {
+            return 1;
+        }
+        if (a.date.slice(0, 4) === b.date.slice(0,4) && a.date.slice(5, 7) > b.date.slice(5,7)) {
+            return -1;
+        }
+        if (a.date.slice(0, 4) === b.date.slice(0,4) && a.date.slice(5, 7) === b.date.slice(5,7) && a.date.slice(8, 10) < b.date.slice(8,10)) {
+            return 1;
+        }
+        if (a.date.slice(0, 4) === b.date.slice(0,4) && a.date.slice(5, 7) === b.date.slice(5,7) && a.date.slice(8, 10) > b.date.slice(8,10)) {
+            return -1;
+        }
+        return 0
+    }
+
 
     useEffect(() => {
         dispatch(ravesActions.getAllRaves())
@@ -21,7 +43,7 @@ const HomePage = () => {
             <div>
                 <h2>Recent Raves</h2>
                 <ul>
-                    {raves.map(rave => {
+                    {raves.sort(sortByDate) && raves.map(rave => {
                         return <li key={rave.id}>
                             <NavLink exact to={`raves/${rave.id}`}>
                                 <div>

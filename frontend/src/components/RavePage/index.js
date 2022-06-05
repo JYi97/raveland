@@ -10,7 +10,7 @@ import CreateReviewForm from "../CreateReviewForm"
 const RavePage = () => {
     const dispatch = useDispatch();
     const raves = useSelector((state) => state.raves)
-    // console.log(raves)
+    console.log(raves)
     const { id } = useParams()
     // console.log(id)
     const rave = Object.values(raves)
@@ -19,7 +19,6 @@ const RavePage = () => {
     const reviews = useSelector((state) => state.reviews)
     // console.log(reviews)
     const raveReviews = Object.values(reviews)
-
 
     useEffect(() => {
         dispatch(ravesActions.getRave(id))

@@ -6,6 +6,15 @@ const RavesList = () => {
     const dispatch = useDispatch();
     const allRaves = useSelector((state) => state.raves)
     const raves = Object.values(allRaves)
+    function sortByName(a,b) {
+        if (a.title < b.title) {
+            return -1
+        }
+        if (a.title > b.title) {
+            return 1
+        }
+        return 0
+    }
 
     useEffect(() => {
         dispatch(ravesActions.getAllRaves())
@@ -17,7 +26,7 @@ const RavesList = () => {
                 <h2>All Raves</h2>
                 <ul>
                     {/* raves.slice(0,2).map will show only the first 2 */}
-                    {raves.map(rave => {
+                    {raves.sort(sortByName) && raves.map(rave => {
                         return <li key={rave.id}>
                             <div>
                                 {rave.title}
@@ -29,9 +38,9 @@ const RavesList = () => {
                                 <span>Description:</span> {rave.description}
                             </div>
                             <div>
-                                <span>Address:</span> {rave.address}.
+                                <span>Address:</span> {rave.address}
                                 <span> {rave.city}, </span>
-                                <span> {rave.state}, </span>
+                                <span> {rave.state.toUpperCase()}, </span>
                                 <span> {rave.zipCode} </span>
                             </div>
                             <div>
