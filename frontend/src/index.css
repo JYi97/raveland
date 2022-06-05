@@ -1,1 +1,37 @@
 /* TODO Add site wide styles */
+.nav-bar {
+    display: flexbox;
+    padding: 15px;
+
+}
+
+.nav-ul-li {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.new-rave-navlink {
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.sign-up-navlink {
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.home-navlink {
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.all-raves-navlink {
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}

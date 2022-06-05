@@ -41,6 +41,7 @@ function ProfileButton({ user }) {
                     <li>{user.username}</li>
                     <li>{user.email}</li>
                     <li>
+                        Not your account?
                         <button onClick={logout}>Log Out</button>
                     </li>
                 </ul>
