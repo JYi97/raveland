@@ -79,3 +79,13 @@ heroku run npm run sequelize db:seed:undo:all
 heroku run npm run sequelize db:migrate:undo:all
 heroku run npm run sequelize db:migrate
 heroku run npm run sequelize db:seed:all
+
+Created custom scripts
+
+Reseed backend
+In backend root,
+npm run reseed
+
+Reseed Heroku
+In main root of project,
+npm run heroku-reseed
