@@ -1,8 +1,14 @@
 /* TODO Add site wide styles */
+
+html {
+    background-color: silver;
+}
+
 body {
     max-width: 80%;
     margin: 0 auto;
     text-align: center;
+    background-color: white;
 }
 
 .nav-bar {
@@ -15,6 +21,7 @@ body {
 .nav-bar-ul {
     position: relative;
     display: inline-block;
+    text-align: center;
 }
 
 .nav-ul-li {
@@ -28,6 +35,12 @@ body {
     padding: 10px;
     color: white;
     text-decoration: none;
+}
+
+.nav-bar-raveland {
+    color: white;
+    position: relative;
+    right: 30rem;
 }
 
 .home-navlink:hover,
