@@ -1,3 +1,7 @@
 .signup-form-page {
     background-color: plum;
 }
+
+.signup-form-errors {
+    list-style: none;
+}

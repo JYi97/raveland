@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { editRave, getRave } from '../../store/raves';
 import { useHistory, useParams } from 'react-router-dom';
+import './EditRaveForm.css'
 
 
 const EditRaveForm = () => {
@@ -38,7 +39,6 @@ const EditRaveForm = () => {
         if (title.length < 1) errors.push("Please enter the name of Rave")
         if (title.length > 50) errors.push("Title must be less than 50 characters")
         if (image.length < 1) errors.push("Please enter a picture of rave")
-        if (image.length > 0 && !image.includes(".jpg")) errors.push("Please enter valid image")
         if (description.length < 1) errors.push("Please enter description")
         if (address.length < 1) errors.push("Please enter the address")
         if (address.length > 100) errors.push("Address must be less than 100 characters")
@@ -52,7 +52,7 @@ const EditRaveForm = () => {
         if (date.length < 1) errors.push("Please enter the date of rave")
         if (!date.includes("-") || date.length < 10 || date.length > 10) errors.push("Please format date to YYYY-MM-DD")
         if (date.slice(5, 7) > 12) errors.push("Please enter valid month")
-        if (date.slice(8,10) > 31) errors.push("Pleaese enter valid day")
+        if (date.slice(8, 10) > 31) errors.push("Pleaese enter valid day")
         setErrors(errors)
     }, [title, image, description, address, city, state, zipCode, date])
 
@@ -93,61 +93,77 @@ const EditRaveForm = () => {
 
     return (
         <section className="edit-form-holder centered middled">
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder={rave.title}
-                    required
-                    value={title}
-                    onChange={updateTitle} />
-                <input
-                    type="text"
-                    placeholder={rave.image}
-                    required
-                    value={image}
-                    onChange={updateImage} />
-                <input
-                    type="text"
-                    placeholder={rave.description}
-                    required
-                    value={description}
-                    onChange={updateDescription} />
-                <input
-                    type="text"
-                    placeholder={rave.address}
-                    required
-                    value={address}
-                    onChange={updateAddress} />
-                <input
-                    type="text"
-                    placeholder={rave.city}
-                    required
-                    value={city}
-                    onChange={updateCity} />
-                <input
-                    type="text"
-                    placeholder={rave.state}
-                    required
-                    value={state}
-                    onChange={updateState} />
-                <input
-                    type="text"
-                    placeholder={rave.zipCode}
-                    required
-                    value={zipCode}
-                    onChange={updateZipCode} />
-                <input
-                    type="text"
-                    placeholder={rave.date}
-                    required
-                    value={date}
-                    onChange={updateDate} />
+            <form className="edit-rave-form" onSubmit={handleSubmit}>
+                <div>
+                    <input
+                        type="text"
+                        placeholder={rave.title}
+                        required
+                        value={title}
+                        onChange={updateTitle} />
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        placeholder={rave.image}
+                        required
+                        value={image}
+                        onChange={updateImage} />
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        placeholder={rave.description}
+                        required
+                        value={description}
+                        onChange={updateDescription} />
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        placeholder={rave.address}
+                        required
+                        value={address}
+                        onChange={updateAddress} />
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        placeholder={rave.city}
+                        required
+                        value={city}
+                        onChange={updateCity} />
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        placeholder={rave.state}
+                        required
+                        value={state}
+                        onChange={updateState} />
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        placeholder={rave.zipCode}
+                        required
+                        value={zipCode}
+                        onChange={updateZipCode} />
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        placeholder={rave.date}
+                        required
+                        value={date}
+                        onChange={updateDate} />
+                </div>
                 <button type="submit">Update Rave</button>
                 <button type="button" onClick={handleCancelClick}>Cancel</button>
+                <ul>
+                    {errors.map((error) => <li className='edit-rave-errors' key={error}>{error}</li>)}
+                </ul>
             </form>
-            <ul>
-                {errors.map((error) => <li key={error}>{error}</li>)}
-            </ul>
         </section>
     );
 };

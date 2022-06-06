@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { deleteReview, getReview } from "../../store/reviews";
+import './DeleteReviewConfirmPage.css'
 
 const DeleteReviewConfirmPage = () => {
     const dispatch = useDispatch();
@@ -28,8 +29,8 @@ const DeleteReviewConfirmPage = () => {
 
     return (
         <>
-            <div>
-                Are you sure you want to delete?
+            <div className="delete-review-confirm">
+                Are you sure you want to this review? No one will be able to see your review again
             </div>
             <div>
                 <button onClick={handleDeleteClick}>YES DELETE REVIEW</button>
