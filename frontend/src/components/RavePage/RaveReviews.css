@@ -1,0 +1,16 @@
+.rave-reviews {
+    list-style: none;
+}
+
+.rave-edit-link,
+.rave-delete-link {
+    text-decoration: none;
+}
+
+.rave-edit-link {
+    color: blue;
+}
+
+.rave-delete-link {
+    color: red;
+}

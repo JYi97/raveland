@@ -1,3 +1,17 @@
-.home-raves-list{
+.home-raves-list {
     list-style: none;
+    display: inline-block;
+    background-color: lightgoldenrodyellow;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.recent-raves-header {
+    display: inline-block;
+    text-align: center;
+}
+
+.ul-recent-raves,
+.ul-all-raves {
+    padding: 0;
 }

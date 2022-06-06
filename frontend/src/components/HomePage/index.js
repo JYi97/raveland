@@ -12,22 +12,22 @@ const HomePage = () => {
     // console.log(raves)
 
     function sortByDate(a, b) {
-        if (a.date.slice(0, 4) < b.date.slice(0,4)) {
+        if (a.date.slice(0, 4) < b.date.slice(0, 4)) {
             return 1;
         }
         if (a.date.slice(0, 4) > b.date.slice(0, 4)) {
             return -1;
         }
-        if (a.date.slice(0, 4) === b.date.slice(0,4) && a.date.slice(5, 7) < b.date.slice(5,7)) {
+        if (a.date.slice(0, 4) === b.date.slice(0, 4) && a.date.slice(5, 7) < b.date.slice(5, 7)) {
             return 1;
         }
-        if (a.date.slice(0, 4) === b.date.slice(0,4) && a.date.slice(5, 7) > b.date.slice(5,7)) {
+        if (a.date.slice(0, 4) === b.date.slice(0, 4) && a.date.slice(5, 7) > b.date.slice(5, 7)) {
             return -1;
         }
-        if (a.date.slice(0, 4) === b.date.slice(0,4) && a.date.slice(5, 7) === b.date.slice(5,7) && a.date.slice(8, 10) < b.date.slice(8,10)) {
+        if (a.date.slice(0, 4) === b.date.slice(0, 4) && a.date.slice(5, 7) === b.date.slice(5, 7) && a.date.slice(8, 10) < b.date.slice(8, 10)) {
             return 1;
         }
-        if (a.date.slice(0, 4) === b.date.slice(0,4) && a.date.slice(5, 7) === b.date.slice(5,7) && a.date.slice(8, 10) > b.date.slice(8,10)) {
+        if (a.date.slice(0, 4) === b.date.slice(0, 4) && a.date.slice(5, 7) === b.date.slice(5, 7) && a.date.slice(8, 10) > b.date.slice(8, 10)) {
             return -1;
         }
         return 0
@@ -41,26 +41,24 @@ const HomePage = () => {
 
     return (
         <>
-            <div>
-                <h2>Recent Raves</h2>
-                <ul>
-                    {raves.sort(sortByDate) && raves.map(rave => {
-                        return <li className="home-raves-list" key={rave.id}>
-                            <NavLink exact to={`raves/${rave.id}`}>
-                                <div>
-                                    <img src={rave.image} alt=''></img>
-                                </div>
-                                <div>
-                                    {rave.title}
-                                </div>
-                                <div>
-                                    <span>Date: </span> {rave.date}
-                                </div>
-                            </NavLink>
-                        </li>
-                    })}
-                </ul>
-            </div>
+            <h2 className="recent-raves-header">Recent Raves</h2>
+            <ul className="ul-recent-raves">
+                {raves.sort(sortByDate) && raves.slice(0, 16) && raves.map(rave => {
+                    return <li className="home-raves-list" key={rave.id}>
+                        <NavLink exact to={`raves/${rave.id}`}>
+                            <div>
+                                <img src={rave.image} alt=''></img>
+                            </div>
+                            <div>
+                                {rave.title}
+                            </div>
+                            <div>
+                                <span>Date: </span> {rave.date}
+                            </div>
+                        </NavLink>
+                    </li>
+                })}
+            </ul>
         </>
     )
 }

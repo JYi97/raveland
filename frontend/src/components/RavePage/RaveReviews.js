@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-
+import './RaveReviews.css'
 function RaveReviews({ user, reviews }) {
     // console.log(reviews)
 
@@ -9,7 +9,7 @@ function RaveReviews({ user, reviews }) {
             <h1>Reviews</h1>
             <ul>
                 {reviews?.map((review) => {
-                    return <li
+                    return <li className="rave-reviews"
                         id={review.id}
                         key={review.id}
                     >
