@@ -31,7 +31,7 @@ module.exports = {
       userId: 3,
       raveId: 4,
       content: "I had a really fun time at this rave but my phone got stolen :(.",
-      image: "https://www.google.com/search?q=beyond+wonderland+2019&rlz=1C1ONGR_enUS932US932&sxsrf=ALiCzsZlmhg3IVL9T38FlRaSjdYkMKrIlA:1654519300682&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiM_8LZ7Jj4AhWxnI4IHe6yCNcQ_AUoAXoECAIQAw&biw=1745&bih=800&dpr=1.1#imgrc=HqJE7PgwWkT5OM",
+      image: "https://www.respectmyregion.com/wp-content/uploads/2021/10/674T7vA-1000x667.jpeg",
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -39,7 +39,7 @@ module.exports = {
       userId: 3,
       raveId: 5,
       content: "Learned my lesson last time and made sure my phone was with me at all times so we did not get pickpocketed.",
-      image: "https://edm.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cg_faces:center%2Cq_auto:good%2Cw_768/MTY1Mzg0NzM5MDc3NzYwNDY2/dasenergy1.png",
+      image: "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/sites/52/2019/07/05130254/ringmaster-sq.jpg",
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -79,7 +79,7 @@ module.exports = {
       userId: 3,
       raveId: 10,
       content: "This was my first show that I went to and this is when I started to become a huge fan of raves and attended more afterwards.",
-      image: "https://www.papercitymag.com/wp-content/uploads/2021/12/new-banner_84bc2098-0e58-4954-84b0-3f1856e2d3da_1800x.jpeg",
+      image: "https://i.pinimg.com/originals/e0/47/e2/e047e22ad2f5eb75c471b7453d73dfe6.jpg",
       createdAt: new Date(),
       updatedAt: new Date()
     },

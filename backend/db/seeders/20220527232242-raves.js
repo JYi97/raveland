@@ -123,7 +123,7 @@ module.exports = {
     {
       userId: 3,
       title: "Illenium",
-      image: "https://static.tixr.com/static/images/external/img/thephantomprjkt/10777/71/mobile/nye-at-the-beach-w-illenium.jpg",
+      image: "https://dancingastro-wpengine.netdna-ssl.com/wp-content/uploads/2018/10/illenium-NYE-flyer.jpg",
       description: "Illenium comes to perform on Huntington Beach for New Year's Even with special guests Armnhmr and Ookay!",
       address: "21601 Pacific Coast Hwy",
       city: "Huntington Beach",
