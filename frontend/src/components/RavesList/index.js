@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import * as ravesActions from '../../store/raves'
 import './RavesList.css'
+import { NavLink } from "react-router-dom"
 
 const RavesList = () => {
     const dispatch = useDispatch();
@@ -26,24 +27,21 @@ const RavesList = () => {
             <ul className="ul-all-raves">
                 {raves.sort(sortByName) && raves.map(rave => {
                     return <li className="ravesList-raves" key={rave.id}>
-                        <h3>
+                        <h2 className="raves-list-title">
                             {rave.title}
-                        </h3>
+                        </h2>
                         <div>
-                            <img src={rave.image} alt=''></img>
+                            <img className="all-raves-page-image" src={rave.image} alt=''></img>
                         </div>
                         <div>
-                            <span>Description:</span> {rave.description}
+                            <span className="all-raves-page-description">{rave.description}</span>
                         </div>
                         <div>
-                            <span>Address:</span> {rave.address}
-                            <span> {rave.city}, </span>
-                            <span> {rave.state.toUpperCase()}, </span>
-                            <span> {rave.zipCode} </span>
+                            <span className="all-raves-page-date">Date: {rave.date}</span>
                         </div>
-                        <div>
-                            <span>Date: </span> {rave.date}
-                        </div>
+                        <NavLink className={'see-details-link'} exact to={`raves/${rave.id}`}>
+                            See more details
+                        </NavLink>
                     </li>
                 })}
             </ul>
