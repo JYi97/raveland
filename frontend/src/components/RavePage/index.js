@@ -6,11 +6,12 @@ import { NavLink } from "react-router-dom"
 import { getAllReviews } from '../../store/reviews'
 import RaveReviews from "./RaveReviews"
 import CreateReviewForm from "../CreateReviewForm"
+import './RaveReviews.css'
 
 const RavePage = () => {
     const dispatch = useDispatch();
     const raves = useSelector((state) => state.raves)
-    console.log(raves)
+    // console.log(raves)
     const { id } = useParams()
     // console.log(id)
     const rave = Object.values(raves)
@@ -28,20 +29,20 @@ const RavePage = () => {
     return (
         <>
             <div>
-                <h2>{rave[0].title}</h2>
-                <div>
-                    {sessionUser?.id === rave[0].userId && <NavLink to={`/raves/${rave[0].id}/edit`}>
-                        Edit
-                    </NavLink>}
-                </div>
-                <div>
-                    {sessionUser?.id === rave[0].userId && <NavLink to={`/raves/${rave[0].id}/delete`}>
-                        Delete
-                    </NavLink>}
-                </div>
+                <h2>
+                    {rave[0].title}
+                    <span>
+                        {sessionUser?.id === rave[0].userId && <NavLink className="rave-edit-link" to={`/raves/${rave[0].id}/edit`}>
+                            Edit
+                        </NavLink>}
+                        {sessionUser?.id === rave[0].userId && <NavLink className="rave-delete-link" to={`/raves/${rave[0].id}/delete`}>
+                            Delete
+                        </NavLink>}
+                    </span>
+                </h2>
                 <div><img src={rave[0].image} alt=''></img></div>
                 {sessionUser ? <div>
-                    Add a review:
+                    Did you go?
                 </div> : <div> Log in or Sign Up to share your experience </div>}
                 {sessionUser && <div>
                     <CreateReviewForm raveId={id} />

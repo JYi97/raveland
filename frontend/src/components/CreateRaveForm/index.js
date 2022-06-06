@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getAllRaves, createRave } from '../../store/raves';
+import './CreateRaveForm.css'
 
 const CreateRaveForm = () => {
     const userId = useSelector((state) => state.session.user.id)
@@ -151,7 +152,7 @@ const CreateRaveForm = () => {
                 <button type="button" onClick={handleCancelClick}>Cancel</button>
             </form>
             <ul>
-                {errors.map((error) => <li key={error}>{error}</li>)}
+                {errors.map((error) => <li className='errors-list' key={error}>{error}</li>)}
             </ul>
         </section>
     );

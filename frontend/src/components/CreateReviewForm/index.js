@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getAllReviews, createReview } from '../../store/reviews';
+import './CreateReviewForm.css'
 
 const CreateReviewForm = ({ raveId }) => {
     const userId = useSelector((state) => state.session.user.id)
@@ -56,8 +57,8 @@ const CreateReviewForm = ({ raveId }) => {
     }
     return (
         <section className="new-form-holder centered middled">
-            <ul>
-                {errors.map((error) => <li key={error}>{error}</li>)}
+            <ul className='ul-createform-errors'>
+                {errors.map((error) => <li className='review-errors' key={error}>{error}</li>)}
             </ul>
             <form className="create-review-form" onSubmit={handleSubmit}>
                 <input
