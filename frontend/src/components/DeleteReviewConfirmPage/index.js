@@ -17,6 +17,11 @@ const DeleteReviewConfirmPage = () => {
         history.push(`/raves/${review.raveId}`)
     }
 
+    const handleCancelClick = async (e) => {
+        e.preventDefault();
+        history.push(`/`)
+    }
+
     useEffect(() => {
         dispatch(getReview(id))
     }, [dispatch, id])
@@ -29,6 +34,9 @@ const DeleteReviewConfirmPage = () => {
             <div>
                 <button onClick={handleDeleteClick}>YES DELETE REVIEW</button>
             </div>
+            <span><button onClick={handleCancelClick}>NO DON'T DELETE IT</button>
+            </span>
+
         </>
     )
 }

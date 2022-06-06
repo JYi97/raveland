@@ -66,10 +66,11 @@
 }
 
 .rave-reviews-delete-review {
+    display: flex;
     text-decoration: none;
     color: navy;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
+    width: 20px;
 }
 
 .rave-reviews-delete-review:hover {

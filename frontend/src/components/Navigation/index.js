@@ -30,7 +30,6 @@ function Navigation({ isLoaded }) {
             <div className='nav-bar'>
                 <ul className='nav-bar-ul'>
                     <li className='nav-ul-li'>
-                        <span className='nav-bar-raveland'>RaveLand</span>
                         <NavLink className={"home-navlink"} exact to="/">Home</NavLink>
                         <NavLink className={"all-raves-navlink"} exact to="/raves">All Raves</NavLink>
                         {isLoaded && sessionLinks}
