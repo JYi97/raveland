@@ -20,5 +20,14 @@
 .rave-image {
     aspect-ratio: 16/9;
     flex: 0 0 25%;
-    height: 300px;
+    height: 350px;
+}
+
+.homepage-image {
+    max-width: auto;
+    margin: auto;
+}
+
+.homepage-title {
+    margin-top: 10px;
 }
