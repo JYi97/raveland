@@ -21,7 +21,6 @@ body {
 .nav-bar-ul {
     position: relative;
     display: inline-block;
-    text-align: center;
 }
 
 .nav-ul-li {
@@ -35,14 +34,10 @@ body {
     padding: 10px;
     color: white;
     text-decoration: none;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 .nav-bar-raveland {
     color: white;
-    position: relative;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    right: 40rem;
 }
 
 .home-navlink:hover,

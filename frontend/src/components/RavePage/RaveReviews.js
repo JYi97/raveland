@@ -13,15 +13,15 @@ function RaveReviews({ user, reviews }) {
                         id={review.id}
                         key={review.id}
                     >
-                        <div className="rave-reviews-content">{review.content}</div>
                         <div>
                             <img className="rave-reviews-image" src={review.image} alt='Invalid Pic URL'></img>
                         </div>
-                        <div>
+                        <div className="rave-reviews-content">{review.content}</div>
+                        <span>
                             {user?.id === review.userId && <NavLink className={'rave-reviews-delete-review'} to={`/reviews/${review.id}/delete`}>
                                 Delete
                             </NavLink>}
-                        </div>
+                        </span>
                     </li>
                 })}
             </ul>
