@@ -31,38 +31,44 @@ function LoginForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="login-form-page" onSubmit={handleSubmit}>
             <ul>
                 {errors.map((error, idx) => (
-                    <li key={idx}>{error}</li>
+                    <li className="login-form-errors" key={idx}>{error}</li>
                 ))}
             </ul>
-            <label>
-                Username or Email
-                <input
-                    type="text"
-                    value={credential}
-                    onChange={(e) => setCredential(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Password
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-            </label>
+            <div>
+                <label>
+                    Please enter your Username or Email:
+                    <input
+                        type="text"
+                        value={credential}
+                        onChange={(e) => setCredential(e.target.value)}
+                        required
+                    />
+                </label>
+            </div>
+            <div>
+
+                <label>
+                    Please enter your password:
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </label>
+            </div>
+
             <button type="submit">Log In</button>
-            <span>
+            <div>
                 <button type="submit"
                     onClick={demoUser}
                 >
                     Try as a demo user
                 </button>
-            </span>
+            </div>
         </form>
     );
 }

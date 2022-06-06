@@ -47,7 +47,7 @@ const CreateRaveForm = () => {
         if (date.length < 1) errors.push("Please enter the date of rave")
         if (!date.includes("-") || date.length < 10 || date.length > 10) errors.push("Please format date to YYYY-MM-DD")
         if (date.slice(5, 7) > 12) errors.push("Please enter valid month")
-        if (date.slice(8,10) > 31) errors.push("Pleaese enter valid day")
+        if (date.slice(8, 10) > 31) errors.push("Pleaese enter valid day")
         setErrors(errors)
     }, [title, image, description, address, city, state, zipCode, date])
 
@@ -99,60 +99,78 @@ const CreateRaveForm = () => {
     return (
         <section className="new-form-holder centered middled">
             <form className="create-rave-form" onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Title"
-                    required
-                    value={title}
-                    onChange={updateTitle} />
-                <input
-                    type="text"
-                    placeholder="Image URL"
-                    required
-                    value={image}
-                    onChange={updateImage} />
-                <input
-                    type="text"
-                    placeholder="Description"
-                    required
-                    value={description}
-                    onChange={updateDescription} />
-                <input
-                    type="text"
-                    placeholder="Address"
-                    required
-                    value={address}
-                    onChange={updateAddress} />
-                <input
-                    type="text"
-                    placeholder="City"
-                    required
-                    value={city}
-                    onChange={updateCity} />
-                <input
-                    type="text"
-                    placeholder="State"
-                    required
-                    value={state}
-                    onChange={updateState} />
-                <input
-                    type="text"
-                    placeholder="Zip Code"
-                    required
-                    value={zipCode}
-                    onChange={updateZipCode} />
-                <input
-                    type="text"
-                    placeholder="Date"
-                    required
-                    value={date}
-                    onChange={updateDate} />
-                <button type="submit">Post New Rave </button>
-                <button type="button" onClick={handleCancelClick}>Cancel</button>
+                <div>
+                    <input
+                        type="text"
+                        placeholder="Title"
+                        required
+                        value={title}
+                        onChange={updateTitle} />
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        placeholder="Image URL"
+                        required
+                        value={image}
+                        onChange={updateImage} />
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        placeholder="Description"
+                        required
+                        value={description}
+                        onChange={updateDescription} />
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        placeholder="Address"
+                        required
+                        value={address}
+                        onChange={updateAddress} />
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        placeholder="City"
+                        required
+                        value={city}
+                        onChange={updateCity} />
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        placeholder="State"
+                        required
+                        value={state}
+                        onChange={updateState} />
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        placeholder="Zip Code"
+                        required
+                        value={zipCode}
+                        onChange={updateZipCode} />
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        placeholder="Date"
+                        required
+                        value={date}
+                        onChange={updateDate} />
+                </div>
+                <div>
+                    <button type="submit">Post New Rave </button>
+                    <button type="button" onClick={handleCancelClick}>Cancel</button>
+                    <ul>
+                        {errors.map((error) => <li className='errors-list' key={error}>{error}</li>)}
+                    </ul>
+                </div>
             </form>
-            <ul>
-                {errors.map((error) => <li className='errors-list' key={error}>{error}</li>)}
-            </ul>
         </section>
     );
 };
