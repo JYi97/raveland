@@ -44,7 +44,7 @@ const HomePage = () => {
         <h1 className="home-page-welcome">Welcome to RaveLand! Where you can share your experiences with others.</h1>
             <h2 className="recent-raves-header">Most Recent Raves</h2>
             <ul className="ul-recent-raves">
-                {raves.sort(sortByDate) && raves.slice(0, 15) && raves.map(rave => {
+                {raves.sort(sortByDate) && raves.slice(0, 10) && raves.map(rave => {
                     return <li className="home-raves-list" key={rave.id}>
                         <img className="rave-image" src={rave.image} alt=''></img>
                         <div className="rave-title">
