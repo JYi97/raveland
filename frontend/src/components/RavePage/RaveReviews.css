@@ -7,10 +7,76 @@
     text-decoration: none;
 }
 
-.rave-edit-link {
-    color: blue;
+.rave-edit-link,
+.rave-delete-link {
+    color: navy;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 }
 
-.rave-delete-link {
+.rave-edit-link:hover {
+    color: magenta
+}
+
+.rave-delete-link:hover {
+    color: red
+}
+
+.rave-page-image {
+    aspect-ratio: 16/9;
+    flex: 0 0 25%;
+    height: 50rem;
+    width: 70rem;
+}
+
+.rave-page-title {
+    font-family: cursive;
+    color: orange;
+}
+
+.rave-page-description {
+    padding-top: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.rave-page-share-experience {
+    padding-top: 10px;
+}
+
+.rave-page-reviews-container {
+    background-color: bisque;
+}
+
+.rave-page-image-container {
+    background-color: bisque;
+}
+
+.rave-page-description,
+.rave-page-address,
+.rave-page-city {
+    color: navy;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.rave-reviews-image,
+.rave-reviews-content {
+    display: flex;
+}
+
+.rave-reviews-delete-review {
+    text-decoration: none;
+    color: navy;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.rave-reviews-delete-review:hover {
     color: red;
+}
+
+.rave-reviews-content {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 }

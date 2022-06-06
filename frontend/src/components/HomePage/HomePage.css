@@ -31,3 +31,23 @@
 .homepage-title {
     margin-top: 10px;
 }
+
+.recent-raves-header {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: darkblue;
+}
+
+.see-details-link {
+    text-decoration: none;
+    color: navy;
+}
+
+.see-details-link:hover {
+    color: darkmagenta;
+}
+
+.rave-title,
+.rave-date,
+.see-details-link {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}

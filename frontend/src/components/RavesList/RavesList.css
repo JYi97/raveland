@@ -1,3 +1,32 @@
 .ravesList-raves {
     list-style: none;
+    background-color: bisque;
+    margin-top: 5px;
+}
+
+.all-raves-page-image {
+    aspect-ratio: 16/9;
+    flex: 0 0 25%;
+    height: 30rem;
+    width: 50rem;
+}
+
+.see-details-link {
+    text-decoration: none;
+    color: navy;
+}
+
+.see-details-link:hover {
+    color: darkmagenta;
+}
+
+.raves-list-title {
+    font-family: cursive;
+    color: magenta;
+}
+
+.all-raves-page-description,
+.all-raves-page-date {
+    font-family: sans-serif;
+    color: navy;
 }

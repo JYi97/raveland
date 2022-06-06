@@ -19,7 +19,7 @@ const CreateReviewForm = ({ raveId }) => {
         const errors = [];
 
         if (content.length < 1) errors.push("Tell us how it was!")
-        if (image.length < 1) errors.push("Show others your favorite moment")
+        if (image.length < 1) errors.push("Show others your favorite moment!")
         setErrors(errors)
     }, [content, image])
 
@@ -63,7 +63,7 @@ const CreateReviewForm = ({ raveId }) => {
             <form className="create-review-form" onSubmit={handleSubmit}>
                 <input
                     type="text"
-                    placeholder="Share your experience!"
+                    placeholder="Must be filled out!"
                     required
                     value={content}
                     onChange={updateContent} />

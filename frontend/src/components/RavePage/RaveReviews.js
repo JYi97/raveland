@@ -6,19 +6,19 @@ function RaveReviews({ user, reviews }) {
 
     return (
         <>
-            <h1>Reviews</h1>
+            <h3>Reviews</h3>
             <ul>
                 {reviews?.map((review) => {
                     return <li className="rave-reviews"
                         id={review.id}
                         key={review.id}
                     >
-                        <h2>{review.content}</h2>
+                        <div className="rave-reviews-content">{review.content}</div>
                         <div>
-                            <img src={review.image} alt='Invalid Pic URL'></img>
+                            <img className="rave-reviews-image" src={review.image} alt='Invalid Pic URL'></img>
                         </div>
                         <div>
-                            {user?.id === review.userId && <NavLink to={`/reviews/${review.id}/delete`}>
+                            {user?.id === review.userId && <NavLink className={'rave-reviews-delete-review'} to={`/reviews/${review.id}/delete`}>
                                 Delete
                             </NavLink>}
                         </div>
