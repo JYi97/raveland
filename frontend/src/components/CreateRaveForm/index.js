@@ -34,7 +34,6 @@ const CreateRaveForm = () => {
         if (title.length < 1) errors.push("Please enter the name of Rave")
         if (title.length > 50) errors.push("Title must be less than 50 characters")
         if (image.length < 1) errors.push("Please enter a picture of rave")
-        if (image.length > 0 && !image.includes(".jpg")) errors.push("Please enter valid image")
         if (description.length < 1) errors.push("Please enter description")
         if (address.length < 1) errors.push("Please enter the address")
         if (address.length > 100) errors.push("Address must be less than 100 characters")

@@ -45,16 +45,15 @@ const HomePage = () => {
             <ul className="ul-recent-raves">
                 {raves.sort(sortByDate) && raves.slice(0, 16) && raves.map(rave => {
                     return <li className="home-raves-list" key={rave.id}>
+                        <img className="rave-image" src={rave.image} alt=''></img>
+                        <div>
+                            {rave.title}
+                        </div>
+                        <div>
+                            <span>Date: </span> {rave.date}
+                        </div>
                         <NavLink exact to={`raves/${rave.id}`}>
-                            <div>
-                                <img src={rave.image} alt=''></img>
-                            </div>
-                            <div>
-                                {rave.title}
-                            </div>
-                            <div>
-                                <span>Date: </span> {rave.date}
-                            </div>
+                            See details
                         </NavLink>
                     </li>
                 })}

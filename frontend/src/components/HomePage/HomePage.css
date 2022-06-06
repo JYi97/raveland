@@ -4,14 +4,21 @@
     background-color: lightgoldenrodyellow;
     text-align: center;
     padding-bottom: 15px;
+    padding-right: .5rem;
+    padding-left: .5rem;
 }
 
-.recent-raves-header {
+.ul-recent-raves {
     display: inline-block;
-    text-align: center;
+    padding: 0;
 }
 
-.ul-recent-raves,
 .ul-all-raves {
     padding: 0;
+}
+
+.rave-image {
+    aspect-ratio: 16/9;
+    flex: 0 0 25%;
+    height: 300px;
 }
