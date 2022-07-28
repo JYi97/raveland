@@ -29,12 +29,26 @@ const addOneReview = (review) => {
 
 // thunk action creator for creating a review
 export const createReview = (data) => async dispatch => {
+    const {
+        userId,
+        raveId,
+        image,
+        content
+    } = data
+
+    const formData = new FormData();
+    formData.append("userId", userId);
+    formData.append("raveId", raveId);
+    formData.append("content", content);
+
+    if(image) formData.append("image", image);
+
     const response = await csrfFetch('/api/reviews', {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "multipart/form-data"
         },
-        body: JSON.stringify(data)
+        body: formData
     })
     const review = await response.json();
     dispatch(addOneReview(review))

@@ -22,7 +22,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT
       },
-      image: {
+      photoUrl: {
         allowNull: false,
         type: Sequelize.TEXT
       },
