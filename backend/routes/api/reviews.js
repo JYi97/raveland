@@ -1,8 +1,8 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler');
 
-const { requireAuth } = require('../../utils/auth');
 const { Review } = require('../../db/models');
+const {singleMulterUpload, singlePublicFileUpload} = require('../../awsS3')
 
 const router = express.Router();
 
@@ -27,13 +27,19 @@ router.get("/:id", asyncHandler(async (req, res) => {
 }))
 
 // Post a new review
-router.post("/", asyncHandler(async (req, res) => {
-    const { userId, raveId, content, image } = req.body;
+router.post("/",  singleMulterUpload("image"), asyncHandler(async (req, res) => {
+    const { userId, raveId, content} = req.body;
+    let {image} =  req.body
+    if(req.file){
+        photoUrl = await singlePublicFileUpload(req.file);
+       }else{
+         photoUrl = image
+       }
     const review = await Review.create({
         userId,
         raveId,
         content,
-        image,
+        photoUrl,
         createdAt: new Date(),
         updatedAt: new Date()
     })

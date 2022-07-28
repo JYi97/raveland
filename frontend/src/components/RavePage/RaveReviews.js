@@ -14,7 +14,7 @@ function RaveReviews({ user, reviews }) {
                         key={review.id}
                     >
                         <div>
-                            <img className="rave-reviews-image" src={review.image} alt='Invalid Pic URL'></img>
+                            <img className="rave-reviews-image" src={review.photoUrl} alt='Invalid Pic URL'></img>
                         </div>
                         <div className="rave-reviews-content">{review.content}</div>
                         <span>
