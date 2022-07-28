@@ -2,6 +2,7 @@ const express = require('express')
 const asyncHandler = require('express-async-handler');
 
 const { Rave, User } = require('../../db/models');
+const {singleMulterUpload, singlePublicFileUpload} = require('../../awsS3')
 
 const router = express.Router();
 
@@ -16,27 +17,38 @@ router.get("/:id", asyncHandler(async (req, res) => {
     return res.json(rave)
 }))
 
-router.post("/",
+router.post("/", singleMulterUpload("image"),
     asyncHandler(async (req, res) => {
-        const {userId, title, image, description, address, city, state, zipCode, date} = req.body
-        const rave = await Rave.create({userId, title, image, description, address, city, state, zipCode, date, createdAt: new Date(), updatedAt: new Date()});
+        const {userId, title, description, address, city, state, zipCode, date} = req.body
+        let {image} =  req.body
+        if(req.file){
+            photoUrl = await singlePublicFileUpload(req.file);
+           }else{
+             photoUrl = image
+           }
+        const rave = await Rave.create({userId, title, photoUrl, description, address, city, state, zipCode, date, createdAt: new Date(), updatedAt: new Date()});
         return res.json(rave)
     }))
 
-router.put("/:id", asyncHandler(async (req, res) => {
+router.put("/:id", singleMulterUpload('image'), asyncHandler(async (req, res) => {
+
+    const {userId, title, description, address, city, state, zipCode, date} = req.body
+
+    let photoUrl = await singlePublicFileUpload(req.file);
+
     const raveId = parseInt(req.params.id, 10);
 
     const rave = await Rave.findByPk(raveId)
 
-    rave.userId = req.body.userId
-    rave.title = req.body.title
-    rave.image = req.body.image
-    rave.description = req.body.description
-    rave.address = req.body.address
-    rave.city = req.body.city
-    rave.state = req.body.state
-    rave.zipCode = req.body.zipCode
-    rave.date = req.body.date
+    rave.userId = userId
+    rave.title = title
+    rave.photoUrl = photoUrl
+    rave.description = description
+    rave.address = address
+    rave.city = city
+    rave.state = state
+    rave.zipCode = zipCode
+    rave.date = date
 
     await rave.save();
     return res.json(rave)

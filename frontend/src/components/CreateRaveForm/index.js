@@ -20,7 +20,6 @@ const CreateRaveForm = () => {
     const [errors, setErrors] = useState([])
 
     const updateTitle = (e) => setTitle(e.target.value);
-
     const updateDescription = (e) => setDescription(e.target.value);
     const updateAddress = (e) => setAddress(e.target.value);
     const updateCity = (e) => setCity(e.target.value);
