@@ -46,7 +46,7 @@ const HomePage = () => {
             <ul className="ul-recent-raves">
                 {raves.sort(sortByDate) && raves.slice(0, 10) && raves.map(rave => {
                     return <li className="home-raves-list" key={rave.id}>
-                        <img className="rave-image" src={rave.image} alt=''></img>
+                        <img className="rave-image" src={rave.photoUrl} alt=''></img>
                         <div className="rave-title">
                             {rave.title}
                         </div>

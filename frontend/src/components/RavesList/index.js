@@ -31,7 +31,7 @@ const RavesList = () => {
                             {rave.title}
                         </h2>
                         <div>
-                            <img className="all-raves-page-image" src={rave.image} alt=''></img>
+                            <img className="all-raves-page-image" src={rave.photoUrl} alt=''></img>
                         </div>
                         <div>
                             <span className="all-raves-page-description">{rave.description}</span>

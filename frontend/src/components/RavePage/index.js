@@ -34,7 +34,7 @@ const RavePage = () => {
                 </h1>
             </div>
             <div className="rave-page-image-container">
-                <img className="rave-page-image" src={rave[0].image} alt=''></img></div>
+                <img className="rave-page-image" src={rave[0].photoUrl} alt=''></img></div>
             <div className="rave-page-description">{rave[0].description}</div>
             <div className="rave-page-address">Address: {rave[0].address}</div>
             <div className="rave-page-city">{rave[0].city}, <span>{rave[0].state} {rave[0].zipCode}</span></div>
