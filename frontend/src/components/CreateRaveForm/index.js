@@ -10,7 +10,7 @@ const CreateRaveForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const [title, setTitle] = useState('');
-    const [image, setImage] = useState('');
+    const [image, setImage] = useState(null);
     const [description, setDescription] = useState('');
     const [address, setAddress] = useState('');
     const [city, setCity] = useState('');
@@ -20,7 +20,6 @@ const CreateRaveForm = () => {
     const [errors, setErrors] = useState([])
 
     const updateTitle = (e) => setTitle(e.target.value);
-    const updateImage = (e) => setImage(e.target.value);
     const updateDescription = (e) => setDescription(e.target.value);
     const updateAddress = (e) => setAddress(e.target.value);
     const updateCity = (e) => setCity(e.target.value);
@@ -33,7 +32,6 @@ const CreateRaveForm = () => {
 
         if (title.length < 1) errors.push("Please enter the name of Rave")
         if (title.length > 50) errors.push("Title must be less than 50 characters")
-        if (image.length < 1) errors.push("Please enter a picture of rave")
         if (description.length < 1) errors.push("Please enter description")
         if (address.length < 1) errors.push("Please enter the address")
         if (address.length > 100) errors.push("Address must be less than 100 characters")
@@ -49,7 +47,7 @@ const CreateRaveForm = () => {
         if (date.slice(5, 7) > 12) errors.push("Please enter valid month")
         if (date.slice(8, 10) > 31) errors.push("Pleaese enter valid day")
         setErrors(errors)
-    }, [title, image, description, address, city, state, zipCode, date])
+    }, [title, description, address, city, state, zipCode, date])
 
     useEffect(() => {
         dispatch(getAllRaves());
@@ -95,6 +93,10 @@ const CreateRaveForm = () => {
         e.preventDefault();
         history.push('/')
     };
+    const updateFile = (e) => {
+        const file = e.target.files[0];
+        if (file) setImage(file);
+      };
 
     return (
         <section className="new-form-holder centered middled">
@@ -109,11 +111,10 @@ const CreateRaveForm = () => {
                 </div>
                 <div>
                     <input
-                        type="text"
+                        type="file"
                         placeholder="Image URL"
                         required
-                        value={image}
-                        onChange={updateImage} />
+                        onChange={updateFile} />
                 </div>
                 <div>
                     <input

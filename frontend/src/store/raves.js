@@ -52,12 +52,38 @@ export const getAllRaves = () => async dispatch => {
 
 // thunk action creator for creating a rave
 export const createRave = (data) => async dispatch => {
+    const {
+        userId,
+        title,
+        description,
+        address,
+        city,
+        state,
+        zipCode,
+        date,
+        image
+    } = data
+
+
+    const formData = new FormData();
+    formData.append("userId", userId);
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("address", address);
+    formData.append("city", city);
+    formData.append("state", state);
+    formData.append("zipCode", zipCode);
+    formData.append("date", date);
+
+    if(image) formData.append("image", image);
+
+
     const response = await csrfFetch('/api/raves', {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "multipart/form-data"
         },
-        body: JSON.stringify(data)
+        body: formData
     })
     const rave = await response.json();
     dispatch(addOneRave(rave))
@@ -77,12 +103,36 @@ export const getRave = (id) => async dispatch => {
 
 // thunk action creator for editing a rave
 export const editRave = (data) => async dispatch => {
+    const {
+        userId,
+        title,
+        description,
+        address,
+        city,
+        state,
+        zipCode,
+        date,
+        image
+    } = data
+
+
+    const formData = new FormData();
+    formData.append("userId", userId);
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("address", address);
+    formData.append("city", city);
+    formData.append("state", state);
+    formData.append("zipCode", zipCode);
+    formData.append("date", date);
+
+    if(image) formData.append("image", image);
     const response = await csrfFetch(`/api/raves/${data.id}`, {
         method: "PUT",
         headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "multipart/form-data",
         },
-        body: JSON.stringify(data),
+        body: formData,
     })
 
     if (response.ok) {
