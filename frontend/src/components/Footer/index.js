@@ -38,6 +38,7 @@ const Footer = () => {
                     <div className='footer-technology-pfd'>
                         Node.js
                         Express
+                        AWS
                     </div>
                     <div className='footer-technology-sql'>
                         Sequelize

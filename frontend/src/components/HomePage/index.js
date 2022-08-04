@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import * as ravesActions from '../../store/raves'
 import './HomePage.css'
+import homeImage from '../../images/homeImage.jpg'
 
 const HomePage = () => {
     const dispatch = useDispatch();
@@ -41,10 +42,31 @@ const HomePage = () => {
 
     return (
         <>
+        <div className="home-page-main-image-container">
+            {/* <div>
+                This is going to be the Seach Bar
+            </div> */}
+        </div>
         <h1 className="home-page-welcome">Welcome to RaveLand! Where you can share your experiences with others.</h1>
             <h2 className="recent-raves-header">Most Recent Raves</h2>
             <ul className="ul-recent-raves">
-                {raves.sort(sortByDate) && raves.slice(0, 10) && raves.map(rave => {
+                {raves.sort(sortByDate) && raves.slice(0, 10).map(rave => {
+                    return <li className="home-raves-list" key={rave.id}>
+                        <img className="rave-image" src={rave.photoUrl} alt=''></img>
+                        <div className="rave-title">
+                            {rave.title}
+                        </div>
+                        <div >
+                            <span className="rave-date">Date: {rave.date}</span>
+                        </div>
+                        <NavLink className={'see-details-link'} exact to={`raves/${rave.id}`}>
+                            See more details
+                        </NavLink>
+                    </li>
+                })}
+            </ul>
+            <ul className="ul-hidden-recent-raves">
+                {raves.sort(sortByDate) && raves.slice(10).map(rave => {
                     return <li className="home-raves-list" key={rave.id}>
                         <img className="rave-image" src={rave.photoUrl} alt=''></img>
                         <div className="rave-title">

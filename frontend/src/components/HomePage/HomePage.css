@@ -57,3 +57,30 @@
     color: darkcyan;
     display: flex;
 }
+
+/* .home-page-main-image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.home-page-main-image {
+    flex-shrink: 0;
+    height: 38rem;
+    object-fit: cover;
+    min-width: 100%;
+
+} */
+
+.home-page-main-image-container {
+    background-image: url(../../images/homeImage.jpg);
+    height: 38rem;
+    position: relative;
+    background-size: 100% 160%;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+
+}

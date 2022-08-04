@@ -8,6 +8,7 @@ function LoginForm() {
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
 
+
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrors([]);
@@ -32,46 +33,46 @@ function LoginForm() {
 
     return (
         <>
-        <div className="login-form-modal-form-container">
-        <form className="login-form-page" onSubmit={handleSubmit}>
-            <div className="login-form-modal-welcome-title">
-            Welcome Back!
+            <div className="login-form-modal-form-container">
+                <form className="login-form-page" onSubmit={handleSubmit}>
+                    <div className="login-form-modal-welcome-title">
+                        Welcome Back!
+                    </div>
+                    <ul>
+                        {errors.map((error, idx) => (
+                            <li className="login-form-errors" key={idx}>{error}</li>
+                        ))}
+                    </ul>
+                    <div>
+                        <input
+                            className="login-form-modal-username-email-input-field"
+                            type="text"
+                            value={credential}
+                            onChange={(e) => setCredential(e.target.value)}
+                            required
+                            placeholder="Username / Email"
+                        />
+                    </div>
+                    <div>
+                        <input
+                            className="login-form-modal-password-input-field"
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                            placeholder="Password"
+                        />
+                    </div>
+                    <button className="login-form-modal-login-button" type="submit">Log In</button>
+                    <div>
+                        <button className="login-form-modal-demo-button" type="submit"
+                            onClick={demoUser}
+                        >
+                            Try as a demo user
+                        </button>
+                    </div>
+                </form>
             </div>
-            <ul>
-                {errors.map((error, idx) => (
-                    <li className="login-form-errors" key={idx}>{error}</li>
-                ))}
-            </ul>
-            <div>
-                <input
-                className="login-form-modal-username-email-input-field"
-                    type="text"
-                    value={credential}
-                    onChange={(e) => setCredential(e.target.value)}
-                    required
-                    placeholder="Username / Email"
-                />
-            </div>
-            <div>
-                <input
-                 className="login-form-modal-password-input-field"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                    placeholder="Password"
-                />
-            </div>
-            <button className="login-form-modal-login-button" type="submit">Log In</button>
-            <div>
-                <button className="login-form-modal-demo-button" type="submit"
-                    onClick={demoUser}
-                >
-                    Try as a demo user
-                </button>
-            </div>
-        </form>
-        </div>
         </>
     );
 }
