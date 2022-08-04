@@ -96,7 +96,7 @@ function SignupFormPage() {
                         </div>
                     </form>
                     <div className="signup-form-login-button-container">
-                        Already on Raveland?
+                        Already in Raveland?
                         <button className="sign-up-form-modal-log-in-button" onClick={() => setShowModal(true)}>Log In</button>
                         {showModal && (
                             <Modal onClose={() => setShowModal(false)}>
