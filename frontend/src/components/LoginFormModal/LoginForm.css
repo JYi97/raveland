@@ -5,3 +5,18 @@
 .login-form-page {
     background-color: lightgreen;
 }
+
+.log-in-form-modal-log-in-button {
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    border-style: solid;
+    width: 100px;
+}
+
+.log-in-form-modal-log-in-button:hover{
+    color: pink
+}
