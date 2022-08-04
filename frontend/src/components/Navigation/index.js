@@ -1,19 +1,27 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import ProfileButton from './ProfileButton';
+import { NavLink,useHistory } from 'react-router-dom';
+import { useSelector, useDispatch  } from 'react-redux';
 import LoginFormModal from '../LoginFormModal';
+import * as sessionActions from '../../store/session';
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
+    const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
+    const history = useHistory()
+
+    const logout = (e) => {
+        e.preventDefault();
+        dispatch(sessionActions.logout());
+        history.push("/")
+    };
 
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
             <>
                 <NavLink className={"new-rave-navlink"} to="/raves/new">New Rave</NavLink>
-                <ProfileButton user={sessionUser} />
+                <button className="nav-bar-log-out-button" onClick={logout}>Log Out</button>
             </>
         );
     } else {
@@ -24,6 +32,8 @@ function Navigation({ isLoaded }) {
             </>
         );
     }
+
+
 
     return (
         <>

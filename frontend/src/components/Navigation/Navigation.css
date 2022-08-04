@@ -10,4 +10,64 @@
 
 .nav-bar {
     color: white;
+    height: 80px;
+    display: flex;
+    background-color: black;
+    align-items: center;
+    /* background-image: url("https://electronic.vegas/wp-content/uploads/sites/4/2021/09/edc-vegas-2019-aerial.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat; */
+}
+
+
+.nav-bar-ul {
+    width: 2400px;
+}
+
+.nav-ul-li {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.new-rave-navlink,
+.sign-up-navlink,
+.home-navlink,
+.all-raves-navlink {
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    border-style: solid;
+}
+
+.nav-bar-raveland {
+    color: white;
+}
+
+.home-navlink:hover,
+.all-raves-navlink:hover,
+.new-rave-navlink:hover,
+.sign-up-navlink:hover {
+    color: pink;
+}
+
+.sign-up-navlink {
+    padding-right: 20px;
+}
+
+.nav-bar-log-out-button {
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    border-style: solid;
+    width: 120px;
+}
+
+.nav-bar-log-out-button:hover {
+    color: pink;
 }
