@@ -1,0 +1,40 @@
+.footer-about-me-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-author-github-link,
+.footer-author-linkedin-link,
+.footer-author-about,
+.footer-author-full-name,
+.footer-author-email,
+.footer-author-seacoin-project-link,
+.footer-author-filmdium-project-link,
+.footer-author-icebeartodo-project-link,
+.footer-technology-jrr,
+.footer-technology-pfd,
+.footer-technology-sql,
+.footer-technology-hch {
+    font-size: 20px;
+    color: white;
+}
+
+.footer-author-github-link,
+.footer-author-linkedin-link,
+.footer-author-seacoin-project-link,
+.footer-author-filmdium-project-link,
+.footer-author-icebeartodo-project-link {
+    text-decoration: none;
+}
+
+.footer-author-github-link:hover,
+.footer-author-linkedin-link:hover,
+.footer-author-seacoin-project-link:hover,
+.footer-author-filmdium-project-link:hover,
+.footer-author-icebeartodo-project-link:hover {
+    color: pink;
+}

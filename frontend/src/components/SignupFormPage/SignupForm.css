@@ -38,6 +38,7 @@
     border-radius: 0;
     height: 45px;
     width: 308px;
+    margin-bottom: 15px;
 }
 
 .signup-page-plur-policy-agreement,
@@ -68,4 +69,14 @@
 
 .signup-form-login-button-container {
     text-align: end;
+    font-size: 14px;
+}
+
+.sign-up-form-modal-log-in-button {
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: 14px;
 }

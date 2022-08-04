@@ -11,6 +11,7 @@ import RavesList from './components/RavesList'
 import EditRaveForm from "./components/EditRaveForm";
 import DeleteRaveConfirmPage from "./components/DeleteRaveConfirmPage";
 import DeleteReviewConfirmPage from "./components/DeleteReviewConfirmPage";
+import Footer from './components/Footer';
 
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+            <Footer/>
           </Route>
         </Switch>
       )}

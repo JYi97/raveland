@@ -26,7 +26,7 @@ View All Raves
 View Rave Detail Page
 ![RavePage](https://user-images.githubusercontent.com/96046451/172169280-a7867657-dd8e-4a13-bdcb-ecca18939788.PNG)
 
-View Reviews 
+View Reviews
 ![ReviewsList](https://user-images.githubusercontent.com/96046451/172169330-ac480dd1-67c7-47c8-9d1e-abf2b91fd5c5.PNG)
 
 ## Features List
@@ -44,7 +44,7 @@ https://github.com/JYi97/raveland/wiki/Feature-List
 * React
 * Redux
 * Javascript
-* PostgresSQL
+* PostgreSQL
 * Sequelize
 * Express
 * HTML
