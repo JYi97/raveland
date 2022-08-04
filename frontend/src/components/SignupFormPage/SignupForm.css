@@ -1,7 +1,71 @@
-.signup-form-page {
-    background-color: plum;
-}
-
 .signup-form-errors {
     list-style: none;
+}
+
+.sign-up-page-image-container {
+    display: inline-block;
+    position: relative;
+    width: 350px;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-left: 80px;
+    margin-top: 118px;
+}
+
+.sign-up-page-image {
+    width: auto;
+    height: 100%;
+    margin-left: -115px;
+}
+
+.signup-form-page-form-image-container {
+    display: flex;
+    justify-content: center;
+}
+
+.signup-form-email-input,
+.signup-form-username-input,
+.signup-form-password-input,
+.signup-form-confirm-password-input {
+    height: 30px;
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+.signup-form-page-signup-button {
+    outline: none;
+    border-radius: 0;
+    height: 45px;
+    width: 308px;
+}
+
+.signup-page-plur-policy-agreement,
+.signup-page-connect-rave-intro,
+.signup-page-signup-header {
+    text-align: center;
+    width: 300px;
+}
+
+.signup-form-page-form-container {
+    margin-right: 80px;
+}
+
+.signup-page-signup-header {
+    margin-top: 40px;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.signup-page-connect-rave-intro {
+    margin-bottom: 14px;
+}
+
+.signup-page-plur-policy-agreement {
+    font-size: 12px;
+    margin-bottom: 40px;
+}
+
+.signup-form-login-button-container {
+    text-align: end;
 }
