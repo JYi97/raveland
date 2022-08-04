@@ -1,8 +1,9 @@
 import React from 'react';
-import { NavLink,useHistory } from 'react-router-dom';
-import { useSelector, useDispatch  } from 'react-redux';
+import { NavLink, useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import LoginFormModal from '../LoginFormModal';
 import * as sessionActions from '../../store/session';
+import NaviLogo from '../../images/RaveLand-logos_white.png'
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
@@ -37,11 +38,12 @@ function Navigation({ isLoaded }) {
 
     return (
         <>
-            <div className='nav-bar'>
+           <div className='nav-bar'>
                 <ul className='nav-bar-ul'>
                     <li className='nav-ul-li'>
                         <NavLink className={"home-navlink"} exact to="/">Home</NavLink>
                         <NavLink className={"all-raves-navlink"} exact to="/raves">All Raves</NavLink>
+                        <img className='nav-bar-logo-container' src={NaviLogo} alt=''></img>
                         {isLoaded && sessionLinks}
                     </li>
                 </ul>

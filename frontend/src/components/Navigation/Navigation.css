@@ -27,7 +27,7 @@
 .nav-ul-li {
     list-style: none;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
 
 }
 
@@ -66,4 +66,10 @@
 
 .nav-bar-log-out-button:hover {
     color: pink;
+}
+
+.nav-bar-logo-container {
+    height: 50px;
+    width: 300px;
+    object-fit: cover;
 }
