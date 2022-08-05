@@ -47,8 +47,7 @@ const HomePage = () => {
                 This is going to be the Seach Bar
             </div> */}
         </div>
-        <h1 className="home-page-welcome">Welcome to RaveLand! Where you can share your experiences with others.</h1>
-            <h2 className="recent-raves-header">Most Recent Raves</h2>
+            <h2 className="recent-raves-header">Recent Raves</h2>
             <ul className="ul-recent-raves">
                 {raves.sort(sortByDate) && raves.slice(0, 10).map(rave => {
                     return <li className="home-raves-list" key={rave.id}>
