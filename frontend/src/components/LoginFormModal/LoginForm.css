@@ -12,6 +12,7 @@
     color: white;
     border-style: solid;
     width: 100px;
+    margin-right: 30px;
 }
 
 .log-in-form-modal-log-in-button:hover {

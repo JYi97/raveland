@@ -41,9 +41,9 @@ function Navigation({ isLoaded }) {
            <div className='nav-bar'>
                 <ul className='nav-bar-ul'>
                     <li className='nav-ul-li'>
+                        <img className='nav-bar-logo-container' src={NaviLogo} alt=''></img>
                         <NavLink className={"home-navlink"} exact to="/">Home</NavLink>
                         <NavLink className={"all-raves-navlink"} exact to="/raves">All Raves</NavLink>
-                        <img className='nav-bar-logo-container' src={NaviLogo} alt=''></img>
                         {isLoaded && sessionLinks}
                     </li>
                 </ul>
