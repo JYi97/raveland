@@ -1,7 +1,6 @@
-
 # RaveLand
 
-RaveLand allows users to view and post raves as well as commenting and liking them to share their personal experiences.
+RaveLand is an open platform where users can share their experiences with raves that they have attended in the past or going to attend in the future. Users can view what other users have posted. They can also leave a comment on raves to share their favorite experience in that rave as well as pictures. The rave community is very welcoming and RaveLand definitely invites users to join.
 
 ## Link to Live Site
 Live Link: https://raveland.herokuapp.com/
@@ -41,19 +40,25 @@ https://github.com/JYi97/raveland/wiki/Feature-List
 * Logged-in users can post and delete their own reviews
 
 ## Techs Used
-* React
-* Redux
-* Javascript
-* PostgreSQL
-* Sequelize
-* Express
-* HTML
-* CSS
-* Heroku
+### Front End
+![react](https://user-images.githubusercontent.com/90019010/179418431-3768ece7-d988-43f1-a22b-4707848ac9d2.svg)
+![redux](https://user-images.githubusercontent.com/90019010/179418433-e3ae4f1d-a1dc-4772-84b7-56db8132d01e.svg)
+![javascript](https://user-images.githubusercontent.com/90019010/179418437-d00f3585-d6a9-4531-af2f-e5cb321e2780.svg)
+![html](https://user-images.githubusercontent.com/90019010/179418445-20d38d75-eae7-4bbf-bed0-5c26ec4aa977.svg)
+![css](https://user-images.githubusercontent.com/90019010/179418447-fd17f92e-83e6-4e60-b4d6-602b8300bdc9.svg)
+![heroku](https://user-images.githubusercontent.com/90019010/179418448-91d1d47f-1184-440a-bcd0-03f36192f775.svg)
+
+### Back End
+![nodejs](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![express](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
+![postgres](https://user-images.githubusercontent.com/90019010/179418482-fca795c5-b035-43e6-91cb-c136d0c9f6fb.svg)
+![sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)
+![aws](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
+
 
 ## Future Features
 * Likes
 * Search Bar
 
 ## Technical Implementation
-* It was a lot easier to console.log my work as I was going to see what I was working with. I would lose track of what I am working with or get lost with what I am working with.
+
