@@ -27,7 +27,7 @@
 .nav-ul-li {
     list-style: none;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 
 }
 
@@ -62,6 +62,7 @@
     color: white;
     border-style: solid;
     width: 120px;
+    margin-right: 30px;
 }
 
 .nav-bar-log-out-button:hover {

@@ -1,5 +1,9 @@
 .signup-form-errors {
     list-style: none;
+    font-size: 14px;
+    color: red;
+    width: 90%;
+    text-align: center;
 }
 
 .sign-up-page-image-container {
@@ -70,6 +74,11 @@
 .signup-form-login-button-container {
     text-align: end;
     font-size: 14px;
+    width: 85%;
+}
+
+.signup-form-errors-container {
+    margin-bottom: 20px;
 }
 
 .sign-up-form-modal-log-in-button {

@@ -1,32 +1,26 @@
-.home-raves-list {
-    list-style: none;
-    display: inline-block;
-    background-color: lightgoldenrodyellow;
-    text-align: center;
-    padding-bottom: 15px;
-    padding-right: .5rem;
-    padding-left: .5rem;
-}
-
 .ul-recent-raves {
-    display: inline-block;
-    padding: 0;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 75%;
+    margin: 0 auto 50px auto;
 }
 
-.ul-all-raves {
-    padding: 0;
-}
+/* .home-recent-raves-list {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    display: inline-block;
+    width: 33.3%;
+} */
 
 .rave-image {
-    aspect-ratio: 16/9;
-    flex: 0 0 25%;
-    height: 350px;
+    /* aspect-ratio: 16/9;
+    flex: 0 0 25%; */
+    height: 200px;
 }
 
-.homepage-image {
-    max-width: auto;
-    margin: auto;
-}
 
 .homepage-title {
     margin-top: 10px;
@@ -35,6 +29,10 @@
 .recent-raves-header {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: darkblue;
+    text-align: center;
+    margin-top: 52px;
+    font-size: 32px;
+    margin-bottom: 52px;
 }
 
 .see-details-link {
@@ -50,6 +48,31 @@
 .rave-date,
 .see-details-link {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: auto;
+}
+
+.rave-title {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    color: navy;
+    font-size: 24px;
+}
+
+.rave-title-link {
+    text-decoration: none;
+    color: navy;
+}
+
+.rave-title-link:hover {
+    text-decoration: underline;
+    color: orange;
+}
+
+.homepage-rave-image-container {
+    display: flex;
+    justify-content: center;
 }
 
 .home-page-welcome {
@@ -83,4 +106,28 @@
     justify-content: center;
     align-items: center;
 
+}
+
+.homepage-rave-author-poster {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+.home-recent-raves-list {
+    border: solid;
+    padding: 10px 0 10px 0;
+}
+
+.show-more-raves-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.home-page-navlink-see-all {
+    text-align: center;
+    margin-bottom: 50px;
 }
