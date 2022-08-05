@@ -12,6 +12,7 @@ import EditRaveForm from "./components/EditRaveForm";
 import DeleteRaveConfirmPage from "./components/DeleteRaveConfirmPage";
 import DeleteReviewConfirmPage from "./components/DeleteReviewConfirmPage";
 import Footer from './components/Footer';
+import ScrollToTop from "./ScrollToTop";
 
 
 function App() {
@@ -27,31 +28,33 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
-          <Route exact path="/raves">
-            <RavesList />
-          </Route>
-          <Route path="/raves/new">
-            <CreateRaveForm />
-          </Route>
-          <Route exact path="/raves/:id">
-            <RavePage />
-          </Route>
-          <Route exact path="/raves/:id/edit">
-            <EditRaveForm />
-          </Route>
-          <Route exact path="/raves/:id/delete">
-            <DeleteRaveConfirmPage />
-          </Route>
-          <Route exact path="/reviews/:id/delete">
-            <DeleteReviewConfirmPage />
-          </Route>
-          <Route path="/signup">
-            <SignupFormPage />
-            <Footer/>
-          </Route>
+          <ScrollToTop>
+            <Route exact path="/">
+              <HomePage />
+            </Route>
+            <Route exact path="/raves">
+              <RavesList />
+            </Route>
+            <Route path="/raves/new">
+              <CreateRaveForm />
+            </Route>
+            <Route exact path="/raves/:id">
+              <RavePage />
+            </Route>
+            <Route exact path="/raves/:id/edit">
+              <EditRaveForm />
+            </Route>
+            <Route exact path="/raves/:id/delete">
+              <DeleteRaveConfirmPage />
+            </Route>
+            <Route exact path="/reviews/:id/delete">
+              <DeleteReviewConfirmPage />
+            </Route>
+            <Route path="/signup">
+              <SignupFormPage />
+              <Footer />
+            </Route>
+          </ScrollToTop>
         </Switch>
       )}
     </>
