@@ -11,8 +11,7 @@ import RavesList from './components/RavesList'
 import EditRaveForm from "./components/EditRaveForm";
 import DeleteRaveConfirmPage from "./components/DeleteRaveConfirmPage";
 import DeleteReviewConfirmPage from "./components/DeleteReviewConfirmPage";
-import Footer from './components/Footer';
-
+import ScrollToTop from "./ScrollToTop";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,34 +25,35 @@ function App() {
     <>
       <BrowserRouter>
         <Navigation isLoaded={isLoaded} />
-        {isLoaded && (
+        {isLoaded && (<>
+          <ScrollToTop />
           <Switch>
-              <Route exact path="/">
-                <HomePage />
-              </Route>
-              <Route exact path="/raves">
-                <RavesList />
-              </Route>
-              <Route exact path="/raves/new">
-                <CreateRaveForm />
-              </Route>
-              <Route exact path="/raves/:id">
-                <RavePage />
-              </Route>
-              <Route exact path="/raves/:id/edit">
-                <EditRaveForm />
-              </Route>
-              <Route exact path="/raves/:id/delete">
-                <DeleteRaveConfirmPage />
-              </Route>
-              <Route exact path="/reviews/:id/delete">
-                <DeleteReviewConfirmPage />
-              </Route>
-              <Route path="/signup">
-                <SignupFormPage />
-              </Route>
+            <Route exact path="/">
+              <HomePage />
+            </Route>
+            <Route exact path="/raves">
+              <RavesList />
+            </Route>
+            <Route exact path="/raves/new">
+              <CreateRaveForm />
+            </Route>
+            <Route exact path="/raves/:id">
+              <RavePage />
+            </Route>
+            <Route exact path="/raves/:id/edit">
+              <EditRaveForm />
+            </Route>
+            <Route exact path="/raves/:id/delete">
+              <DeleteRaveConfirmPage />
+            </Route>
+            <Route exact path="/reviews/:id/delete">
+              <DeleteReviewConfirmPage />
+            </Route>
+            <Route path="/signup">
+              <SignupFormPage />
+            </Route>
           </Switch>
-        )}
+        </>)}
       </BrowserRouter>
     </>
   );
