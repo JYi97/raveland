@@ -2,14 +2,15 @@ import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import * as ravesActions from '../../store/raves'
+import Footer from '../Footer'
 import './HomePage.css'
 
 const HomePage = () => {
     const dispatch = useDispatch();
     const allRaves = useSelector((state) => state.raves)
-    console.log(allRaves)
+    // console.log(allRaves)
     const raves = Object.values(allRaves)
-    console.log(raves)
+    // console.log(raves)
     const currentYear = Number(new Date().toISOString().slice(0, 4))
     const currentMonth = Number(new Date().toISOString().slice(5, 7))
     const currentDay = Number(new Date().toISOString().slice(8, 10))
@@ -92,8 +93,44 @@ const HomePage = () => {
                 </div>
                 {showMoreRaves ?
                     <>
-                           <div className="ul-recent-raves">
-                    {recentRaves && recentRaves.sort(sortByDate).slice(12, 25).map(rave => {
+                        <div className="ul-recent-raves">
+                            {recentRaves && recentRaves.sort(sortByDate).slice(12, 25).map(rave => {
+                                return <div className="home-recent-raves-list" key={rave?.id}>
+                                    <div className="homepage-rave-author-poster">
+                                        {rave?.User?.username}
+                                    </div>
+                                    <div className="rave-title">
+                                        <NavLink className={'rave-title-link'} exact to={`raves/${rave.id}`}>
+                                            {rave?.title}
+                                        </NavLink>
+                                    </div>
+                                    <div className="homepage-rave-image-container">
+                                        <img className="rave-image" src={rave?.photoUrl} alt=''></img>
+                                    </div>
+                                </div>
+                            })}
+                        </div>
+                        <div className="home-page-navlink-see-all-container">
+                            <NavLink className='home-page-navlink-see-all' to='/raves'>
+                                See all raves
+                            </NavLink>
+                        </div>
+                    </>
+                    :
+                    <>
+                        <div className="show-more-raves-button-container">
+                            <button onClick={() => {
+                                if (showMoreRaves) {
+                                    setShowMoreRaves(false)
+                                } else {
+                                    setShowMoreRaves(true)
+                                }
+                            }} className="show-more-raves-button">Show more raves</button>
+                        </div>
+                    </>}
+                    <h2 className="recent-raves-header">Upcoming Raves</h2>
+                    <div className="ul-recent-raves">
+                    {upcomingRaves && upcomingRaves.sort(sortByDate).slice(0, 12).map(rave => {
                         return <div className="home-recent-raves-list" key={rave?.id}>
                             <div className="homepage-rave-author-poster">
                                 {rave?.User?.username}
@@ -109,43 +146,8 @@ const HomePage = () => {
                         </div>
                     })}
                 </div>
-                    <div className="home-page-navlink-see-all">
-                        <NavLink to ='/raves'>
-                            See all raves
-                        </NavLink>
-                    </div>
-                    </>
-                    :
-                    <>
-                        <div className="show-more-raves-button-container">
-                            <button onClick={() => {
-                                if (showMoreRaves) {
-                                    setShowMoreRaves(false)
-                                } else {
-                                    setShowMoreRaves(true)
-                                }
-                            }} className="show-more-raves-button">Show more raves</button>
-                        </div>
-                    </>}
-
-                {/* <ul className="ul-upcoming-raves">
-                {raves && upcomingRaves.sort(sortByDate).slice(0, 10).map(rave => {
-                    return <li className="home-raves-list" key={rave.id}>
-                        <img className="rave-image" src={rave.photoUrl} alt=''></img>
-                        <div className="rave-title">
-                            <NavLink className={'see-details-link'} exact to={`raves/${rave.id}`}>
-                                {rave.title}
-                            </NavLink>
-
-                        </div>
-                        <div >
-                            <span className="rave-date">Date: {rave.date}</span>
-                        </div>
-                    </li>
-                })}
-            </ul> */}</>}
-
-
+                <Footer/>
+            </>}
         </>
     )
 }
