@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect} from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import { Modal } from "../../context/Modal";
 import LoginForm from "../LoginFormModal/LoginForm";
+import SignUpFooter from "../sign-up-footer";
 import './SignupForm.css';
 
 function SignupFormPage() {
@@ -109,6 +110,7 @@ function SignupFormPage() {
                     <img className="sign-up-page-image" src='https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2017/11/20080751/all-are-welcome-here-700x430.jpg' alt=''></img>
                 </div>
             </div>
+            <SignUpFooter />
         </>
     );
 }
