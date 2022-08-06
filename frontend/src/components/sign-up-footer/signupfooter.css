@@ -1,8 +1,10 @@
-.footer-about-me-container {
+.footer-signup-about-me-container {
     display: flex;
     justify-content: space-between;
     background-color: black;
     width: 100%;
+    position: absolute;
+    bottom: 0;
 }
 
 .footer-author-github-link,
