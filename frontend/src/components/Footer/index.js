@@ -20,7 +20,7 @@ const Footer = () => {
                 </div>
                 <div className='footer-author-other-projects-links-container'>
                     <div>
-                        <a className='footer-author-seacoin-project-link' href='https://sea-coin.herokuapp.com'>Sea-Coin</a>
+                        <a className='footer-author-seacoin-project-link' href='https://sea-coin.herokuapp.com'>Sea</a>
                     </div>
                     <div>
                         <a className='footer-author-filmdium-project-link' href='https://filmdium.herokuapp.com/'>Filmdium</a>

@@ -18,25 +18,15 @@
 
 .recent-raves-header {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: darkblue;
+    color: navy;
     text-align: center;
     margin-top: 52px;
     font-size: 32px;
     margin-bottom: 52px;
 }
 
-.see-details-link {
-    text-decoration: none;
-    color: navy;
-}
-
-.see-details-link:hover {
-    color: darkmagenta;
-}
-
 .rave-title,
-.rave-date,
-.see-details-link {
+.rave-date{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: auto;
 }
@@ -57,19 +47,13 @@
 
 .rave-title-link:hover {
     text-decoration: underline;
-    color: orange;
+    color: pink;
 }
 
 .homepage-rave-image-container {
     display: flex;
     justify-content: center;
     height: 200px;
-}
-
-.home-page-welcome {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: darkcyan;
-    display: flex;
 }
 
 .home-page-main-image-container {
@@ -81,7 +65,6 @@
     color: white;
     justify-content: center;
     align-items: center;
-
 }
 
 .homepage-rave-author-poster {
@@ -129,4 +112,3 @@
     text-decoration: underline;
     color: pink;
 }
-

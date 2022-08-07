@@ -18,6 +18,7 @@ const CreateRaveForm = () => {
     const [zipCode, setZipCode] = useState('');
     const [date, setDate] = useState('');
     const [errors, setErrors] = useState([])
+    const [showErrors, setShowErrors] = useState(false)
 
     const updateTitle = (e) => setTitle(e.target.value);
     const updateDescription = (e) => setDescription(e.target.value);
@@ -56,24 +57,32 @@ const CreateRaveForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const payload = {
-            userId,
-            title,
-            image,
-            description,
-            address,
-            city,
-            state,
-            zipCode,
-            date,
-            errors
-        };
+        if (errors.length > 0) {
+            setShowErrors(true)
+        }
 
-        let createdRave;
-        createdRave = await dispatch(createRave(payload))
-        if (createdRave) {
-            history.push(`/`);
-            reset();
+        if (errors.length === 0) {
+            setShowErrors(false)
+
+            const payload = {
+                userId,
+                title,
+                image,
+                description,
+                address,
+                city,
+                state,
+                zipCode,
+                date,
+                errors
+            };
+
+            let createdRave;
+            createdRave = await dispatch(createRave(payload))
+            if (createdRave) {
+                history.push(`/`);
+                reset();
+            }
         }
     };
 
@@ -96,83 +105,129 @@ const CreateRaveForm = () => {
     const updateFile = (e) => {
         const file = e.target.files[0];
         if (file) setImage(file);
-      };
+    };
 
     return (
-        <section className="new-form-holder centered middled">
-            <form className="create-rave-form" onSubmit={handleSubmit}>
-                <div>
-                    <input
-                        type="text"
-                        placeholder="Title"
-                        required
-                        value={title}
-                        onChange={updateTitle} />
+        <>
+            <div className='new-rave-form-example-container'>
+                <section className="new-form-holder-centered-middled">
+                    <form className="create-rave-form" onSubmit={handleSubmit}>
+                        {showErrors ?
+                            errors.length > 0 ?
+                                <>
+                                    {errors.map(error => {
+                                        return (
+                                            <>
+                                                <div className='errors-list'
+                                                    key={error}>{error}</div>
+                                            </>
+                                        )
+                                    })}
+                                </>
+                                : null
+                            : null}
+                        <div>
+                            <input
+                                type="text"
+                                placeholder="Title"
+                                required
+                                value={title}
+                                onChange={updateTitle} />
+                        </div>
+                        <div>
+                            <input
+                                type="file"
+                                placeholder="Image URL"
+                                required
+                                onChange={updateFile} />
+                        </div>
+                        <div>
+                            <input
+                                type="text"
+                                placeholder="Description"
+                                required
+                                value={description}
+                                onChange={updateDescription} />
+                        </div>
+                        <div>
+                            <input
+                                type="text"
+                                placeholder="Address"
+                                required
+                                value={address}
+                                onChange={updateAddress} />
+                        </div>
+                        <div>
+                            <input
+                                type="text"
+                                placeholder="City"
+                                required
+                                value={city}
+                                onChange={updateCity} />
+                        </div>
+                        <div>
+                            <input
+                                type="text"
+                                placeholder="State"
+                                required
+                                value={state}
+                                onChange={updateState} />
+                        </div>
+                        <div>
+                            <input
+                                type="text"
+                                placeholder="Zip Code"
+                                required
+                                value={zipCode}
+                                onChange={updateZipCode} />
+                        </div>
+                        <div>
+                            <input
+                                type="text"
+                                placeholder="Date"
+                                required
+                                value={date}
+                                onChange={updateDate} />
+                        </div>
+                        <div>
+                            <button type="submit">Post New Rave </button>
+                            <button type="button" onClick={handleCancelClick}>Cancel</button>
+                        </div>
+                    </form>
+                </section>
+                <div className='new-rave-example-container'>
+                    <div className='new-rave-example-title-image-container'>
+                        <div className='new-rave-example-title-container'>
+                            {title ? <div className='new-rave-example-title'>{title}</div> : <div className='new-rave-example-title'>
+                                Title
+                            </div>}
+                            {date ? <div>{date}</div> : <div>Date</div>}
+                        </div>
+                        <div className='new-rave-example-image-container'>
+                            Image
+                        </div>
+                    </div>
+                    <div className='new-rave-example-rave-info-address-container'>
+                        <div className='new-rave-example-rave-info-container'>
+                            <div className='new-rave-example-rave-description'>
+                                <div className='new-rave-example-rave-about-title'>About the Rave</div>
+                                {description ? <div>{description}</div> : <div>Description</div> }
+                            </div>
+                        </div>
+                        <div className='new-rave-example-rave-address-container'>
+                            <div className='new-rave-example-rave-address'>
+                                {address ? <div>{address}</div> : <div>Address</div> }
+                            </div>
+                            <div className='new-rave-example-rave-city-state-zipcode-container'>
+                                {city ? <div>{city},</div> : <div>City,</div>}
+                                {state ? <div>{state}</div> : <div>State </div>}
+                                {zipCode ? <div>{zipCode}</div> : <div>ZipCode</div>}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <input
-                        type="file"
-                        placeholder="Image URL"
-                        required
-                        onChange={updateFile} />
-                </div>
-                <div>
-                    <input
-                        type="text"
-                        placeholder="Description"
-                        required
-                        value={description}
-                        onChange={updateDescription} />
-                </div>
-                <div>
-                    <input
-                        type="text"
-                        placeholder="Address"
-                        required
-                        value={address}
-                        onChange={updateAddress} />
-                </div>
-                <div>
-                    <input
-                        type="text"
-                        placeholder="City"
-                        required
-                        value={city}
-                        onChange={updateCity} />
-                </div>
-                <div>
-                    <input
-                        type="text"
-                        placeholder="State"
-                        required
-                        value={state}
-                        onChange={updateState} />
-                </div>
-                <div>
-                    <input
-                        type="text"
-                        placeholder="Zip Code"
-                        required
-                        value={zipCode}
-                        onChange={updateZipCode} />
-                </div>
-                <div>
-                    <input
-                        type="text"
-                        placeholder="Date"
-                        required
-                        value={date}
-                        onChange={updateDate} />
-                </div>
-                <div>
-                    <button type="submit">Post New Rave </button>
-                    <button type="button" onClick={handleCancelClick}>Cancel</button>
-                    <ul>
-                        {errors.map((error) => <li className='errors-list' key={error}>{error}</li>)}
-                    </ul>
-                </div>
-            </form>
-        </section>
+            </div>
+        </>
     );
 };
 
