@@ -24,27 +24,24 @@ const RavesList = () => {
 
     return (
         <>
-            <ul className="ul-all-raves">
-                {raves.sort(sortByName) && raves.map(rave => {
-                    return <li className="ravesList-raves" key={rave.id}>
-                        <h2 className="raves-list-title">
-                            {rave.title}
-                        </h2>
-                        <div>
-                            <img className="all-raves-page-image" src={rave.photoUrl} alt=''></img>
+            <h1 className="all-raves-title"> All Raves</h1>
+            <div className="all-raves-ul-recent-raves">
+                {raves && raves.sort(sortByName).map(rave => {
+                    return <div className="all-raves-list" key={rave?.id}>
+                        <div className="all-raves-rave-author-poster">
+                            {rave?.User?.username}
                         </div>
-                        <div>
-                            <span className="all-raves-page-description">{rave.description}</span>
+                        <div className="all-raves-rave-title">
+                            <NavLink className={'all-raves-rave-title-link'} exact to={`raves/${rave.id}`}>
+                                {rave?.title}
+                            </NavLink>
                         </div>
-                        <div>
-                            <span className="all-raves-page-date">Date: {rave.date}</span>
+                        <div className="all-raves-rave-image-container">
+                            <img className="all-raves-rave-image" src={rave?.photoUrl} alt=''></img>
                         </div>
-                        <NavLink className={'see-details-link'} exact to={`raves/${rave.id}`}>
-                            See more details
-                        </NavLink>
-                    </li>
+                    </div>
                 })}
-            </ul>
+            </div>
         </>
     )
 }

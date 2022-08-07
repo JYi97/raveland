@@ -1,7 +1,7 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler');
 
-const { Review } = require('../../db/models');
+const { Review, User } = require('../../db/models');
 const {singleMulterUpload, singlePublicFileUpload} = require('../../awsS3')
 
 const router = express.Router();
@@ -11,7 +11,7 @@ const router = express.Router();
 router.get("/:raveId", asyncHandler(async (req, res) => {
 
     const raveId = req.params.raveId
-    const reviews = await Review.findAll({
+    const reviews = await Review.findAll({ include: {model: User},
         where: {
             raveId: raveId
         },
