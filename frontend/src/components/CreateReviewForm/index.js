@@ -75,19 +75,24 @@ const CreateReviewForm = ({ raveId }) => {
                 </> : null : null}
             </div>
             <form className="create-review-form" onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Must be filled out!"
-                    required
-                    value={content}
-                    onChange={updateContent} />
-                <input
-                    type="file"
-                    placeholder="Image URL"
-                    required
-                    onChange={updateFile} />
-                <button type="submit">Share your thoughts!</button>
-                <button type="button" onClick={handleCancelClick}>Cancel</button>
+                <div className='create-rave-review-form-container'>
+                    <input
+                        className='create-review-form-content-field'
+                        type="text"
+                        placeholder="Your Review"
+                        required
+                        value={content}
+                        onChange={updateContent} />
+                    <input
+                        className='create-review-form-image-button'
+                        type="file"
+                        placeholder="Image URL"
+                        required
+                        onChange={updateFile} />
+                    <div>
+                        <button className='create-review-form-add-review-button' type="submit">Add Review</button>
+                    </div>
+                </div>
             </form>
         </section>
     );

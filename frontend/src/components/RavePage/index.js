@@ -69,7 +69,7 @@ const RavePage = () => {
                                             setShowForm(true)
                                         }
                                     }} className="rave-page-share-experience-button">
-                                        Close Form
+                                        Cancel
                                     </button>
                                 </div> : <div>
                                     <button onClick={() => {
