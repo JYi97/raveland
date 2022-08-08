@@ -201,7 +201,7 @@ const CreateRaveForm = () => {
                             {title ? <div className='new-rave-example-title'>{title}</div> : <div className='new-rave-example-title'>
                                 Title
                             </div>}
-                            {date ? <div>{date}</div> : <div>Date</div>}
+                            {date ? <div className='new-rave-example-title'>{date}</div> : <div className='new-rave-example-title'>Date</div>}
                         </div>
                         <div className='new-rave-example-image-container'>
                             Image
@@ -211,19 +211,32 @@ const CreateRaveForm = () => {
                         <div className='new-rave-example-rave-info-container'>
                             <div className='new-rave-example-rave-description'>
                                 <div className='new-rave-example-rave-about-title'>About the Rave</div>
-                                {description ? <div>{description}</div> : <div>Description</div> }
+                                {description ? <div className='new-rave-example-description'>{description}</div> : <div className='new-rave-example-description'>Description</div>}
                             </div>
                         </div>
                         <div className='new-rave-example-rave-address-container'>
                             <div className='new-rave-example-rave-address'>
-                                {address ? <div>{address}</div> : <div>Address</div> }
+                                {address ? <div className='new-rave-example-rave-address'>{address}</div> : <div className='new-rave-example-rave-address'>Address</div>}
                             </div>
                             <div className='new-rave-example-rave-city-state-zipcode-container'>
-                                {city ? <div>{city},</div> : <div>City,</div>}
-                                {state ? <div>{state}</div> : <div>State </div>}
-                                {zipCode ? <div>{zipCode}</div> : <div>ZipCode</div>}
+                                {city ? <div className='new-rave-example-rave-city'>{city},</div> : <div className='new-rave-example-rave-city'>City,</div>}
+                                {state ? <div className='new-rave-example-rave-state'>{state}</div> : <div className='new-rave-example-rave-state'>State </div>}
+                                {zipCode ? <div className='new-rave-example-rave-zipcode'>{zipCode}</div> : <div className='new-rave-example-rave-zipcode'>Zip</div>}
                             </div>
                         </div>
+                    </div>
+                    <div className='new-rave-example-add-review-button'>Add a Review</div>
+                    <div className='new-rave-example-reviews-title-header'>Reviews</div>
+                    <div className='new-rave-example-review-container'>
+                        <div className='new-rave-example-review-author'>Username</div>
+                        <div className='new-rave-example-review-info'>Review</div>
+                        <div className='new-rave-example-review-image'>Review Image</div>
+                    </div>
+                    <div className='new-rave-example-review-container'>
+                        <div className='new-rave-example-review-author'>Username</div>
+                        <div className='new-rave-example-review-info'>Review</div>
+                        <div className='new-rave-example-review-image'>Review Image</div>
+                        <div className='new-rave-example-more-reviews'>More reviews...</div>
                     </div>
                 </div>
             </div>
