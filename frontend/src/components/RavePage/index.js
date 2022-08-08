@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom"
 import { getAllReviews } from '../../store/reviews'
 import RaveReviews from "./RaveReviews"
 import CreateReviewForm from "../CreateReviewForm"
+import Footer from '../Footer'
 import './RaveReviews.css'
 
 const RavePage = () => {
@@ -88,7 +89,7 @@ const RavePage = () => {
                                 </div>
                             }
                             {sessionUser && (showForm ? <div>
-                                <CreateReviewForm raveId={id} />
+                                <CreateReviewForm setShowForm={setShowForm} raveId={id} />
                             </div> : null)}
                             <div className="rave-page-reviews-container">
                                 <RaveReviews user={sessionUser} reviews={raveReviews} />
@@ -102,7 +103,6 @@ const RavePage = () => {
                     </div>
                 </div>
             </>}
-
         </>
     )
 }
