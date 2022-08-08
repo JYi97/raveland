@@ -1,7 +1,37 @@
-.review-errors {
-    list-style: none;
+.create-rave-review-form-container {
+    display: flex;
+    flex-direction: column;
+
 }
 
-.ul-createform-errors {
-    padding: 0;
+.create-review-form-content-field {
+    height: 30px;
+    width: 1000px;
+    margin-bottom: 20px;
+}
+
+.create-review-form-image-button {
+    padding: 2.5px;
+    font-size: 24px;
+    background-color: white;
+    width: 301px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-bottom: 30px;
+}
+
+.create-review-form-add-review-button {
+    width: 150px;
+    height: 30px;
+    font-size: 24px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    margin-bottom: 30px;
+}
+
+.create-review-form-add-review-button:hover {
+    background-color: black;
+    color: white;
 }

@@ -7,9 +7,9 @@ function RaveReviews({ user, reviews }) {
     return (
         <>
             <h3>Reviews</h3>
-            <ul>
+            <div>
                 {reviews?.map((review) => {
-                    return <li className="rave-reviews"
+                    return <div className="rave-reviews"
                         id={review.id}
                         key={review.id}
                     >
@@ -22,9 +22,9 @@ function RaveReviews({ user, reviews }) {
                                 Delete
                             </NavLink>}
                         </span>
-                    </li>
+                    </div>
                 })}
-            </ul>
+            </div>
         </>
     )
 }

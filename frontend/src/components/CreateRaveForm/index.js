@@ -112,6 +112,7 @@ const CreateRaveForm = () => {
             <div className='new-rave-form-example-container'>
                 <section className="new-form-holder-centered-middled">
                     <form className="create-rave-form" onSubmit={handleSubmit}>
+                        <div className='new-rave-form-post-rave-title'>Post your Rave</div>
                         {showErrors ?
                             errors.length > 0 ?
                                 <>

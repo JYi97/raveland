@@ -14,7 +14,7 @@
 .new-rave-example-container {
     border: solid;
     width: 600px;
-    height: 700px;
+    height: 750px;
     margin-top: 70px;
 }
 
@@ -71,7 +71,7 @@
 .new-rave-example-rave-address-container {
     width: 200px;
     border: solid;
-    overflow-x: none;
+    height: 40px;
 }
 
 .new-rave-example-rave-address {
@@ -157,7 +157,7 @@
 }
 
 .new-rave-example-more-reviews {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .new-rave-form-title-input,
@@ -232,4 +232,8 @@
     display: flex;
     justify-content: space-between;
     width: 806px;
+}
+
+.new-rave-form-post-rave-title {
+    font-size: 36px;
 }
