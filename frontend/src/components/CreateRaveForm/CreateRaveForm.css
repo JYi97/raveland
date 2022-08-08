@@ -34,6 +34,13 @@
     justify-content: space-between;
 }
 
+.new-rave-example-title {
+    width: 125px;
+    word-wrap: break-word;
+    height: 40px;
+    overflow: hidden;
+}
+
 .new-rave-example-image-container {
     border: solid;
     padding: 50px;
@@ -50,7 +57,7 @@
 
 .new-rave-example-rave-city-state-zipcode-container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 .new-rave-example-rave-description {
@@ -70,4 +77,159 @@
 .new-rave-example-rave-address {
     margin-left: 4px;
     overflow-x: none;
+}
+
+.new-rave-example-rave-address,
+.new-rave-example-description,
+.new-rave-example-rave-city,
+.new-rave-example-rave-state,
+.new-rave-example-rave-zipcode {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.new-rave-example-rave-state {
+    width: 40px;
+}
+
+.new-rave-example-rave-city {
+    width: 70px;
+}
+
+.new-rave-example-rave-zipcode {
+    width: 60px;
+}
+
+.new-rave-example-description {
+    width: 250px;
+}
+
+.new-rave-example-add-review-button {
+    border: solid;
+    width: 40px;
+    text-align: center;
+    font-size: 12px;
+    margin-left: 80px;
+    margin-bottom: 20px;
+}
+
+.new-rave-example-reviews-title-header {
+    font-size: 24px;
+    margin-left: 80px;
+    margin-bottom: 20px;
+}
+
+.new-rave-example-review-container {
+    margin-left: 80px;
+    margin-right: 60px;
+    border: solid;
+    height: 130px;
+    width: 230px;
+}
+
+.new-rave-example-review-author,
+.new-rave-example-review-info,
+.new-rave-example-review-image {
+    margin-left: 6px;
+}
+
+.new-rave-example-review-image {
+    width: 60px;
+    border: solid;
+    word-wrap: break-word;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.new-rave-example-review-author,
+.new-rave-example-review-info {
+    margin-bottom: 4px;
+}
+
+.new-rave-example-review-author {
+    margin-top: 4px;
+}
+
+.new-rave-example-review-container {
+    margin-top: 20px;
+}
+
+.new-rave-example-more-reviews {
+    margin-top: 20px;
+}
+
+.new-rave-form-title-input,
+.new-rave-form-description-input,
+.new-rave-form-address-input {
+    width: 800px;
+    height: 40px;
+    border: 1px solid navy;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.new-rave-form-date-input {
+    width: 525px;
+    height: 40px;
+    border: 1px solid navy;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    margin-right: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.new-rave-form-city-input,
+.new-rave-form-state-input {
+    width: 270px;
+    height: 40px;
+    border: 1px solid navy;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    margin-right: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.new-rave-form-zipcode-input {
+    width: 208px;
+    height: 40px;
+    border: 1px solid navy;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    margin-right: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.new-rave-form-create-button,
+.new-rave-form-cancel-button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    outline: none;
+    border-radius: 0;
+    padding: 10px 40px;
+    background-color: white;
+    font-size: 24px;
+    width: 400px;
+}
+
+.new-rave-form-create-button:hover,
+.new-rave-form-cancel-button:hover {
+    color: white;
+    background-color: black;
+}
+
+.new-rave-form-create-button {
+    margin-right: 50px;
+}
+
+.new-rave-form-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    width: 806px;
 }
