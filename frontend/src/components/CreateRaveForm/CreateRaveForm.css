@@ -159,3 +159,77 @@
 .new-rave-example-more-reviews {
     margin-top: 20px;
 }
+
+.new-rave-form-title-input,
+.new-rave-form-description-input,
+.new-rave-form-address-input {
+    width: 800px;
+    height: 40px;
+    border: 1px solid navy;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.new-rave-form-date-input {
+    width: 525px;
+    height: 40px;
+    border: 1px solid navy;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    margin-right: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.new-rave-form-city-input,
+.new-rave-form-state-input {
+    width: 270px;
+    height: 40px;
+    border: 1px solid navy;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    margin-right: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.new-rave-form-zipcode-input {
+    width: 208px;
+    height: 40px;
+    border: 1px solid navy;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    margin-right: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.new-rave-form-create-button,
+.new-rave-form-cancel-button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    outline: none;
+    border-radius: 0;
+    padding: 10px 40px;
+    background-color: white;
+    font-size: 24px;
+    width: 400px;
+}
+
+.new-rave-form-create-button:hover,
+.new-rave-form-cancel-button:hover {
+    color: white;
+    background-color: black;
+}
+
+.new-rave-form-create-button {
+    margin-right: 50px;
+}
+
+.new-rave-form-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    width: 806px;
+}

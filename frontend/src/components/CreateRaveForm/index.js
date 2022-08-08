@@ -128,6 +128,7 @@ const CreateRaveForm = () => {
                             : null}
                         <div>
                             <input
+                                className='new-rave-form-title-input'
                                 type="text"
                                 placeholder="Title"
                                 required
@@ -136,6 +137,14 @@ const CreateRaveForm = () => {
                         </div>
                         <div>
                             <input
+                                className='new-rave-form-date-input'
+                                type="text"
+                                placeholder="Date"
+                                required
+                                value={date}
+                                onChange={updateDate} />
+                            <input
+                                className='new-rave-form-image-input'
                                 type="file"
                                 placeholder="Image URL"
                                 required
@@ -143,6 +152,7 @@ const CreateRaveForm = () => {
                         </div>
                         <div>
                             <input
+                                className='new-rave-form-description-input'
                                 type="text"
                                 placeholder="Description"
                                 required
@@ -151,6 +161,7 @@ const CreateRaveForm = () => {
                         </div>
                         <div>
                             <input
+                                className='new-rave-form-address-input'
                                 type="text"
                                 placeholder="Address"
                                 required
@@ -159,39 +170,30 @@ const CreateRaveForm = () => {
                         </div>
                         <div>
                             <input
+                                className='new-rave-form-city-input'
                                 type="text"
                                 placeholder="City"
                                 required
                                 value={city}
                                 onChange={updateCity} />
-                        </div>
-                        <div>
                             <input
+                                className='new-rave-form-state-input'
                                 type="text"
                                 placeholder="State"
                                 required
                                 value={state}
                                 onChange={updateState} />
-                        </div>
-                        <div>
                             <input
+                                className='new-rave-form-zipcode-input'
                                 type="text"
                                 placeholder="Zip Code"
                                 required
                                 value={zipCode}
                                 onChange={updateZipCode} />
                         </div>
-                        <div>
-                            <input
-                                type="text"
-                                placeholder="Date"
-                                required
-                                value={date}
-                                onChange={updateDate} />
-                        </div>
-                        <div>
-                            <button type="submit">Post New Rave </button>
-                            <button type="button" onClick={handleCancelClick}>Cancel</button>
+                        <div className='new-rave-form-buttons-container'>
+                            <button className='new-rave-form-create-button' type="submit">Post New Rave </button>
+                            <button className='new-rave-form-cancel-button' type="button" onClick={handleCancelClick}>Cancel</button>
                         </div>
                     </form>
                 </section>
