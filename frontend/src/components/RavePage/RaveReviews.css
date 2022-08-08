@@ -1,3 +1,37 @@
+.rave-page-title-date-image-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 65px;
+}
+
+.rave-page-title-date-container {
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.rave-page-title {
+    color: navy;
+}
+
+.rave-page-image-container {
+    height: 26.5rem;
+    width: 83rem;
+    margin-right: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.rave-page-address,
+.rave-page-city {
+    font-size: 20px;
+}
+
+.rave-page-rave-date {
+    font-size: 24px;
+}
+
 .rave-reviews {
     list-style: none;
 }
@@ -5,60 +39,95 @@
 .rave-edit-link,
 .rave-delete-link {
     text-decoration: none;
+    color: black;
 }
 
-.rave-edit-link,
-.rave-delete-link {
-    color: navy;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.rave-page-edit-links,
+.rave-page-delete-links {
+    border: solid;
+    margin-bottom: 20px;
+    font-size: 24px;
 
 }
 
-.rave-edit-link:hover {
-    color: magenta
+.rave-page-edit-links {
+    margin-top: 30px;
+    width: 42px;
+    padding: 2px;
 }
 
+.rave-page-delete-links {
+    width: 70px;
+    padding: 2px;
+}
+
+
+.rave-edit-link:hover,
 .rave-delete-link:hover {
-    color: red
+    color: white;
+}
+
+.rave-page-edit-links:hover,
+.rave-page-delete-links:hover {
+    background-color: black;
 }
 
 .rave-page-image {
-    aspect-ratio: 16/9;
-    flex: 0 0 25%;
-    height: 50rem;
-    width: 70rem;
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+
 }
 
-.rave-page-title {
-    font-family: cursive;
-    color: orange;
+.rave-page-share-experience,
+.rave-page-share-experience-button {
+    margin-top: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.rave-page-share-experience-button {
+    width: 150px;
+    height: 30px;
+    font-size: 24px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.rave-page-share-experience-button:hover {
+    background-color: black;
+    color: white;
+}
+
+.rave-page-description-address-container {
+    display: flex;
+    height: 40px;
+    margin-top: 40px;
+    justify-content: space-between;
+}
+
+.rave-page-address-city-container {
+    border: solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 40px;
+    margin-right: 130px;
+}
+
+.rave-page-description-container {
+    margin-left: 40px;
+    width: 60%;
+    margin-bottom: 40px;
 }
 
 .rave-page-description {
-    padding-top: 10px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
+    font-size: 24px;
 }
 
-.rave-page-share-experience {
-    padding-top: 10px;
-}
-
-.rave-page-reviews-container {
-    background-color: bisque;
-}
-
-.rave-page-image-container {
-    background-color: bisque;
-}
-
-.rave-page-description,
-.rave-page-address,
-.rave-page-city {
-    color: navy;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
-}
 
 .rave-reviews-image,
 .rave-reviews-content {
