@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { getAllReviews, createReview } from '../../store/reviews';
 import './CreateReviewForm.css'
 
-const CreateReviewForm = ({ raveId }) => {
+const CreateReviewForm = ({ setShowForm, raveId }) => {
     const userId = useSelector((state) => state.session.user.id)
     const dispatch = useDispatch();
     const history = useHistory();
@@ -47,6 +47,7 @@ const CreateReviewForm = ({ raveId }) => {
             if (createdReview) {
                 history.push(`/raves/${raveId}`)
                 reset();
+                setShowForm(false)
             }
         }
     }
@@ -54,12 +55,6 @@ const CreateReviewForm = ({ raveId }) => {
     const reset = () => {
         setContent("");
         setImage("");
-    }
-
-    const handleCancelClick = (e) => {
-        e.preventDefault();
-        history.push(`/raves/${raveId}`)
-        reset();
     }
 
     const updateFile = (e) => {

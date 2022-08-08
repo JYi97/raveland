@@ -33,7 +33,12 @@
 }
 
 .rave-reviews {
-    list-style: none;
+    display: flex;
+    border: solid;
+    width: 1300px;
+    flex-direction: column;
+    margin-top: 20px;
+    padding: 30px;
 }
 
 .rave-edit-link,
@@ -129,24 +134,48 @@
 }
 
 
-.rave-reviews-image,
-.rave-reviews-content {
-    display: flex;
-}
-
 .rave-reviews-delete-review {
     display: flex;
     text-decoration: none;
-    color: navy;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    width: 20px;
+    width: 54px;
+    color: black;
+    border: solid;
+    font-size: 18px;
 }
 
 .rave-reviews-delete-review:hover {
-    color: red;
+    color: white;
+    background-color: black;
 }
 
 .rave-reviews-content {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
+}
+
+.rave-details-page-reviews-header {
+    color: navy;
+    margin-bottom: 30px;
+}
+
+.rave-reviews-content-delete-container {
+    display: flex;
+    justify-content: space-between;
+    width: 1250px;
+}
+
+.rave-reviews-username {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.rave-reviews-image {
+    height: 400px;
+    margin-top: 30px;
+}
+
+.rave-reviews-image-container {
+    display: flex;
+    justify-content: center;
 }
