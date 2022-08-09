@@ -1,0 +1,20 @@
+.searchbar-box {
+    width: 400px;
+    color: white;
+    background: none;
+    border-color: white;
+    margin-top: 50px;
+    font-size: 36px;
+}
+
+.search-items-dropdown {
+    background-color: none;
+    color: white;
+    font-size: 24px;
+    border: solid;
+}
+
+.search-items-dropdown:hover {
+    background-color: pink;
+
+}

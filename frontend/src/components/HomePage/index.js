@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import * as ravesActions from '../../store/raves'
 import Footer from '../Footer'
+import SearchBar from "../SearchBar"
 import './HomePage.css'
 
 const HomePage = () => {
@@ -71,9 +72,9 @@ const HomePage = () => {
         <>
             {allRaves && <>
                 <div className="home-page-main-image-container">
-                    {/* <div>
-                        This is going to be the Seach Bar
-                    </div> */}
+                   <div className="search-bar-container">
+                        <SearchBar/>
+                   </div>
                 </div>
                 <h2 className="recent-raves-header">Recent Raves</h2>
                 <div className="ul-recent-raves">
