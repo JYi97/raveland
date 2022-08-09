@@ -139,7 +139,7 @@ const CreateRaveForm = () => {
                         <div>
                             <input
                                 className='new-rave-form-date-input'
-                                type="text"
+                                type="date"
                                 placeholder="Date"
                                 required
                                 value={date}
@@ -204,7 +204,7 @@ const CreateRaveForm = () => {
                             {title ? <div className='new-rave-example-title'>{title}</div> : <div className='new-rave-example-title'>
                                 Title
                             </div>}
-                            {date ? <div className='new-rave-example-title'>{date}</div> : <div className='new-rave-example-title'>Date</div>}
+                            {date ? <div className='new-rave-example-title'>{date?.slice(5,7)}-{date?.slice(8,10)}-{date?.slice(0,4)}</div> : <div className='new-rave-example-title'>Date</div>}
                         </div>
                         <div className='new-rave-example-image-container'>
                             Image

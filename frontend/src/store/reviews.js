@@ -41,7 +41,7 @@ export const createReview = (data) => async dispatch => {
     formData.append("raveId", raveId);
     formData.append("content", content);
 
-    if(image) formData.append("image", image);
+    if (image) formData.append("image", image);
 
     const response = await csrfFetch('/api/reviews', {
         method: "POST",
@@ -94,12 +94,27 @@ export const getReview = (id) => async dispatch => {
 
 // thunk action creator for editing a review
 export const editReview = (data) => async dispatch => {
-    const response = await csrfFetch(`/api/review/${data.id}`, {
+    const {
+        reviewId,
+        userId,
+        raveId,
+        image,
+        content
+    } = data
+
+    const formData = new FormData();
+    formData.append("userId", userId);
+    formData.append("raveId", raveId);
+    formData.append("content", content);
+    formData.append("reviewId", reviewId)
+
+    if (image) formData.append("image", image);
+    const response = await csrfFetch(`/api/reviews/${reviewId}`, {
         method: "PUT",
         headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "multipart/form-data",
         },
-        body: JSON.stringify(data),
+        body: formData,
     })
 
     if (response.ok) {
@@ -135,7 +150,7 @@ const reviewReducer = (state = initialState, action) => {
                 ...allReviews
             }
         case ADD_REVIEW:
-           // console.log('IN REDUCER ADD ONE CASE - ACTION -> ', action);
+            // console.log('IN REDUCER ADD ONE CASE - ACTION -> ', action);
             if (!state[action.review.id]) {
                 const newState = {
                     ...state,
@@ -151,16 +166,16 @@ const reviewReducer = (state = initialState, action) => {
         //     return {
         //         ...review
         //     }
-        // case EDIT_REVIEW:
-        //     for (let review in state.reviews) {
-        //         if (review.id === action.review.id) {
-        //             return action.review
-        //         }
-        //         else {
-        //             return review
-        //         }
-        //     }
-        //     return newState
+        case EDIT_REVIEW:
+            for (let review in state.reviews) {
+                if (review.id === action.review.id) {
+                    return action.review
+                }
+                else {
+                    return review
+                }
+            }
+            return newState
         case DELETE_REVIEW:
             for (let review in state.reviews) {
                 if (review.id === action.review.id) {
