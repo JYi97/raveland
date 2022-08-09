@@ -15,7 +15,7 @@ const EditRaveForm = () => {
     const rave = useSelector((state) => state?.raves[id])
     // console.log(rave)
     const [title, setTitle] = useState(rave?.title);
-    const [image, setImage] = useState(rave?.photoUrl);
+    const [image, setImage] = useState('');
     const [description, setDescription] = useState(rave?.description);
     const [address, setAddress] = useState(rave?.address);
     const [city, setCity] = useState(rave?.city);
@@ -92,8 +92,6 @@ const EditRaveForm = () => {
         if (file) setImage(file);
     };
 
-
-
     return (
         <>
             {rave && <section className="edit-form-holder centered middled">
@@ -113,12 +111,15 @@ const EditRaveForm = () => {
                                 onChange={updateTitle} />
                         </div>
                         <div className='edit-rave-form-image-field-container'>
-                            <input
-                                className='edit-rave-form-image-field'
-                                type="file"
-                                placeholder="Image URL"
-                                required
-                                onChange={updateFile} />
+                            <label className='edit-rave-form-image-field-container'>
+                                 {/* {typeof image === 'object' ? image?.name : null} */}
+                                <input
+                                    className='edit-rave-form-image-field'
+                                    type="file"
+                                    placeholder="Image URL"
+                                    required
+                                    onChange={updateFile} />
+                            </label>
                         </div>
                         <div className='edit-rave-form-description-field-container'>
                             <input

@@ -12,6 +12,10 @@
     height: 300px;
 }
 
+.all-raves-list:hover {
+    color: pink;
+}
+
 .all-raves-rave-author-poster {
     display: flex;
     justify-content: center;
@@ -24,7 +28,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
-    color: navy;
+    color: black;
     font-size: 24px;
 }
 
@@ -33,10 +37,6 @@
     color: navy;
 }
 
-.all-raves-rave-title-link:hover {
-    text-decoration: underline;
-    color: pink;
-}
 
 .all-raves-rave-image-container {
     display: flex;
