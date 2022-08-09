@@ -97,75 +97,94 @@ const EditRaveForm = () => {
     return (
         <>
             {rave && <section className="edit-form-holder centered middled">
+                <div className='edit-your-rave-title'>Edit Your Rave</div>
                 <form className="edit-rave-form" onSubmit={handleSubmit}>
-                    <div>
-                        {errors.map((error) => <div className='edit-rave-errors' key={error}>{error}</div>)}
+                    <div className='edit-rave-form-fields-container'>
+                        <div>
+                            {errors.map((error) => <div className='edit-rave-errors' key={error}>{error}</div>)}
+                        </div>
+                        <div className='edit-rave-form-title-field-container'>
+                            <input
+                                className='edit-rave-form-title-field'
+                                type="text"
+                                placeholder={rave?.title}
+                                required
+                                value={title}
+                                onChange={updateTitle} />
+                        </div>
+                        <div className='edit-rave-form-image-field-container'>
+                            <input
+                                className='edit-rave-form-image-field'
+                                type="file"
+                                placeholder="Image URL"
+                                required
+                                onChange={updateFile} />
+                        </div>
+                        <div className='edit-rave-form-description-field-container'>
+                            <input
+                                className='edit-rave-form-description-field'
+                                type="text"
+                                placeholder={rave?.description}
+                                required
+                                value={description}
+                                onChange={updateDescription} />
+                        </div>
+                        <div className='edit-rave-form-address-field-container'>
+                            <input
+                                className='edit-rave-form-address-field'
+                                type="text"
+                                placeholder={rave?.address}
+                                required
+                                value={address}
+                                onChange={updateAddress} />
+                        </div>
+                        <div className='edit-rave-form-city-field-container'>
+                            <input
+                                className='edit-rave-form-city-field'
+                                type="text"
+                                placeholder={rave?.city}
+                                required
+                                value={city}
+                                onChange={updateCity} />
+                        </div>
+                        <div className='edit-rave-form-state-field-container'>
+                            <div className='edit-rave-form-state-zip-field-container'>
+                                <div>
+                                    <input
+                                        className='edit-rave-form-state-field'
+                                        type="text"
+                                        placeholder={rave?.state}
+                                        required
+                                        value={state}
+                                        onChange={updateState} />
+                                </div>
+                                <div>
+                                    <input
+                                        className='edit-rave-form-zipCode-field'
+                                        type="text"
+                                        placeholder={rave?.zipCode}
+                                        required
+                                        value={zipCode}
+                                        onChange={updateZipCode} />
+                                </div>
+                            </div>
+                        </div>
+                        <div className='edit-rave-form-date-field-container'>
+                            <input
+                                className='edit-rave-form-date-field'
+                                type="text"
+                                placeholder={rave?.date}
+                                required
+                                value={date}
+                                onChange={updateDate} />
+                        </div>
+                        <div className='edit-form-update-button-container'>
+                            <button className='edit-form-update-button' type="submit">Update</button>
+                        </div>
+                        <div className='edit-form-cancel-button-container'>
+                            <button className='edit-form-cancel-button' type="button" onClick={handleCancelClick}>Cancel</button>
+                        </div>
                     </div>
-                    <div>
-                        <input
-                            type="text"
-                            placeholder={rave?.title}
-                            required
-                            value={title}
-                            onChange={updateTitle} />
-                    </div>
-                    <div>
-                        <input
-                            type="file"
-                            placeholder="Image URL"
-                            required
-                            onChange={updateFile} />
-                    </div>
-                    <div>
-                        <input
-                            type="text"
-                            placeholder={rave?.description}
-                            required
-                            value={description}
-                            onChange={updateDescription} />
-                    </div>
-                    <div>
-                        <input
-                            type="text"
-                            placeholder={rave?.address}
-                            required
-                            value={address}
-                            onChange={updateAddress} />
-                    </div>
-                    <div>
-                        <input
-                            type="text"
-                            placeholder={rave?.city}
-                            required
-                            value={city}
-                            onChange={updateCity} />
-                    </div>
-                    <div>
-                        <input
-                            type="text"
-                            placeholder={rave?.state}
-                            required
-                            value={state}
-                            onChange={updateState} />
-                    </div>
-                    <div>
-                        <input
-                            type="text"
-                            placeholder={rave?.zipCode}
-                            required
-                            value={zipCode}
-                            onChange={updateZipCode} />
-                    </div>
-                    <div>
-                        <input
-                            type="text"
-                            placeholder={rave?.date}
-                            required
-                            value={date}
-                            onChange={updateDate} />
-                    </div>
-                    <button type="submit">Update Rave</button>
-                    <button type="button" onClick={handleCancelClick}>Cancel</button>
 
                 </form>
             </section>}
