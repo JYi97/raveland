@@ -1,10 +1,4 @@
-.edit-form-holder {
-    background-color: lightcoral;
-}
-
 .edit-rave-errors{
-    list-style: none;
-    color: navy;
+    color: red;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
 }

@@ -142,6 +142,7 @@
     color: black;
     border: solid;
     font-size: 18px;
+    padding: 4px;
 }
 
 .rave-reviews-delete-review:hover {
@@ -168,6 +169,7 @@
 .rave-reviews-username {
     font-size: 26px;
     margin-bottom: 20px;
+    margin-top: 12px;
 }
 
 .rave-reviews-image {
@@ -178,4 +180,31 @@
 .rave-reviews-image-container {
     display: flex;
     justify-content: center;
+}
+
+.rave-reviews-username-delete-button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rave-reviews-username-initial-container {
+    display: flex;
+}
+
+.rave-reviews-username-initial {
+    font-size: 26px;
+    margin-right: 20px;
+    border: solid;
+    height: 30px;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    width: 30px;
+
+}
+
+.rave-reviews-review-date {
+    margin-bottom: 6px;
+    margin-top: 4px;
 }

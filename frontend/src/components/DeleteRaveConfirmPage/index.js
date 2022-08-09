@@ -28,14 +28,18 @@ const DeleteRaveConfirmPage = () => {
 
     return (
         <>
-            <div className="delete-confirm-page">
-                Are you sure you want to delete this rave? This will delete all the reviews as well.
-            </div>
-            <div>
-                <button onClick={handleDeleteClick}>YES DELETE THIS RAVE</button>
-            </div>
-            <div>
-                <button onClick={handleCancelClick}>NO DON'T DELETE IT</button>
+            <div className="delete-form-container">
+                <div className="delete-confirm-title">
+                    Delete My Rave
+                </div>
+                <div className="delete-rave-delete-cancel-buttons-container">
+                    <div className="delete-rave-delete-button-container">
+                        <button className="delete-rave-delete-button" onClick={handleDeleteClick}>Delete</button>
+                    </div>
+                    <div className="delete-rave-cancel-button-container">
+                        <button className="delete-rave-cancel-button" onClick={handleCancelClick}>Cancel</button>
+                    </div>
+                </div>
             </div>
         </>
     )

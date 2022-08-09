@@ -1,5 +1,46 @@
-.delete-confirm-page {
+.delete-confirm-title {
     font-size: 36px;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: red;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.delete-form-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.delete-rave-delete-cancel-buttons-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    height: 75vh;
+    background-image: url('https://getwallpapers.com/wallpaper/full/8/7/2/197944.jpg');
+    background-size: 103% 100%;
+}
+
+.delete-rave-delete-button-container,
+.delete-rave-cancel-button-container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.delete-rave-delete-button,
+.delete-rave-cancel-button {
+    background: none;
+    border-color: white;
+    border: solid;
+    color: white;
+    width: 300px;
+    height: 40px;
+    font-size: 24px;
+}
+
+
+.delete-rave-delete-button:hover,
+.delete-rave-cancel-button:hover {
+    color: pink;
 }

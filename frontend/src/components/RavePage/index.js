@@ -6,7 +6,6 @@ import { NavLink } from "react-router-dom"
 import { getAllReviews } from '../../store/reviews'
 import RaveReviews from "./RaveReviews"
 import CreateReviewForm from "../CreateReviewForm"
-import Footer from '../Footer'
 import './RaveReviews.css'
 
 const RavePage = () => {
