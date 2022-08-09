@@ -5,7 +5,7 @@ import { getAllReviews, createReview } from '../../store/reviews';
 import './CreateReviewForm.css'
 
 const CreateReviewForm = ({ setShowForm, raveId }) => {
-    const userId = useSelector((state) => state.session.user.id)
+    const userId = useSelector((state) => state?.session?.user?.id)
     const dispatch = useDispatch();
     const history = useHistory();
     const [content, setContent] = useState('');

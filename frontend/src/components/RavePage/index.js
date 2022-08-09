@@ -10,17 +10,21 @@ import './RaveReviews.css'
 
 const RavePage = () => {
     const dispatch = useDispatch();
-    const raves = useSelector((state) => state.raves)
+    const raves = useSelector((state) => state?.raves)
     // console.log(raves)
     const { id } = useParams()
     // console.log(id)
     const rave = Object.values(raves)
     // console.log(rave)
-    const sessionUser = useSelector((state) => state.session.user)
-    const reviews = useSelector((state) => state.reviews)
+    const sessionUser = useSelector((state) => state?.session?.user)
+    const reviews = useSelector((state) => state?.reviews)
     // console.log(reviews)
     const raveReviews = Object.values(reviews)
     const [showForm, setShowForm] = useState(false)
+
+    // const customDate = new Date(2022, 0, 12)
+
+    // console.log("THIS IS THE NEW DATE", customDate)
 
     useEffect(() => {
         dispatch(ravesActions.getRave(id))
@@ -31,7 +35,6 @@ const RavePage = () => {
         <>
 
             {rave[0] && <>
-
                 <div className="rave-page-title-date-image-container">
                     <div className="rave-page-title-date-container">
                         <h1 className="rave-page-title">
@@ -84,14 +87,14 @@ const RavePage = () => {
                                 </div>)
                                 :
                                 <div className="rave-page-share-experience">
-                                    Log in or sign up to share your experience
+                                    Log in / Sign up to share your experience
                                 </div>
                             }
                             {sessionUser && (showForm ? <div>
                                 <CreateReviewForm setShowForm={setShowForm} raveId={id} />
                             </div> : null)}
                             <div className="rave-page-reviews-container">
-                                <RaveReviews user={sessionUser} reviews={raveReviews} />
+                                <RaveReviews raveId={id} user={sessionUser} reviews={raveReviews} />
                             </div>
                         </div>
                     </div>

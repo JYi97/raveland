@@ -143,6 +143,7 @@
     border: solid;
     font-size: 18px;
     padding: 4px;
+    margin-left: 20px;
 }
 
 .rave-reviews-delete-review:hover {
@@ -207,4 +208,32 @@
 .rave-reviews-review-date {
     margin-bottom: 6px;
     margin-top: 4px;
+}
+
+.rave-review-edit-delete-buttons-container {
+    display: flex;
+}
+
+.rave-review-edit-button {
+    width: 44px;
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+    border-style: solid;
+    height: 35px;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.rave-review-edit-button:hover {
+    color: white;
+}
+
+.rave-review-edit-button-container:hover {
+    color: white;
+    background-color: black;
+}
+
+.rave-review-edit-review-form {
+    margin-top: 20px;
 }
