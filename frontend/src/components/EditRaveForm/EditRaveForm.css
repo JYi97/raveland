@@ -35,9 +35,25 @@
     justify-content: center;
 }
 
+.edit-rave-form-image-field-container {
+    color: white;
+    width: 400px;
+    margin: 0 auto;
+    border: solid;
+    font-size: 24px;
+    padding: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.edit-rave-form-image-field-container:hover {
+    color: pink;
+}
+
 .edit-rave-form-image-field {
     margin-left: 76px;
     color: white;
+    display: hidden;
 }
 
 .edit-rave-form-title-field,

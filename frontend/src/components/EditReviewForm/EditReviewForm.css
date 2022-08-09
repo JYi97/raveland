@@ -1,0 +1,14 @@
+.edit-review-form-image-label-container {
+    font-size: 20px;
+    margin-bottom: 10px;
+    border: solid;
+    width: 144px;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.edit-review-form-image-label-container:hover {
+    color: white;
+    background-color: black;
+}

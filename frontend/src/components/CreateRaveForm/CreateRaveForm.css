@@ -237,3 +237,8 @@
 .new-rave-form-post-rave-title {
     font-size: 36px;
 }
+
+.new-rave-form-image-label {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

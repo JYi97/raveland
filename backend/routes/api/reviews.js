@@ -2,7 +2,7 @@ const express = require('express')
 const asyncHandler = require('express-async-handler');
 
 const { Review, User } = require('../../db/models');
-const {singleMulterUpload, singlePublicFileUpload} = require('../../awsS3')
+const { singleMulterUpload, singlePublicFileUpload } = require('../../awsS3')
 
 const router = express.Router();
 
@@ -11,7 +11,8 @@ const router = express.Router();
 router.get("/:raveId", asyncHandler(async (req, res) => {
 
     const raveId = req.params.raveId
-    const reviews = await Review.findAll({ include: {model: User},
+    const reviews = await Review.findAll({
+        include: { model: User },
         where: {
             raveId: raveId
         },
@@ -27,14 +28,14 @@ router.get("/:id", asyncHandler(async (req, res) => {
 }))
 
 // Post a new review
-router.post("/",  singleMulterUpload("image"), asyncHandler(async (req, res) => {
-    const { userId, raveId, content} = req.body;
-    let {image} =  req.body
-    if(req.file){
+router.post("/", singleMulterUpload("image"), asyncHandler(async (req, res) => {
+    const { userId, raveId, content } = req.body;
+    let { image } = req.body
+    if (req.file) {
         photoUrl = await singlePublicFileUpload(req.file);
-       }else{
-         photoUrl = image
-       }
+    } else {
+        photoUrl = image
+    }
     const review = await Review.create({
         userId,
         raveId,
@@ -57,20 +58,35 @@ router.put("/:id", singleMulterUpload("image"), asyncHandler(async (req, res) =>
     // console.log("THIS IS THE RAVEID ------------------------------", raveId)
     // console.log("THIS IS THE CONTENT------------------------------", content)
     // console.log("THIS IS THE REVIEWID ------------------------------", reviewId)
+    if (req.file && req.file.fieldname === "image") {
 
-    let photoUrl = await singlePublicFileUpload(req.file);
+        let photoUrl = await singlePublicFileUpload(req.file);
 
-    const review = await Review.findByPk(reviewId)
+        const review = await Review.findByPk(reviewId)
 
-    // console.log("THIS IS THE REVIEW I HOPE", review)
+        // console.log("THIS IS THE REVIEW I HOPE", review)
 
-    review.userId = userId
-    review.content = content
-    review.photoUrl = photoUrl
-    review.raveId = raveId
+        review.userId = userId
+        review.content = content
+        review.photoUrl = photoUrl
+        review.raveId = raveId
 
-    await review.save()
-    return res.json(review)
+        await review.save()
+        return res.json(review)
+    } if (!req.file) {
+
+        const review = await Review.findByPk(reviewId)
+
+        let photoUrl = review.photoUrl
+
+        review.userId = userId
+        review.content = content
+        review.photoUrl = photoUrl
+        review.raveId = raveId
+
+        await review.save()
+        return res.json(review)
+    }
 }))
 
 // Delete a review
