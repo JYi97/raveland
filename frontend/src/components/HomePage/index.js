@@ -79,7 +79,7 @@ const HomePage = () => {
                 <h2 className="recent-raves-header">Recent Raves</h2>
                 <div className="ul-recent-raves">
                     {recentRaves && recentRaves.sort(sortByDate).slice(0, 12).map(rave => {
-                        return <NavLink style={{ textDecoration: 'none' }} exact to={`raves/${rave.id}`}>
+                        return <NavLink key={rave.id} style={{ textDecoration: 'none' }} exact to={`raves/${rave.id}`}>
                             <div className="home-recent-raves-list" key={rave?.id}>
                                 <div className="homepage-rave-author-poster">
                                     {rave?.User?.username}
@@ -98,7 +98,7 @@ const HomePage = () => {
                     <>
                         <div className="ul-recent-raves">
                             {recentRaves && recentRaves.sort(sortByDate).slice(12, 25).map(rave => {
-                                return <NavLink style={{ textDecoration: 'none' }} exact to={`raves/${rave.id}`}>
+                                return <NavLink key={rave.id} style={{ textDecoration: 'none' }} exact to={`raves/${rave.id}`}>
                                     <div className="home-recent-raves-list" key={rave?.id}>
                                         <div className="homepage-rave-author-poster">
                                             {rave?.User?.username}
@@ -136,7 +136,7 @@ const HomePage = () => {
                 <h2 className="recent-raves-header">Upcoming Raves</h2>
                 <div className="ul-recent-raves">
                     {upcomingRaves && upcomingRaves.sort(sortByDate).slice(0, 12).map(rave => {
-                        return <NavLink style={{ textDecoration: 'none' }} exact to={`raves/${rave.id}`}>
+                        return <NavLink key={rave.id} style={{ textDecoration: 'none' }} exact to={`raves/${rave.id}`}>
                             <div className="home-recent-raves-list" key={rave?.id}>
                                 <div className="homepage-rave-author-poster">
                                     {rave?.User?.username}

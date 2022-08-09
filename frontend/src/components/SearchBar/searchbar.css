@@ -7,11 +7,18 @@
     font-size: 36px;
 }
 
+.searchbar-box::placeholder {
+    color: white;
+}
+
 .search-items-dropdown {
     background-color: none;
     color: white;
     font-size: 24px;
     border: solid;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 10px;
 }
 
 .search-items-dropdown:hover {
