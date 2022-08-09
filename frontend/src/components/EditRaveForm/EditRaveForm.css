@@ -1,10 +1,82 @@
-.edit-form-holder {
-    background-color: lightcoral;
+.edit-rave-errors {
+    color: red;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.edit-rave-errors{
-    list-style: none;
-    color: navy;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.edit-your-rave-title {
+    text-align: center;
+    font-size: 36px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
 
+.edit-rave-form-fields-container {
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-image: url('https://wallpapercave.com/wp/YMDSifI.jpg');
+    background-size: 95% 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.edit-rave-form-title-field-container,
+.edit-rave-form-image-field-container,
+.edit-rave-form-address-field-container,
+.edit-rave-form-description-field-container,
+.edit-rave-form-city-field-container,
+.edit-rave-form-state-field-container,
+.edit-rave-form-zipCode-field-container,
+.edit-rave-form-date-field-container,
+.edit-form-update-button-container,
+.edit-form-cancel-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.edit-rave-form-image-field {
+    margin-left: 76px;
+    color: white;
+}
+
+.edit-rave-form-title-field,
+.edit-rave-form-description-field,
+.edit-rave-form-address-field,
+.edit-rave-form-city-field,
+.edit-rave-form-date-field,
+.edit-form-update-button,
+.edit-form-cancel-button {
+    width: 400px;
+    height: 30px;
+}
+
+.edit-rave-form-state-zip-field-container {
+    display: flex;
+}
+
+.edit-rave-form-state-field {
+    margin-right: 15px;
+    height: 30px;
+    width: 180px;
+}
+
+.edit-rave-form-zipCode-field {
+    margin-left: 15px;
+    height: 30px;
+    width: 180px;
+}
+
+.edit-form-update-button,
+.edit-form-cancel-button {
+    background: none;
+    color: white;
+    border: solid;
+    font-size: 20px;
+
+}
+
+.edit-form-update-button:hover,
+.edit-form-cancel-button:hover {
+    color: pink;
 }

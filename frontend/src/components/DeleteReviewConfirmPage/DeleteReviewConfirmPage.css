@@ -1,5 +1,45 @@
-.delete-review-confirm {
-    background-color: red;
+.delete-confirm-title {
     font-size: 36px;
-    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.delete-form-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.delete-review-delete-cancel-buttons-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    height: 75vh;
+    background-image: url('https://images.hdqwalls.com/download/rave-russia-dj-neon-kp-1920x1080.jpg');
+    background-size: 95% 100%;
+}
+
+.delete-review-delete-button-container,
+.delete-review-cancel-button-container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.delete-review-delete-button,
+.delete-review-cancel-button {
+    background: none;
+    border: solid;
+    color: white;
+    width: 300px;
+    height: 40px;
+    font-size: 24px;
+}
+
+
+.delete-review-delete-button:hover,
+.delete-review-cancel-button:hover {
+    color: pink;
 }

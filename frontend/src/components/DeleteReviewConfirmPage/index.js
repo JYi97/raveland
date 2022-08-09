@@ -29,15 +29,19 @@ const DeleteReviewConfirmPage = () => {
 
     return (
         <>
-            <div className="delete-review-confirm">
-                Are you sure you want to this review? No one will be able to see your review again
+           <div className="delete-form-container">
+                <div className="delete-confirm-title">
+                    Delete My Review
+                </div>
+                <div className="delete-review-delete-cancel-buttons-container">
+                    <div className="delete-review-delete-button-container">
+                        <button className="delete-review-delete-button" onClick={handleDeleteClick}>Delete</button>
+                    </div>
+                    <div className="delete-review-cancel-button-container">
+                        <button className="delete-review-cancel-button" onClick={handleCancelClick}>Cancel</button>
+                    </div>
+                </div>
             </div>
-            <div>
-                <button onClick={handleDeleteClick}>YES DELETE REVIEW</button>
-            </div>
-            <span><button onClick={handleCancelClick}>NO DON'T DELETE IT</button>
-            </span>
-
         </>
     )
 }
