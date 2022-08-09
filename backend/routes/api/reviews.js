@@ -49,20 +49,20 @@ router.post("/",  singleMulterUpload("image"), asyncHandler(async (req, res) => 
 // Edit a review
 router.put("/:id", singleMulterUpload("image"), asyncHandler(async (req, res) => {
 
-    console.log("IS THIS ROUTE EVEN HITTING????????????????")
+    // console.log("IS THIS ROUTE EVEN HITTING????????????????")
 
     const { userId, raveId, content, reviewId } = req.body;
 
-    console.log("THIS IS THE USERID ------------------------------", userId)
-    console.log("THIS IS THE RAVEID ------------------------------", raveId)
-    console.log("THIS IS THE CONTENT------------------------------", content)
-    console.log("THIS IS THE REVIEWID ------------------------------", reviewId)
+    // console.log("THIS IS THE USERID ------------------------------", userId)
+    // console.log("THIS IS THE RAVEID ------------------------------", raveId)
+    // console.log("THIS IS THE CONTENT------------------------------", content)
+    // console.log("THIS IS THE REVIEWID ------------------------------", reviewId)
 
     let photoUrl = await singlePublicFileUpload(req.file);
 
     const review = await Review.findByPk(reviewId)
 
-    console.log("THIS IS THE REVIEW I HOPE", review)
+    // console.log("THIS IS THE REVIEW I HOPE", review)
 
     review.userId = userId
     review.content = content
