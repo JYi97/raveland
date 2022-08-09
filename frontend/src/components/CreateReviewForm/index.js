@@ -7,7 +7,7 @@ const CreateReviewForm = ({ setShowForm, raveId }) => {
     const userId = useSelector((state) => state?.session?.user?.id)
     const dispatch = useDispatch();
     const [content, setContent] = useState('');
-    const [image, setImage] = useState(null);
+    const [image, setImage] = useState('');
     const [errors, setErrors] = useState([]);
     const [show, setShow] = useState(false);
 
@@ -17,8 +17,9 @@ const CreateReviewForm = ({ setShowForm, raveId }) => {
         const errors = [];
         if (content?.length > 255) errors.push("Please limit character count to under 255.")
         if (content?.length < 1) errors.push("Please enter your review.")
+        if (!image) errors.push("Please upload an image")
         setErrors(errors)
-    }, [content])
+    }, [content, image])
 
     useEffect(() => {
         dispatch(getAllReviews(raveId));
@@ -76,12 +77,15 @@ const CreateReviewForm = ({ setShowForm, raveId }) => {
                         required
                         value={content}
                         onChange={updateContent} />
-                    <input
-                        className='create-review-form-image-button'
-                        type="file"
-                        placeholder="Image URL"
-                        required
-                        onChange={updateFile} />
+                    <label className='new-review-form-image-label'>
+                        {image ? `${image.name}` : "Upload Image"}
+                        <input
+                            className='create-review-form-image-button'
+                            type="file"
+                            placeholder="Image URL"
+                            hidden={true}
+                            onChange={updateFile} />
+                    </label>
                     <div>
                         <button className='create-review-form-add-review-button' type="submit">Add Review</button>
                     </div>

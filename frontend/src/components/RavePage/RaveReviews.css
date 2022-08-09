@@ -121,6 +121,8 @@
     justify-content: space-evenly;
     padding: 40px;
     margin-right: 130px;
+    width: 260px;
+    height: 40px;
 }
 
 .rave-page-description-container {

@@ -92,8 +92,6 @@ const EditRaveForm = () => {
         if (file) setImage(file);
     };
 
-
-
     return (
         <>
             {rave && <section className="edit-form-holder centered middled">
@@ -113,12 +111,15 @@ const EditRaveForm = () => {
                                 onChange={updateTitle} />
                         </div>
                         <div className='edit-rave-form-image-field-container'>
-                            <input
-                                className='edit-rave-form-image-field'
-                                type="file"
-                                placeholder="Image URL"
-                                required
-                                onChange={updateFile} />
+                            <label className='edit-rave-form-image-field-container'>
+                                {!image ? "Add Photo" : `Change Your Rave Photo`}
+                                <input
+                                    className='edit-rave-form-image-field'
+                                    type="file"
+                                    placeholder="Image URL"
+                                    onChange={updateFile}
+                                    hidden={true} />
+                            </label>
                         </div>
                         <div className='edit-rave-form-description-field-container'>
                             <input

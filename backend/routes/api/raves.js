@@ -34,24 +34,50 @@ router.put("/:id", singleMulterUpload('image'), asyncHandler(async (req, res) =>
 
     const {userId, title, description, address, city, state, zipCode, date} = req.body
 
-    let photoUrl = await singlePublicFileUpload(req.file);
+    // console.log("THIS IS THE EDIT ROUTE IN THE BACKEND", req.file.fieldname)
 
-    const raveId = parseInt(req.params.id, 10);
+    if (req.file && req.file.fieldname === "image") {
+        let photoUrl = await singlePublicFileUpload(req.file);
+        const raveId = parseInt(req.params.id, 10);
 
-    const rave = await Rave.findByPk(raveId)
+        const rave = await Rave.findByPk(raveId)
 
-    rave.userId = userId
-    rave.title = title
-    rave.photoUrl = photoUrl
-    rave.description = description
-    rave.address = address
-    rave.city = city
-    rave.state = state
-    rave.zipCode = zipCode
-    rave.date = date
+        rave.userId = userId
+        rave.title = title
+        rave.photoUrl = photoUrl
+        rave.description = description
+        rave.address = address
+        rave.city = city
+        rave.state = state
+        rave.zipCode = zipCode
+        rave.date = date
 
-    await rave.save();
-    return res.json(rave)
+        await rave.save();
+        return res.json(rave)
+    } if (!req.file) {
+        const raveId = parseInt(req.params.id, 10);
+
+        const rave = await Rave.findByPk(raveId)
+
+        let photoUrl = rave.photoUrl
+
+        rave.userId = userId
+        rave.title = title
+        rave.photoUrl = photoUrl
+        rave.description = description
+        rave.address = address
+        rave.city = city
+        rave.state = state
+        rave.zipCode = zipCode
+        rave.date = date
+
+        await rave.save();
+        return res.json(rave)
+    }
+
+
+
+
 }))
 
 router.delete("/:id", asyncHandler(async (req, res) => {

@@ -27,19 +27,21 @@ const RavesList = () => {
             <h1 className="all-raves-title"> All Raves</h1>
             <div className="all-raves-ul-recent-raves">
                 {raves && raves.sort(sortByName).map(rave => {
-                    return <div className="all-raves-list" key={rave?.id}>
+                    return <NavLink style={{ textDecoration: 'none' }} exact to={`raves/${rave.id}`}>
+                    <div className="all-raves-list" key={rave?.id}>
                         <div className="all-raves-rave-author-poster">
                             {rave?.User?.username}
                         </div>
                         <div className="all-raves-rave-title">
-                            <NavLink className={'all-raves-rave-title-link'} exact to={`raves/${rave.id}`}>
+                            <div className={'all-raves-rave-title-link'} exact to={`raves/${rave.id}`}>
                                 {rave?.title}
-                            </NavLink>
+                            </div>
                         </div>
                         <div className="all-raves-rave-image-container">
                             <img className="all-raves-rave-image" src={rave?.photoUrl} alt=''></img>
                         </div>
                     </div>
+                    </NavLink>
                 })}
             </div>
         </>

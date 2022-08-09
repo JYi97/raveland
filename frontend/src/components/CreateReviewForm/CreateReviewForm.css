@@ -22,7 +22,7 @@
 .create-review-form-add-review-button {
     width: 150px;
     height: 30px;
-    font-size: 24px;
+    font-size: 18px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -32,6 +32,44 @@
 }
 
 .create-review-form-add-review-button:hover {
+    background-color: black;
+    color: white;
+}
+
+.new-rave-form-image-label {
+    border: solid;
+    padding: 9px;
+    height: 20px;
+    margin: 0 auto;
+    font-size: 24px;
+    width: 300px;
+    text-align: center;
+}
+
+.new-rave-form-date-image-container {
+    display: flex;
+    justify-content: space-between;
+    width: 805px;
+    height: 70px;
+    align-items: center;
+}
+
+.new-rave-form-image-label:hover {
+    color: white;
+    background-color: black;
+}
+
+.new-review-form-image-label {
+    font-size: 20px;
+    text-align: center;
+    width: 144px;
+    border: solid;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.new-review-form-image-label:hover{
     background-color: black;
     color: white;
 }

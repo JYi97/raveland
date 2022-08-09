@@ -12,7 +12,7 @@ const EditReviewForm = ({ reviewContent, review, rave, setShowEditReview }) => {
     const reviewId = Number(review)
     // console.log(reviewId)
     const [content, setContent] = useState(reviewContent);
-    const [image, setImage] = useState(null);
+    const [image, setImage] = useState(review?.photoUrl);
     const [errors, setErrors] = useState([]);
     const [show, setShow] = useState(false);
 
@@ -76,14 +76,18 @@ const EditReviewForm = ({ reviewContent, review, rave, setShowEditReview }) => {
                             required
                             value={content}
                             onChange={updateContent} />
-                        <input
-                            className='create-review-form-image-button'
-                            type="file"
-                            placeholder="Image URL"
-                            required
-                            onChange={updateFile} />
-                        <div>
-                            <button className='create-review-form-add-review-button' type="submit">Edit Review</button>
+                        <label className='edit-review-form-image-label-container'>
+                        {!image ? "Change Image" : `${image.name}`}
+                            <input
+                                className='create-review-form-image-button'
+                                type="file"
+                                placeholder="Image URL"
+                                hidden={true}
+                                onChange={updateFile} />
+
+                        </label>
+                        <div className='create-review-form-add-review-button-container'>
+                            <button className='create-review-form-add-review-button' type="submit">Edit My Review</button>
                         </div>
                     </div>
                 </form>

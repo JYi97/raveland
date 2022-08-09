@@ -10,7 +10,7 @@ const CreateRaveForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const [title, setTitle] = useState('');
-    const [image, setImage] = useState(null);
+    const [image, setImage] = useState('');
     const [description, setDescription] = useState('');
     const [address, setAddress] = useState('');
     const [city, setCity] = useState('');
@@ -33,6 +33,7 @@ const CreateRaveForm = () => {
 
         if (title.length < 1) errors.push("Please enter the name of Rave")
         if (title.length > 50) errors.push("Title must be less than 50 characters")
+        if (!image) errors.push("Please upload an image")
         if (description.length < 1) errors.push("Please enter description")
         if (address.length < 1) errors.push("Please enter the address")
         if (address.length > 100) errors.push("Address must be less than 100 characters")
@@ -48,7 +49,7 @@ const CreateRaveForm = () => {
         if (date.slice(5, 7) > 12) errors.push("Please enter valid month")
         if (date.slice(8, 10) > 31) errors.push("Pleaese enter valid day")
         setErrors(errors)
-    }, [title, description, address, city, state, zipCode, date])
+    }, [title, image, description, address, city, state, zipCode, date])
 
     useEffect(() => {
         dispatch(getAllRaves());
@@ -136,7 +137,7 @@ const CreateRaveForm = () => {
                                 value={title}
                                 onChange={updateTitle} />
                         </div>
-                        <div>
+                        <div className='new-rave-form-date-image-container'>
                             <input
                                 className='new-rave-form-date-input'
                                 type="date"
@@ -144,12 +145,15 @@ const CreateRaveForm = () => {
                                 required
                                 value={date}
                                 onChange={updateDate} />
-                            <input
-                                className='new-rave-form-image-input'
-                                type="file"
-                                placeholder="Image URL"
-                                required
-                                onChange={updateFile} />
+                            <label className='new-rave-form-image-label'>
+                                {image ? `${image.name}` : "Upload Image"}
+                                <input
+                                    className='new-rave-form-image-input'
+                                    type="file"
+                                    placeholder="Image URL"
+                                    hidden={true}
+                                    onChange={updateFile} />
+                            </label>
                         </div>
                         <div>
                             <input
@@ -204,7 +208,7 @@ const CreateRaveForm = () => {
                             {title ? <div className='new-rave-example-title'>{title}</div> : <div className='new-rave-example-title'>
                                 Title
                             </div>}
-                            {date ? <div className='new-rave-example-title'>{date?.slice(5,7)}-{date?.slice(8,10)}-{date?.slice(0,4)}</div> : <div className='new-rave-example-title'>Date</div>}
+                            {date ? <div className='new-rave-example-title'>{date?.slice(5, 7)}-{date?.slice(8, 10)}-{date?.slice(0, 4)}</div> : <div className='new-rave-example-title'>Date</div>}
                         </div>
                         <div className='new-rave-example-image-container'>
                             Image
