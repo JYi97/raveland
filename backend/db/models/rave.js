@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     city: DataTypes.STRING,
     state: DataTypes.STRING,
     zipCode: DataTypes.STRING,
-    date: DataTypes.STRING
+    date: DataTypes.DATE
   }, {});
   Rave.associate = function (models) {
     // associations can be defined here

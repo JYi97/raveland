@@ -12,7 +12,7 @@ module.exports = {
       city: "Magna",
       state: "UT",
       zipCode: "84044",
-      date: "2021-08-13",
+      date: new Date(2021, 7, 13),
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -25,7 +25,7 @@ module.exports = {
       city: "Las Vegas",
       state: "NV",
       zipCode: "89115",
-      date: "2022-05-20",
+      date: new Date(2022, 4, 20),
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -38,7 +38,7 @@ module.exports = {
       city: "San Bernardino",
       state: "CA",
       zipCode: "92408",
-      date: "2022-07-29",
+      date: new Date(2022, 6, 29),
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -51,7 +51,7 @@ module.exports = {
       city: "San Bernardino",
       state: "CA",
       zipCode: "92408",
-      date: "2019-03-22",
+      date: new Date(2019, 2, 22),
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -64,7 +64,7 @@ module.exports = {
       city: "San Bernardino",
       state: "CA",
       zipCode: "92408",
-      date: "2019-10-25",
+      date: new Date(2019, 9, 25),
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -77,7 +77,7 @@ module.exports = {
       city: "San Bernardino",
       state: "CA",
       zipCode: "92408",
-      date: "2019-12-28",
+      date: new Date(2019, 11, 28),
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -90,7 +90,7 @@ module.exports = {
       city: "San Diego",
       state: "CA",
       zipCode: "92110",
-      date: "2021-12-31",
+      date: new Date(2021, 11, 31),
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -103,7 +103,7 @@ module.exports = {
       city: "Oakland",
       state: "CA",
       zipCode: "94621",
-      date: "2022-10-29",
+      date: new Date(2022, 9, 29),
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -116,7 +116,7 @@ module.exports = {
       city: "Costa Mesa",
       state: "CA",
       zipCode: "92627",
-      date: "2021-07-23",
+      date: new Date(2021, 6, 23),
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -129,7 +129,7 @@ module.exports = {
       city: "Huntington Beach",
       state: "CA",
       zipCode: "92646",
-      date: "2018-12-31",
+      date: new Date(2018, 11, 31),
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -142,7 +142,7 @@ module.exports = {
       city: "Brooklyn",
       state: "NY",
       zipCode: "11249",
-      date: "2022-07-29",
+      date: new Date(2022, 8, 9),
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -155,7 +155,7 @@ module.exports = {
       city: "Miami",
       state: "FL",
       zipCode: "33132",
-      date: "2023-03-24",
+      date: new Date(2023, 2, 24),
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -168,7 +168,7 @@ module.exports = {
       city: "San Bernardino",
       state: "CA",
       zipCode: "92408",
-      date: "2021-12-31",
+      date: new Date(2021, 11, 31),
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -181,7 +181,7 @@ module.exports = {
       city: "Chicago",
       state: "IL",
       zipCode: "60601",
-      date: "2022-07-28",
+      date: new Date(2022, 6, 28),
       createdAt: new Date(),
       updatedAt: new Date()
     }], {});

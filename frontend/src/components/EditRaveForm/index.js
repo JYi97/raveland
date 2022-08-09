@@ -172,7 +172,7 @@ const EditRaveForm = () => {
                         <div className='edit-rave-form-date-field-container'>
                             <input
                                 className='edit-rave-form-date-field'
-                                type="text"
+                                type="date"
                                 placeholder={rave?.date}
                                 required
                                 value={date}
