@@ -100,7 +100,7 @@ const RavePage = () => {
                     </div>
                     <div className="rave-page-address-city-container">
                         <div className="rave-page-address">{rave[0]?.address}</div>
-                        <div className="rave-page-city">{rave[0]?.city}, {rave[0]?.state} {rave[0]?.zipCode}
+                        <div className="rave-page-city">{rave[0]?.city}, {(rave[0]?.state).toUpperCase()} {rave[0]?.zipCode}
                         </div>
                     </div>
                 </div>

@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { getAllReviews, createReview } from '../../store/reviews';
 import './CreateReviewForm.css'
 
 const CreateReviewForm = ({ setShowForm, raveId }) => {
     const userId = useSelector((state) => state?.session?.user?.id)
     const dispatch = useDispatch();
-    const history = useHistory();
     const [content, setContent] = useState('');
     const [image, setImage] = useState(null);
     const [errors, setErrors] = useState([]);
@@ -45,7 +43,7 @@ const CreateReviewForm = ({ setShowForm, raveId }) => {
             let createdReview;
             createdReview = await dispatch(createReview(payload))
             if (createdReview) {
-                history.push(`/raves/${raveId}`)
+                dispatch(getAllReviews(raveId));
                 reset();
                 setShowForm(false)
             }

@@ -223,7 +223,7 @@ const CreateRaveForm = () => {
                             </div>
                             <div className='new-rave-example-rave-city-state-zipcode-container'>
                                 {city ? <div className='new-rave-example-rave-city'>{city},</div> : <div className='new-rave-example-rave-city'>City,</div>}
-                                {state ? <div className='new-rave-example-rave-state'>{state}</div> : <div className='new-rave-example-rave-state'>State </div>}
+                                {state ? <div className='new-rave-example-rave-state'>{state.toUpperCase()}</div> : <div className='new-rave-example-rave-state'>State </div>}
                                 {zipCode ? <div className='new-rave-example-rave-zipcode'>{zipCode}</div> : <div className='new-rave-example-rave-zipcode'>Zip</div>}
                             </div>
                         </div>
