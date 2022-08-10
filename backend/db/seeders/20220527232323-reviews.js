@@ -92,6 +92,14 @@ module.exports = {
       updatedAt: new Date()
     },
     {
+      userId: 7,
+      raveId: 11,
+      content: "It was the perfect place for me!",
+      photoUrl: "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
       userId: 1,
       raveId: 12,
       content: "I love Miami and the vibe it gave off. Be careful though! It was realy hot so make sure to stay hydrated",
@@ -131,6 +139,22 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date()
     },
+    {
+      userId: 1,
+      raveId: 2,
+      content: "Really enjoyed my time at EDC with my girlfriend.",
+      photoUrl: "https://www.dancemusicnw.com/wp-content/uploads/2019/10/Christopher-Pearce-for-Insomniac-Events-1.jpg",
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      userId: 1,
+      raveId: 3,
+      content: "Our rave fam!!!!",
+      photoUrl: "https://i.pinimg.com/originals/62/54/d3/6254d3aaa29628f0644553391a48954a.jpg",
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }
     ], {});
   },
 
