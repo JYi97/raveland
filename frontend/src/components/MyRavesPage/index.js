@@ -7,7 +7,7 @@ import './MyRavesPage.css'
 const MyRavesPage = () => {
     const dispatch = useDispatch();
     const myRaves = useSelector((state) => Object.values(state?.raves))
-    console.log("THIS IS MY RAVES PAGE", myRaves)
+    // console.log("THIS IS MY RAVES PAGE", myRaves)
     const sessionUser = useSelector((state) => state?.session?.user)
     const userId = sessionUser?.id
 
