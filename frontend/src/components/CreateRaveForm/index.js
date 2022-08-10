@@ -106,6 +106,7 @@ const CreateRaveForm = () => {
     const updateFile = (e) => {
         const file = e.target.files[0];
         if (file) setImage(file);
+        console.log("THIS IS THE IMAGE", image)
     };
 
     return (
@@ -210,9 +211,12 @@ const CreateRaveForm = () => {
                             </div>}
                             {date ? <div className='new-rave-example-title'>{date?.slice(5, 7)}-{date?.slice(8, 10)}-{date?.slice(0, 4)}</div> : <div className='new-rave-example-title'>Date</div>}
                         </div>
-                        <div className='new-rave-example-image-container'>
+                        {image ? <div className='new-rave-example-image-container-true'>
+                            {image?.name}
+                        </div> : <div className='new-rave-example-image-container-false'>
                             Image
-                        </div>
+                        </div>}
+
                     </div>
                     <div className='new-rave-example-rave-info-address-container'>
                         <div className='new-rave-example-rave-info-container'>

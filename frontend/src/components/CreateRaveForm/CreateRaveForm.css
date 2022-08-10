@@ -41,11 +41,29 @@
     overflow: hidden;
 }
 
-.new-rave-example-image-container {
+.new-rave-example-image-container-false {
     border: solid;
     padding: 50px;
     width: 240px;
     text-align: center;
+    font-size: 24px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+
+.new-rave-example-image-container-true{
+    border: solid;
+    padding: 50px;
+    width: 240px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-image: url('https://dancingastronaut.com/wp-content/uploads/2018/08/Rave-Picture.jpg');
+    color: white;
+    font-size: 24px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 .new-rave-example-rave-info-address-container {
