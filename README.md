@@ -39,6 +39,10 @@ https://github.com/JYi97/raveland/wiki/Feature-List
 https://github.com/JYi97/raveland/wiki/Database-Schema
 
 ## Technical Implementation
+Using a random image URL from the web was not reliable because the images would not load consistently even with error validators added to the image URL input field. So I implemented AWS S3 for uploading and storing images. I had to install two packages in the backend: [multer](https://www.npmjs.com/package/multer) and [aws-sdk](https://www.npmjs.com/package/aws-sdk). singleMulterUpload is a function that generates the middleware to convert the data from the form into readable files. This function accepts the key to which you expect the files to be saved in your database. In this case, it was photoUrl. This middleware is inserted into the POST routes and allows the file in the request to be readable under req.file. singlePublicFileUpload is an asynchronous function so it returns a promise. The promise returns the file URL that the user wanted to save in the database. The file URL should be saved under the key of photoUrl on the new Rave and Review. The thunk action creators accept an object of key value pairs and transform it into FormData entries to be sent with the request. Implementing AWS S3 created a smoother and consistent application because it reduced the server load. This allows the application to scale gracefully.
+
+### Implementing multer and aws-sdk
+![ravelandaws](https://user-images.githubusercontent.com/96046451/184004465-e830dbb6-f51a-438c-a3a9-d4190b539cc9.PNG)
 
 ## Rave
 
