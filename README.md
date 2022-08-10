@@ -44,11 +44,17 @@ Using a random image URL from the web was not reliable because the images would 
 ### Implementing multer and aws-sdk
 ![ravelandaws](https://user-images.githubusercontent.com/96046451/184004465-e830dbb6-f51a-438c-a3a9-d4190b539cc9.PNG)
 
+### Thunk for CREATE functionality of Rave feature
+![ravelandraveawsthunk](https://user-images.githubusercontent.com/96046451/184005483-0f0dbc6c-230c-4f71-b3c8-d31b3e765c1a.PNG)
+
 ## Rave
+Any user will have access to read any raves that have been posted. A logged-in user will be able to create new raves, edit their raves, and delete their raves. All the inputs of the form for creating a new rave is required and will not create a new rave if any fields are empty or invalid. Uploading with an image is a lot easier because of the  enhanced user-interface for users from implementing AWS S3. All the inputs of the form for editing a rave is required as well and will not go through an edit unless all the input fields are filled and valid.
 
 ## Review
+Any user will have access to read any reviews that have been posted. A logged-in user will be able to create new reviews, edit their reviews, and delete their reviews. All the inputs of the form for creating a new review is required and will not create a new review if any fields are empty or invalid. Same as the raves, reviews can only be edited if all the input fields for the edit form are filled out and valid. 
 
 ## Rave Search
+Any user will be able to search for any raves that have been posted. They will be able to click on a result and be taken to its respective details page. It will fetch and persist all the raves stored in the database so that whenever the user searches something, the results are instant, creating a smoother user-interface.
 
 ## Future Features
 * Likes
