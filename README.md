@@ -5,40 +5,6 @@ RaveLand is an open platform where users can share their experiences with raves 
 ## Link to Live Site
 Live Link: https://raveland.herokuapp.com/
 
-## Screenshots
-
-Database Schema
-![ravelandofficialdb](https://user-images.githubusercontent.com/96046451/172168956-4a48c48a-c3d4-4955-a153-ec47fcfd4476.PNG)
-
-Home Page
-![HomePage](https://user-images.githubusercontent.com/96046451/172169045-5cdea370-ffdc-42e3-9712-8c0fe12ec3fc.PNG)
-
-Home Page Logged In
-![HomePageLoggedIn](https://user-images.githubusercontent.com/96046451/172169103-f04be6cd-5379-4b68-a0da-c04a6220e6f8.PNG)
-
-Create Rave Form
-![PostRaveForm](https://user-images.githubusercontent.com/96046451/172169158-a2c74454-229d-4232-a11e-a4c3e8758495.PNG)
-
-View All Raves
-![ListPage](https://user-images.githubusercontent.com/96046451/172169211-15cc1e86-5113-4c63-8522-ecd958acf5d2.PNG)
-
-View Rave Detail Page
-![RavePage](https://user-images.githubusercontent.com/96046451/172169280-a7867657-dd8e-4a13-bdcb-ecca18939788.PNG)
-
-View Reviews
-![ReviewsList](https://user-images.githubusercontent.com/96046451/172169330-ac480dd1-67c7-47c8-9d1e-abf2b91fd5c5.PNG)
-
-## Features List
-https://github.com/JYi97/raveland/wiki/Feature-List
-
-## Features
-* Users can sign-up, log-in, and log out
-* Users can log-in as demo user to check application
-* Users cannot use certain features without being logged-in like posting raves or reviewing a rave.
-* Logged-in users can post/edit/delete their own raves
-* All users can view raves and reviews
-* Logged-in users can post and delete their own reviews
-
 ## Techs Used
 ### Front End
 ![react](https://user-images.githubusercontent.com/90019010/179418431-3768ece7-d988-43f1-a22b-4707848ac9d2.svg)
@@ -55,10 +21,33 @@ https://github.com/JYi97/raveland/wiki/Feature-List
 ![sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)
 ![aws](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 
+## Screenshots
+
+Log in Page
+![ravelandlogin](https://user-images.githubusercontent.com/96046451/183990145-215f863b-4e8f-4413-a1e2-ac24d340c2ad.PNG)
+
+Sign Up Page
+![ravelandsignup](https://user-images.githubusercontent.com/96046451/183990130-22fe4ad0-3b00-4487-9645-fb23a0c6b6c2.PNG)
+
+Home Page
+![ravelandhome](https://user-images.githubusercontent.com/96046451/183990084-f97d1f84-cc41-4733-a408-109e74a05434.PNG)
+
+## Features List
+https://github.com/JYi97/raveland/wiki/Feature-List
+
+## Database Schema
+https://github.com/JYi97/raveland/wiki/Database-Schema
+
+## Technical Implementation
+
+## Rave
+
+## Review
+
+## Rave Search
 
 ## Future Features
 * Likes
-* Search Bar
+* Google Maps API 
 
-## Technical Implementation
 
