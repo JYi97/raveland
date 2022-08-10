@@ -1,6 +1,7 @@
 import { csrfFetch } from "./csrf";
 
 const GET_RAVES = 'raves/GET_RAVES'
+const GET_MY_RAVES = 'raves/MY_RAVES'
 const ADD_ONE = 'raves/ADD_ONE'
 const EDIT_RAVE = 'raves/EDIT_RAVE'
 const DELETE_RAVE = 'raves/DELETE_RAVE'
@@ -10,6 +11,13 @@ const loadRaves = raves => ({
     type: GET_RAVES,
     raves
 })
+
+const loadMyRaves = (raves) => {
+    return {
+        type: GET_MY_RAVES,
+        raves
+    }
+}
 
 const addOneRave = (rave) => {
     return {
@@ -50,6 +58,17 @@ export const getAllRaves = () => async dispatch => {
     }
 }
 
+// thunk action creator for getting user raves
+export const getMyRaves = (id) => async dispatch => {
+    const response = await csrfFetch(`/api/raves/users/${id}`)
+
+    if (response.ok) {
+        const raves = await response.json();
+        dispatch(loadMyRaves(raves))
+        return response
+    }
+}
+
 // thunk action creator for creating a rave
 export const createRave = (data) => async dispatch => {
     const {
@@ -75,7 +94,7 @@ export const createRave = (data) => async dispatch => {
     formData.append("zipCode", zipCode);
     formData.append("date", date);
 
-    if(image) formData.append("image", image);
+    if (image) formData.append("image", image);
 
 
     const response = await csrfFetch('/api/raves', {
@@ -126,7 +145,7 @@ export const editRave = (data) => async dispatch => {
     formData.append("zipCode", zipCode);
     formData.append("date", date);
 
-    if(image) formData.append("image", image);
+    if (image) formData.append("image", image);
     const response = await csrfFetch(`/api/raves/${data.id}`, {
         method: "PUT",
         headers: {
@@ -166,6 +185,14 @@ const raveReducer = (state = initialState, action) => {
             })
             return {
                 ...allRaves
+            }
+        case GET_MY_RAVES:
+            const myRaves = {};
+            action.raves.forEach(rave => {
+                myRaves[rave.id] = rave
+            })
+            return {
+                ...myRaves
             }
         case ADD_ONE:
             // console.log('IN REDUCER ADD ONE CASE - ACTION -> ', action);

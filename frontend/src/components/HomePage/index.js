@@ -8,7 +8,7 @@ import './HomePage.css'
 
 const HomePage = () => {
     const dispatch = useDispatch();
-    const allRaves = useSelector((state) => state.raves)
+    const allRaves = useSelector((state) => state?.raves)
     // console.log(allRaves)
     const raves = Object.values(allRaves)
     // console.log(raves)
