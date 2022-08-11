@@ -21,6 +21,7 @@ function Navigation({ isLoaded }) {
     if (sessionUser) {
         sessionLinks = (
             <>
+                <NavLink className={"home-navlink"} exact to={`/raves/users/${sessionUser?.id}`}>My Raves</NavLink>
                 <NavLink className={"new-rave-navlink"} to="/raves/new">New Rave</NavLink>
                 <button className="nav-bar-log-out-button" onClick={logout}>Log Out</button>
             </>
@@ -38,12 +39,12 @@ function Navigation({ isLoaded }) {
 
     return (
         <>
-           <div className='nav-bar'>
+            <div className='nav-bar'>
                 <ul className='nav-bar-ul'>
                     <li className='nav-ul-li'>
                         <img className='nav-bar-logo-container' src={NaviLogo} alt=''></img>
                         <NavLink className={"home-navlink"} exact to="/">Home</NavLink>
-                        <NavLink className={"home-navlink"} exact to={`/raves/users/${sessionUser?.id}`}>My Raves</NavLink>
+
                         <NavLink className={"all-raves-navlink"} exact to="/raves">All Raves</NavLink>
                         {isLoaded && sessionLinks}
                     </li>
