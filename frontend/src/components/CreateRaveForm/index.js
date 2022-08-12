@@ -106,7 +106,7 @@ const CreateRaveForm = () => {
     const updateFile = (e) => {
         const file = e.target.files[0];
         if (file) setImage(file);
-        console.log("THIS IS THE IMAGE", image)
+        // console.log("THIS IS THE IMAGE", image)
     };
 
     return (

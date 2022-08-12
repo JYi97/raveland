@@ -20,10 +20,18 @@ router.get("/", asyncHandler(async (req, res) => {
 // Get likes for one rave
 router.get("/:raveId", asyncHandler(async(req, res) => {
     const raveId = parseInt(req.params.raveId)
-    console.log("THIS IS THE RAVE ID IN THE LIKES BACK END", raveId)
+    // console.log("THIS IS THE RAVE ID IN THE LIKES BACK END", raveId)
     const likes = await Like.findAll({where: {raveId: raveId}})
-    console.log("THIS IS THE LIKES IN THE BACKEND", likes)
+    // console.log("THIS IS THE LIKES IN THE BACKEND", likes)
     return res.json(likes)
+}))
+
+// Get liked raves
+router.get("/:userId/raves", asyncHandler(async(req, res) => {
+    const userId = parseInt(req.params.userId)
+    const likedRaves = await Like.findAll({include: {model:Rave}, where: {userId: userId}})
+    // console.log(likedRaves, "THIS THE LIKED RAVES IN THE BACKEND -----------------")
+    return res.json(likedRaves)
 }))
 
 // Create One Like for rave
@@ -33,6 +41,15 @@ router.post("/new", asyncHandler(async(req, res) => {
         userId,
         raveId
     })
+    return res.json(like)
+}))
+
+// Delete One Like for rave
+router.delete("/:likeId", asyncHandler(async(req, res) => {
+    const likeId = req.params.likeId
+    // console.log("THIS IS THE LIKE ID IN THE DELETE ROUTE", likeId)
+    const like = await Like.findByPk(likeId)
+    await like.destroy()
     return res.json(like)
 }))
 

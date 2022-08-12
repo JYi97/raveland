@@ -1,0 +1,14 @@
+.fa-star:before{
+    color: rgba(199, 199, 40, 0.788);
+    font-size: 24px;
+}
+
+.fa.fa-star-o:before {
+    font-size: 24px;
+}
+
+.create-like-button,
+.delete-like-button{
+    background-color: white;
+    border: none;
+}
