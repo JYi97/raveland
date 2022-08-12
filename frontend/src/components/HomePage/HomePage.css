@@ -6,6 +6,13 @@
     margin: 0 auto 50px auto;
 }
 
+.home-page-user-title-like-button-container{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 0 auto;
+}
+
 .rave-image {
     max-width: 100%;
     max-height: 100%;

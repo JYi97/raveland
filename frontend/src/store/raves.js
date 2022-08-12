@@ -180,6 +180,7 @@ const raveReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_RAVES:
             const allRaves = {};
+            // console.log(action.raves, "THIS IS THE RAVES REDUCER")
             action.raves.forEach(rave => {
                 allRaves[rave.id] = rave
             })
