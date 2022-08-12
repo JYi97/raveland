@@ -8,10 +8,10 @@ const LikeStatus = ({ raveId }) => {
     const likes = useSelector(state => Object.values(state?.likes))
     const sessionUser = useSelector(state => state?.session?.user)
     const userId = sessionUser?.id
-    console.log("THIS IS THE LIKES IN THE FRONTEND", likes)
+    // console.log("THIS IS THE LIKES IN THE FRONTEND", likes)
     const dispatch = useDispatch()
-    console.log("THIS IS RAVE ID IN THE LIKE BUTTON", raveId)
-    console.log("THIS IS USER ID IN THE LIKE BUTTON", userId)
+    // console.log("THIS IS RAVE ID IN THE LIKE BUTTON", raveId)
+    // console.log("THIS IS USER ID IN THE LIKE BUTTON", userId)
     let like
 
     if (likes) {

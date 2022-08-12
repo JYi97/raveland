@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { createOneLike, loadOneLike, deleteOneLike } from "../../store/likes"
+import { createOneLike, deleteOneLike } from "../../store/likes"
 import './CreateLikeButton.css'
 
 const CreateLikeButton = ({raveId, likes}) => {
@@ -9,18 +9,18 @@ const CreateLikeButton = ({raveId, likes}) => {
     // console.log("THIS IS THE RAVE ID IN THE LIKE BUTTON", raveId)
     // console.log("THIS IS THE USER ID IN THE LIKE BUTTON", userId)
     // const like = useSelector((state) => state?.likes)
-    console.log("THIS IS THE LIKES", likes)
+    // console.log("THIS IS THE LIKES", likes)
     let like
 
     if (likes) {
-        for (let i = 0; i < likes.length; i++) {
-            if (likes[i].userId === userId && likes[i].raveId === raveId) {
+        for (let i = 0; i < likes?.length; i++) {
+            if (likes[i]?.userId === userId && likes[i]?.raveId === raveId) {
                 like = likes[i]
             }
         }
     }
 
-    console.log("THIS SHOULD BE THE LIKE FOR THE RAVE", like?.id)
+    // console.log("THIS SHOULD BE THE LIKE FOR THE RAVE", like?.id)
 
 
     const likeRave = async (e) => {
@@ -31,7 +31,7 @@ const CreateLikeButton = ({raveId, likes}) => {
             raveId
         }
         dispatch(createOneLike(payload))
-        dispatch(loadOneLike(raveId))
+
     }
 
     const deleteLike = async (e) => {
@@ -39,7 +39,7 @@ const CreateLikeButton = ({raveId, likes}) => {
 
         const likeId = like?.id
         dispatch(deleteOneLike(likeId))
-        dispatch(loadOneLike(raveId))
+
     }
 
     useEffect(() => {
@@ -53,10 +53,15 @@ const CreateLikeButton = ({raveId, likes}) => {
 
     return (
         <>
-        {(like) ? <button onClick={deleteLike}><i class="fa fa-star" aria-hidden="true"></i></button> : userId ? <button onClick={likeRave}>
-        <i class="fa fa-star-o" aria-hidden="true"></i>
-        </button> : null}
-
+        {(like) ?
+        <button className='delete-like-button' onClick={deleteLike}>
+            <i className="fa fa-star" aria-hidden="true"></i>
+            </button> :
+            userId ?
+            <button className='create-like-button' onClick={likeRave}>
+        <i className="fa fa-star-o" aria-hidden="true"></i>
+        </button> :
+         null}
         </>
     )
 

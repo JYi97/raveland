@@ -21,7 +21,7 @@ const RavePage = () => {
     const sessionUser = useSelector((state) => state?.session?.user)
     const reviews = useSelector((state) => state?.reviews)
     const likes = useSelector((state) => Object.values(state?.likes))
-    console.log("THIS IS THE LIKE FROM THE RAVE PAGE", likes)
+    // console.log("THIS IS THE LIKE FROM THE RAVE PAGE", likes)
     // console.log(reviews)
     const raveReviews = Object.values(reviews)
     const [showForm, setShowForm] = useState(false)
@@ -43,6 +43,9 @@ const RavePage = () => {
                 <div className="rave-page-title-date-image-container">
                     <div className="rave-page-title-date-container">
                         <div className="rave-page-title-like-container">
+                        {((likes[0]?.userId === sessionUser?.id && likes[0]?.raveId === id)) ? null: <div className="rave-page-like-container">
+                            <CreateLikeButton likes={likes} raveId={rave[0].id} />
+                        </div>}
                             <h1 className="rave-page-title">
                                 {rave[0]?.title}
                             </h1>
@@ -50,9 +53,6 @@ const RavePage = () => {
                         {/* {((likes[0].raveId === id && likes[0].userId === sessionUser.id)) ? <div>Hi</div>: <div className="rave-page-like-container">
                             <CreateLikeButton likes={likes} raveId={rave[0].id} />
                         </div>} */}
-                        {((likes[0]?.userId === sessionUser?.id && likes[0]?.raveId === id)) ? <div>Hi</div>: <div className="rave-page-like-container">
-                            <CreateLikeButton likes={likes} raveId={rave[0].id} />
-                        </div>}
 
                         <div className="rave-page-rave-date">
                             {rave[0]?.date.slice(5, 7)}-{rave[0]?.date.slice(8, 10)}-{rave[0]?.date.slice(0, 4)}

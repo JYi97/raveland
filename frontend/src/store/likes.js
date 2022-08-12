@@ -13,8 +13,26 @@ export const loadLikes = () => async dispatch => {
 
     if (response.ok) {
         const likes = await response.json();
-        console.log("THIS IS THE THUNK ACTION CREATOR RESPONSE", likes)
+        // console.log("THIS IS THE THUNK ACTION CREATOR RESPONSE", likes)
         dispatch(readLikes(likes))
+        return response
+    }
+}
+
+// Getting all raves that are liked by user
+const GET_LIKED_RAVES = 'likes/GET_LIKED_RAVES'
+
+const readLikedRaves = (likedRaves) => ({
+    type: GET_LIKED_RAVES,
+    likedRaves
+})
+
+export const loadLikedRaves = (userId) => async dispatch => {
+    const response = await csrfFetch(`/api/likes/${userId}/raves`)
+
+    if (response.ok) {
+        const likedRaves = await response.json();
+        dispatch(readLikedRaves(likedRaves))
         return response
     }
 }
@@ -32,7 +50,7 @@ export const loadOneLike = (raveId) => async dispatch => {
 
     if (response.ok) {
         const likes = await response.json();
-        console.log("THIS IS THE LOAD ONE LIKE".likes)
+        // console.log("THIS IS THE LOAD ONE LIKE".likes)
         dispatch(readLikesForOneRave(likes))
         return response
     }
@@ -55,7 +73,7 @@ export const createOneLike = (payload) => async dispatch => {
 
     if (response.ok) {
         const like = await response.json()
-        console.log("THIS IS THE LIKE FROM THE CREATE THUNK", like)
+        // console.log("THIS IS THE LIKE FROM THE CREATE THUNK", like)
         dispatch(createLikeForOneRave(like))
     }
 }
@@ -84,10 +102,9 @@ export const deleteOneLike = (likeId) => async dispatch => {
 const initialState = {}
 
 const likeReducer = (state = initialState, action) => {
-    const newState = { ...state }
     switch (action.type) {
         case GET_LIKES:
-            console.log("THIS IS THE GET LIKES REDUCER", action.likes)
+            // console.log("THIS IS THE GET LIKES REDUCER", action.likes)
             const likes = {};
             action.likes.forEach(like => {
                 likes[like.id] = like
@@ -103,24 +120,27 @@ const likeReducer = (state = initialState, action) => {
             return {
                 ...likesforOneRave
             }
+        case GET_LIKED_RAVES:
+            const likedRaves = {};
+            // console.log("THIS IS THE GET LIKED RAVES REDUCER", action.likedRaves)
+            action.likedRaves.forEach(like => {
+                likedRaves[like.id] = like?.Rave
+            })
+            return {
+                ...likedRaves
+            }
         case CREATE_LIKE:
             const newOneLike = {};
-            console.log("THIS IS THE CREATE LIKE REDUCER", action.like)
+            // console.log("THIS IS THE CREATE LIKE REDUCER", action.like)
             newOneLike[action.like.id] = action.like
             return {
                 ...newOneLike
             }
         case DELETE_LIKE:
-            for (let like in newState.likes) {
-                if (like.id === action.like.id) {
-                    delete action.like
-                    return newState
-                }
-                else {
-                    return like
-                }
+            const emptyLike = {};
+            return {
+                ...emptyLike
             }
-            return newState
         // if (!state[action.like.id] === action.like) {
         //     const newState = {
         //         ...state,
