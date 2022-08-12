@@ -17,6 +17,23 @@ router.get("/", asyncHandler(async (req, res) => {
     return res.json(likes)
 }))
 
-// Get
+// Get likes for one rave
+router.get("/:raveId", asyncHandler(async(req, res) => {
+    const raveId = parseInt(req.params.raveId)
+    console.log("THIS IS THE RAVE ID IN THE LIKES BACK END", raveId)
+    const likes = await Like.findAll({where: {raveId: raveId}})
+    console.log("THIS IS THE LIKES IN THE BACKEND", likes)
+    return res.json(likes)
+}))
+
+// Create One Like for rave
+router.post("/new", asyncHandler(async(req, res) => {
+    const {userId, raveId} = req.body
+    const like = await Like.create({
+        userId,
+        raveId
+    })
+    return res.json(like)
+}))
 
 module.exports = router;

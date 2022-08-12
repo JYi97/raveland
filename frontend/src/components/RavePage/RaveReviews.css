@@ -239,3 +239,12 @@
 .rave-review-edit-review-form {
     margin-top: 20px;
 }
+
+.rave-page-title-like-container {
+    display: flex;
+    margin: 0 auto;
+}
+
+.rave-page-like-container {
+    margin-left: 10px;
+}
