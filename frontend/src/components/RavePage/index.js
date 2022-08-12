@@ -50,7 +50,7 @@ const RavePage = () => {
                         {/* {((likes[0].raveId === id && likes[0].userId === sessionUser.id)) ? <div>Hi</div>: <div className="rave-page-like-container">
                             <CreateLikeButton likes={likes} raveId={rave[0].id} />
                         </div>} */}
-                        {((likes[0]?.raveId === id && likes[0]?.userId === sessionUser?.id)) ? <div>Hi</div>: <div className="rave-page-like-container">
+                        {((likes[0]?.userId === sessionUser?.id && likes[0]?.raveId === id)) ? <div>Hi</div>: <div className="rave-page-like-container">
                             <CreateLikeButton likes={likes} raveId={rave[0].id} />
                         </div>}
 

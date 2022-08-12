@@ -32,7 +32,7 @@ export const loadOneLike = (raveId) => async dispatch => {
 
     if (response.ok) {
         const likes = await response.json();
-        console.log("THIS IS THE LOAD ONE LIKE". likes)
+        console.log("THIS IS THE LOAD ONE LIKE".likes)
         dispatch(readLikesForOneRave(likes))
         return response
     }
@@ -49,7 +49,7 @@ const createLikeForOneRave = (like) => ({
 export const createOneLike = (payload) => async dispatch => {
     const response = await csrfFetch(`/api/likes/new`, {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
     })
 
@@ -60,11 +60,32 @@ export const createOneLike = (payload) => async dispatch => {
     }
 }
 
+// DELETE Like for one rave
+const DELETE_LIKE = 'likes/DELETE_ONE_LIKE'
+
+const deleteLikeForOneRave = (like) => {
+    return {
+        type: DELETE_LIKE,
+        like
+    }
+}
+
+export const deleteOneLike = (likeId) => async dispatch => {
+    const response = await csrfFetch(`/api/likes/${likeId}`, {
+        method: "DELETE",
+    })
+    if (response.ok) {
+        const like = await response.json()
+        dispatch(deleteLikeForOneRave(like))
+        return
+    }
+}
+
 const initialState = {}
 
 const likeReducer = (state = initialState, action) => {
-    // const newState = {...state}
-    switch(action.type) {
+    const newState = { ...state }
+    switch (action.type) {
         case GET_LIKES:
             console.log("THIS IS THE GET LIKES REDUCER", action.likes)
             const likes = {};
@@ -83,13 +104,30 @@ const likeReducer = (state = initialState, action) => {
                 ...likesforOneRave
             }
         case CREATE_LIKE:
-            if (!state[action.like.id] === action.like) {
-                const newState = {
-                    ...state,
-                    [action.like.id]: action.like
-                }
-                return newState
+            const newOneLike = {};
+            console.log("THIS IS THE CREATE LIKE REDUCER", action.like)
+            newOneLike[action.like.id] = action.like
+            return {
+                ...newOneLike
             }
+        case DELETE_LIKE:
+            for (let like in newState.likes) {
+                if (like.id === action.like.id) {
+                    delete action.like
+                    return newState
+                }
+                else {
+                    return like
+                }
+            }
+            return newState
+        // if (!state[action.like.id] === action.like) {
+        //     const newState = {
+        //         ...state,
+        //         [action.like.id]: action.like
+        //     }
+        //     return newState
+        // }
         default:
             return state
     }
