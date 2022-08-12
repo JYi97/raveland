@@ -4,13 +4,15 @@ import sessionReducer from './session';
 import raveReducer from "./raves";
 import reviewReducer from "./reviews";
 import searchReducer from "./search";
+import likeReducer from "./likes";
 
 const rootReducer = combineReducers({
   // add reducer functions here
   session: sessionReducer,
   raves: raveReducer,
   reviews: reviewReducer,
-  search: searchReducer
+  search: searchReducer,
+  likes: likeReducer,
 });
 
 let enhancer;

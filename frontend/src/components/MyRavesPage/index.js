@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
+import LikeStatus from "../LikeStatus"
 import * as ravesActions from '../../store/raves'
 import './MyRavesPage.css'
 
@@ -32,8 +33,13 @@ const MyRavesPage = () => {
                 {myRaves && myRaves.sort(sortByName).map(rave => {
                     return <NavLink key={rave.id} style={{ textDecoration: 'none' }} exact to={`/raves/${rave.id}`}>
                         <div className="home-recent-raves-list" key={rave?.id}>
-                            <div className="rave-title">
-                                {rave?.title}
+                            <div className="rave-title-container">
+                                <div className="rave-title">
+                                    {rave?.title}
+                                </div>
+                                <div>
+                                    <LikeStatus raveId={rave?.id} />
+                                </div>
                             </div>
                             <div className="homepage-rave-image-container">
                                 <img className="rave-image" src={rave?.photoUrl} alt=''></img>

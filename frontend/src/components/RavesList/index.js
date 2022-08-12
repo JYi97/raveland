@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import * as ravesActions from '../../store/raves'
+import LikeStatus from "../LikeStatus"
 import './RavesList.css'
 import { NavLink } from "react-router-dom"
 
@@ -28,19 +29,24 @@ const RavesList = () => {
             <div className="all-raves-ul-recent-raves">
                 {raves && raves.sort(sortByName).map(rave => {
                     return <NavLink style={{ textDecoration: 'none' }} exact to={`raves/${rave.id}`}>
-                    <div className="all-raves-list" key={rave?.id}>
-                        <div className="all-raves-rave-author-poster">
-                            {rave?.User?.username}
-                        </div>
-                        <div className="all-raves-rave-title">
-                            <div className={'all-raves-rave-title-link'} exact to={`raves/${rave.id}`}>
-                                {rave?.title}
+                        <div className="all-raves-list" key={rave?.id}>
+                            <div className="all-raves-rave-author-poster">
+                                <div>
+                                    {rave?.User?.username}
+                                </div>
+                                 <div>
+                                    <LikeStatus raveId={rave?.id} />
+                                </div>
+                            </div>
+                            <div className="all-raves-rave-title">
+                                <div className={'all-raves-rave-title-link'} exact to={`raves/${rave.id}`}>
+                                    {rave?.title}
+                                </div>
+                            </div>
+                            <div className="all-raves-rave-image-container">
+                                <img className="all-raves-rave-image" src={rave?.photoUrl} alt=''></img>
                             </div>
                         </div>
-                        <div className="all-raves-rave-image-container">
-                            <img className="all-raves-rave-image" src={rave?.photoUrl} alt=''></img>
-                        </div>
-                    </div>
                     </NavLink>
                 })}
             </div>

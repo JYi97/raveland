@@ -6,6 +6,12 @@
     margin: 0 auto 50px auto;
 }
 
+.home-page-user-title-like-button-container{
+    justify-content: space-evenly;
+    width: 90%;
+    margin: 4px auto 0 auto;
+}
+
 .rave-image {
     max-width: 100%;
     max-height: 100%;
@@ -60,10 +66,12 @@
 
 .homepage-rave-author-poster {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     font-size: 20px;
     padding-bottom: 10px;
     text-decoration: none;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .home-recent-raves-list {

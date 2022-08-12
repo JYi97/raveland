@@ -5,7 +5,7 @@ import { getAllRaves, createRave } from '../../store/raves';
 import './CreateRaveForm.css'
 
 const CreateRaveForm = () => {
-    const userId = useSelector((state) => state.session.user.id)
+    const userId = useSelector((state) => state?.session?.user?.id)
     // console.log(userId)
     const dispatch = useDispatch();
     const history = useHistory();

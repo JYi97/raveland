@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import * as ravesActions from '../../store/raves'
+import LikeStatus from "../LikeStatus"
 import Footer from '../Footer'
 import SearchBar from "../SearchBar"
 import './HomePage.css'
@@ -72,20 +73,29 @@ const HomePage = () => {
         <>
             {allRaves && <>
                 <div className="home-page-main-image-container">
-                   <div className="search-bar-container">
-                        <SearchBar/>
-                   </div>
+                    <div className="search-bar-container">
+                        <SearchBar />
+                    </div>
                 </div>
                 <h2 className="recent-raves-header">Recent Raves</h2>
                 <div className="ul-recent-raves">
                     {recentRaves && recentRaves.sort(sortByDate).slice(0, 12).map(rave => {
                         return <NavLink key={rave.id} style={{ textDecoration: 'none' }} exact to={`raves/${rave.id}`}>
                             <div className="home-recent-raves-list" key={rave?.id}>
-                                <div className="homepage-rave-author-poster">
-                                    {rave?.User?.username}
-                                </div>
-                                <div className="rave-title">
-                                    {rave?.title}
+                                <div className="home-page-user-title-like-button-container">
+                                    <div>
+                                        <div className="homepage-rave-author-poster">
+                                            <div>
+                                                {rave?.User?.username}
+                                            </div>
+                                            <div>
+                                                <LikeStatus raveId={rave?.id} />
+                                            </div>
+                                        </div>
+                                        <div className="rave-title">
+                                            {rave?.title}
+                                        </div>
+                                    </div>
                                 </div>
                                 <div className="homepage-rave-image-container">
                                     <img className="rave-image" src={rave?.photoUrl} alt=''></img>
@@ -103,10 +113,11 @@ const HomePage = () => {
                                         <div className="homepage-rave-author-poster">
                                             {rave?.User?.username}
                                         </div>
+                                        <div>
+                                            <LikeStatus raveId={rave?.id} />
+                                        </div>
                                         <div className="rave-title">
-
                                             {rave?.title}
-
                                         </div>
                                         <div className="homepage-rave-image-container">
                                             <img className="rave-image" src={rave?.photoUrl} alt=''></img>
@@ -140,6 +151,9 @@ const HomePage = () => {
                             <div className="home-recent-raves-list" key={rave?.id}>
                                 <div className="homepage-rave-author-poster">
                                     {rave?.User?.username}
+                                </div>
+                                <div>
+                                    <LikeStatus raveId={rave?.id} />
                                 </div>
                                 <div className="rave-title">
                                     <div className={'rave-title-link'}>
