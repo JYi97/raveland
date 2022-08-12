@@ -31,9 +31,9 @@ const RavePage = () => {
     // console.log("THIS IS THE NEW DATE", customDate)
 
     useEffect(() => {
+        dispatch(loadOneLike(id))
         dispatch(ravesActions.getRave(id))
         dispatch(getAllReviews(id))
-        dispatch(loadOneLike(id))
     }, [dispatch, id])
 
     return (
@@ -43,13 +43,15 @@ const RavePage = () => {
                 <div className="rave-page-title-date-image-container">
                     <div className="rave-page-title-date-container">
                         <div className="rave-page-title-like-container">
-
                             <h1 className="rave-page-title">
                                 {rave[0]?.title}
                             </h1>
                         </div>
-                        {likes.length === 1 ? <div>Hi</div>: <div className="rave-page-like-container">
-                            <CreateLikeButton raveId={rave[0].id} />
+                        {/* {((likes[0].raveId === id && likes[0].userId === sessionUser.id)) ? <div>Hi</div>: <div className="rave-page-like-container">
+                            <CreateLikeButton likes={likes} raveId={rave[0].id} />
+                        </div>} */}
+                        {((likes[0]?.raveId === id && likes[0]?.userId === sessionUser?.id)) ? <div>Hi</div>: <div className="rave-page-like-container">
+                            <CreateLikeButton likes={likes} raveId={rave[0].id} />
                         </div>}
 
                         <div className="rave-page-rave-date">
