@@ -18,9 +18,10 @@
 
 .all-raves-rave-author-poster {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    margin: 4px auto 4px auto;
     font-size: 20px;
-    padding-bottom: 10px;
+    width: 90%;
 }
 
 .all-raves-rave-title {
@@ -34,7 +35,7 @@
 
 .all-raves-rave-title-link {
     text-decoration: none;
-    color: navy;
+    color: black;
 }
 
 

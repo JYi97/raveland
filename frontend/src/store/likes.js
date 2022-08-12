@@ -8,8 +8,8 @@ const readLikes = (likes) => ({
     likes
 })
 
-export const loadLikes = (userId) => async dispatch => {
-    const response = await csrfFetch(`/api/likes/${userId}`)
+export const loadLikes = () => async dispatch => {
+    const response = await csrfFetch(`/api/likes/`)
 
     if (response.ok) {
         const likes = await response.json();

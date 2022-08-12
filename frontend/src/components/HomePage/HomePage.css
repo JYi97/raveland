@@ -7,10 +7,9 @@
 }
 
 .home-page-user-title-like-button-container{
-    display: flex;
     justify-content: space-evenly;
-    width: 100%;
-    margin: 0 auto;
+    width: 90%;
+    margin: 4px auto 0 auto;
 }
 
 .rave-image {
@@ -67,10 +66,12 @@
 
 .homepage-rave-author-poster {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     font-size: 20px;
     padding-bottom: 10px;
     text-decoration: none;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .home-recent-raves-list {

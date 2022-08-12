@@ -68,7 +68,7 @@ function LoginForm() {
                         <button className="login-form-modal-demo-button" type="submit"
                             onClick={demoUser}
                         >
-                            Try as a demo user
+                            Demo Raver
                         </button>
                     </div>
                 </form>

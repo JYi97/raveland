@@ -7,12 +7,12 @@ const router = express.Router();
 
 // Get likes for user
 
-router.get("/:userId", asyncHandler(async (req, res) => {
-    const userId = parseInt(req.params.userId)
+router.get("/", asyncHandler(async (req, res) => {
+    // const userId = parseInt(req.params.userId)
     // console.log("THIS IS THE USER ID IN THE BACKEND", userId)
 
     // const likes = await Like.findAll()
-    const likes = await Like.findAll({where: {userId: userId}})
+    const likes = await Like.findAll()
     // console.log("THIS IS THE LIKES IN THE BACKEND", likes)
     return res.json(likes)
 }))
