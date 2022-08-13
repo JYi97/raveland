@@ -38,11 +38,11 @@ function LoginForm() {
                     <div className="login-form-modal-welcome-title">
                         Welcome Back!
                     </div>
-                    <ul>
+                    <div>
                         {errors.map((error, idx) => (
                             <li className="login-form-errors" key={idx}>{error}</li>
                         ))}
-                    </ul>
+                    </div>
                     <div>
                         <input
                             className="login-form-modal-username-email-input-field"

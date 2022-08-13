@@ -59,11 +59,11 @@ const RavePage = () => {
                         </div>
 
                         {sessionUser?.id === rave[0]?.userId ? <div className="rave-page-edit-links"><NavLink className="rave-edit-link" to={`/raves/${rave[0]?.id}/edit`}>
-                            Edit
+                        <i class="fa fa-cog" aria-hidden="true"></i>
                         </NavLink> </div> : null}
 
                         {sessionUser?.id === rave[0]?.userId ? <div className="rave-page-delete-links"> <NavLink className="rave-delete-link" to={`/raves/${rave[0]?.id}/delete`}>
-                            Delete
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
                         </NavLink></div> : null}
                         <h2>
                             About the Rave

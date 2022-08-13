@@ -49,10 +49,7 @@
 
 .rave-page-edit-links,
 .rave-page-delete-links {
-    border: solid;
     margin-bottom: 20px;
-    font-size: 24px;
-
 }
 
 .rave-page-edit-links {
@@ -61,21 +58,7 @@
     padding: 2px;
 }
 
-.rave-page-delete-links {
-    width: 70px;
-    padding: 2px;
-}
 
-
-.rave-edit-link:hover,
-.rave-delete-link:hover {
-    color: white;
-}
-
-.rave-page-edit-links:hover,
-.rave-page-delete-links:hover {
-    background-color: black;
-}
 
 .rave-page-image {
     object-fit: cover;
@@ -138,20 +121,11 @@
 
 .rave-reviews-delete-review {
     display: flex;
-    text-decoration: none;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    width: 54px;
-    color: black;
-    border: solid;
-    font-size: 18px;
-    padding: 4px;
+
     margin-left: 20px;
 }
 
-.rave-reviews-delete-review:hover {
-    color: white;
-    background-color: black;
-}
+
 
 .rave-reviews-content {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -217,24 +191,14 @@
 }
 
 .rave-review-edit-button {
-    width: 44px;
+
     background: none !important;
     border: none;
     padding: 0 !important;
-    border-style: solid;
-    height: 35px;
-    font-size: 20px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 }
 
-.rave-review-edit-button:hover {
-    color: white;
-}
 
-.rave-review-edit-button-container:hover {
-    color: white;
-    background-color: black;
-}
 
 .rave-review-edit-review-form {
     margin-top: 20px;
@@ -247,4 +211,21 @@
 .rave-page-like-container {
     display: flex;
     align-items: center;
+}
+
+.fa-cog:before,
+.fa.fa-trash-o:before{
+    font-size: 24px;
+}
+
+.fa.fa-trash-o:before{
+    color: red;
+}
+
+.fa-cog:before{
+    color: black;
+}
+
+.rave-review-edit-button:hover{
+    cursor: pointer;
 }
