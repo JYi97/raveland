@@ -226,4 +226,6 @@
     color: black;
 }
 
-
+.rave-review-edit-button:hover{
+    cursor: pointer;
+}
