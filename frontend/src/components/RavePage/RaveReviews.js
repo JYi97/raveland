@@ -41,11 +41,11 @@ function RaveReviews({ user, reviews, raveId }) {
                                                 else {
                                                     setShowEditReview(review?.id)
                                                 }
-                                            }} className="rave-review-edit-button">Edit</button>
+                                            }} className="rave-review-edit-button"><i class="fa fa-cog" aria-hidden="true"></i></button>
                                         </div>
                                         <div>
                                             <NavLink className={'rave-reviews-delete-review'} to={`/reviews/${review.id}/delete`}>
-                                                Delete
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
                                             </NavLink>
                                         </div>
                                     </div>

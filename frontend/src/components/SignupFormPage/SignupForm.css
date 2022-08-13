@@ -2,8 +2,8 @@
     list-style: none;
     font-size: 14px;
     color: red;
-    width: 90%;
-    text-align: center;
+    width: 300px;
+
 }
 
 .sign-up-page-image-container {
@@ -43,6 +43,13 @@
     height: 45px;
     width: 308px;
     margin-bottom: 15px;
+    background-color: white;
+    font-size: 22px;
+}
+
+.signup-form-page-signup-button:hover{
+    background-color: black;
+    color: white;
 }
 
 .signup-page-plur-policy-agreement,
@@ -74,7 +81,6 @@
 .signup-form-login-button-container {
     text-align: end;
     font-size: 14px;
-    width: 85%;
 }
 
 .signup-form-errors-container {
@@ -87,5 +93,9 @@
     padding: 0 !important;
     cursor: pointer;
     margin-left: 5px;
-    font-size: 14px;
+    font-size: 18px;
+}
+
+.sign-up-form-modal-log-in-button:hover {
+    color: pink;
 }

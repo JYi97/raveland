@@ -110,15 +110,21 @@ const HomePage = () => {
                             {recentRaves && recentRaves.sort(sortByDate).slice(12, 25).map(rave => {
                                 return <NavLink key={rave.id} style={{ textDecoration: 'none' }} exact to={`raves/${rave.id}`}>
                                     <div className="home-recent-raves-list" key={rave?.id}>
+                                    <div className="home-page-user-title-like-button-container">
+                                    <div>
                                         <div className="homepage-rave-author-poster">
-                                            {rave?.User?.username}
-                                        </div>
-                                        <div>
-                                            <LikeStatus raveId={rave?.id} />
+                                            <div>
+                                                {rave?.User?.username}
+                                            </div>
+                                            <div>
+                                                <LikeStatus raveId={rave?.id} />
+                                            </div>
                                         </div>
                                         <div className="rave-title">
                                             {rave?.title}
                                         </div>
+                                    </div>
+                                </div>
                                         <div className="homepage-rave-image-container">
                                             <img className="rave-image" src={rave?.photoUrl} alt=''></img>
                                         </div>
@@ -149,15 +155,19 @@ const HomePage = () => {
                     {upcomingRaves && upcomingRaves.sort(sortByDate).slice(0, 12).map(rave => {
                         return <NavLink key={rave.id} style={{ textDecoration: 'none' }} exact to={`raves/${rave.id}`}>
                             <div className="home-recent-raves-list" key={rave?.id}>
-                                <div className="homepage-rave-author-poster">
-                                    {rave?.User?.username}
-                                </div>
-                                <div>
-                                    <LikeStatus raveId={rave?.id} />
-                                </div>
-                                <div className="rave-title">
-                                    <div className={'rave-title-link'}>
-                                        {rave?.title}
+                            <div className="home-page-user-title-like-button-container">
+                                    <div>
+                                        <div className="homepage-rave-author-poster">
+                                            <div>
+                                                {rave?.User?.username}
+                                            </div>
+                                            <div>
+                                                <LikeStatus raveId={rave?.id} />
+                                            </div>
+                                        </div>
+                                        <div className="rave-title">
+                                            {rave?.title}
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="homepage-rave-image-container">

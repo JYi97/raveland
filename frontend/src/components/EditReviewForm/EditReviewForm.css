@@ -12,3 +12,7 @@
     color: white;
     background-color: black;
 }
+
+.review-errors{
+    color: red;
+}

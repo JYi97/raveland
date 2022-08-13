@@ -1,6 +1,9 @@
 .login-form-errors {
     list-style: none;
     color: white;
+    text-align: center;
+    font-size: 16px;
+    width: 300px;
 }
 
 .log-in-form-modal-log-in-button {
@@ -23,11 +26,17 @@
     background-image: url("https://uploads-ssl.webflow.com/5ebb65ee3550ca4d8f43a7c7/60413c49849a6e03cc1f30eb_Cyber%20Raves%20in%20USA%2C%20Canada%20%26%20Mexico.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    height: 700px;
+    height: 78vh;
     width: 1200px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.login-form-modal-login-button:hover,
+.login-form-modal-demo-button:hover{
+    background-color: black;
+    color: white;
 }
 
 .login-form-modal-login-button,
@@ -37,6 +46,10 @@
     height: 45px;
     width: 308px;
     margin-bottom: 10px;
+    background: none;
+    border: solid;
+    color: white;
+    font-size: 24px;
 }
 
 .login-form-modal-username-email-input-field,
@@ -44,6 +57,15 @@
     height: 45px;
     width: 300px;
     text-align: center;
+    background: none;
+    border: 2px solid white;
+    color: white;
+    font-size: 24px
+}
+
+::placeholder{
+    color: white;
+    font-size: 24px;
 }
 
 .login-form-modal-welcome-title {

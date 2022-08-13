@@ -17,7 +17,7 @@ const CreateReviewForm = ({ setShowForm, raveId }) => {
         const errors = [];
         if (content?.length > 255) errors.push("Please limit character count to under 255.")
         if (content?.length < 1) errors.push("Please enter your review.")
-        if (!image) errors.push("Please upload an image")
+        if (!image) errors.push("Please upload an image.")
         setErrors(errors)
     }, [content, image])
 
