@@ -1,10 +1,11 @@
 .searchbar-box {
-    width: 400px;
+    width: 390px;
     color: white;
     background: none;
     border-color: white;
     margin-top: 50px;
     font-size: 36px;
+
 }
 
 .searchbar-box::placeholder {
@@ -24,4 +25,8 @@
 .search-items-dropdown:hover {
     background-color: pink;
 
+}
+
+.search-results {
+    width: 400px;
 }
