@@ -5,7 +5,6 @@
     border-color: white;
     margin-top: 50px;
     font-size: 36px;
-
 }
 
 .searchbar-box::placeholder {
@@ -24,9 +23,11 @@
 
 .search-items-dropdown:hover {
     background-color: pink;
-
 }
 
-.search-results {
-    width: 400px;
+.search-results{
+    width: 398px;
+    max-height: 400px;
+    overflow-y: scroll;
+    padding-left: 0;
 }
