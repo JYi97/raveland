@@ -39,6 +39,8 @@ function LoginForm() {
                         Welcome Back!
                     </div>
                     <div>
+
+                    <div>
                         {errors.map((error, idx) => (
                             <li className="login-form-errors" key={idx}>{error}</li>
                         ))}
@@ -70,6 +72,7 @@ function LoginForm() {
                         >
                             Demo Raver
                         </button>
+                    </div>
                     </div>
                 </form>
             </div>

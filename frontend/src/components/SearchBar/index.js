@@ -49,8 +49,8 @@ function SearchBar() {
                     onBlur={() => setSearchResults('')}
                     value={search}
                 />
-                <div className='search-results'>
-                    <div>
+                <div>
+                    <ul className='search-results'>
                         {searchResults?.length > 0 && searchResults?.map(item => (
                             <div className='search-items-dropdown'
                                 key={item?.id}
@@ -63,7 +63,7 @@ function SearchBar() {
                                 <p key={item?.id}>{item?.title}</p>
                             </div>
                         ))}
-                    </div>
+                    </ul>
                 </div>
             </div>}
         </>
