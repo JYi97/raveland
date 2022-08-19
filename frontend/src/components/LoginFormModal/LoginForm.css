@@ -63,7 +63,8 @@
     font-size: 24px
 }
 
-::placeholder{
+.login-form-modal-username-email-input-field::placeholder,
+.login-form-modal-password-input-field::placeholder{
     color: white;
     font-size: 24px;
 }
