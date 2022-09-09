@@ -56,8 +56,10 @@ Any user will have access to read any reviews that have been posted. A logged-in
 ## Rave Search
 Any user will be able to search for any raves that have been posted. They will be able to click on a result and be taken to its respective details page. It will fetch and persist all the raves stored in the database so that whenever the user searches something, the results are instant, creating a smoother user-interface.
 
+## Likes
+Logged-in users will be able to like a rave on each rave page and view like status of each rave on the hhome page and all raves page.
+
 ## Future Features
-* Likes
 * Google Maps API 
 
 
